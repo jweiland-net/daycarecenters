@@ -1,0 +1,29 @@
+<f:if condition="{kitas}">
+	<f:then>
+		<div class="list gridright scroll-container margintop">
+			<f:widget.paginate objects="{kitas}" as="paginatedKitas" configuration="{itemsPerPage: settings.pageBrowser.itemsPerPage, insertAbove: settings.pageBrowser.insertAbove, insertBelow: settings.pageBrowser.insertBelow, maximumNumberOfLinks: settings.pageBrowser.maximumNumberOfLinks}">
+				<f:for each="{paginatedKitas}" as="kita">
+					<div class="marginbottom scroll-item clearfix">
+						<div class="thumbnail grid_2 floatleft">
+							<figure class="gridrightstd">
+								<f:render partial="Kita/Logo" arguments="{kita: kita}" />
+							</figure>
+						</div>
+						<div class="entry grid_10 floatleft borderbottom">
+							<h2 class="noborder nomargin">
+								<f:link.action action="show" pageUid="{settings.pidOfDetailPage}" arguments="{kita: kita}">{kita.title}</f:link.action>
+							</h2>
+							<div class="grid_6 floatleft">
+								<f:render partial="Kita/Address" arguments="{kita: kita}"/></div>
+							<div class="grid_6 floatleft">
+								<f:render partial="Kita/Contact" arguments="{kita: kita}"/></div>
+						</div>
+					</div>
+				</f:for>
+			</f:widget.paginate>
+		</div>
+	</f:then>
+	<f:else>
+		<div class="noResults"><f:translate key="noResults" /></div>
+	</f:else>
+</f:if>

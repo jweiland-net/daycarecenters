@@ -1,0 +1,124 @@
+{namespace maps2=JWeiland\Maps2\ViewHelpers}
+{namespace dcc=JWeiland\Daycarecenters\ViewHelpers}
+
+<div class="thumbnail grid_1 floatleft">
+	<figure class="marginbottom gridrightstd">
+		<f:if condition="{kita.logo}">
+			<f:then>
+				<f:image image="{kita.logo}" alt="Logo: {kita.title}" width="{settings.list.image.width}" height="{settings.list.image.height}" minWidth="{settings.list.image.minWidth}" maxWidth="{settings.list.image.maxWidth}" minHeight="{settings.list.image.minHeight}" maxHeight="{settings.list.image.maxHeight}" />
+			</f:then>
+			<f:else>
+				<f:if condition="{kita.holder.logo}">
+					<f:then>
+						<f:image image="{kita.holder.logo}" alt="Logo: {kita.title}" width="{settings.list.image.width}" height="{settings.list.image.height}" minWidth="{settings.list.image.minWidth}" maxWidth="{settings.list.image.maxWidth}" minHeight="{settings.list.image.minHeight}" maxHeight="{settings.list.image.maxHeight}" />
+					</f:then>
+					<f:else>
+						<f:image src="fileadmin/templates/img/theme_icons/kita.png" alt="Logo: {kita.title}" width="{settings.list.image.width}" height="{settings.list.image.height}" minWidth="{settings.list.image.minWidth}" maxWidth="{settings.list.image.maxWidth}" minHeight="{settings.list.image.minHeight}" maxHeight="{settings.list.image.maxHeight}" />
+					</f:else>
+				</f:if>
+			</f:else>
+		</f:if>
+	</figure>
+</div>
+<header class="grid_11 floatleft marginbottom"><h1>{kita.title}</h1></header>
+<div class="grid_12 clearer clearfix">
+	<div class="grid_6 floatleft">
+		<f:if condition="{kita.images->f:count()}">
+			<figure class="gridright marginbottom2">
+				<f:render partial="Kita/Images" arguments="{kita: kita}" />
+			</figure>
+		</f:if>
+
+		<div class="gridright">
+			<f:format.html>{kita.additional_informations}</f:format.html>
+
+			<f:if condition="{kita.careForm}">
+				<h2>
+					<f:translate key="tx_daycarecenters_domain_model_kita.care_form" />
+				</h2>
+				<f:for each="{kita.careForm}" as="careForm">
+					<h3>{careForm.title}</h3>
+					<f:format.html>{careForm.description}</f:format.html>
+				</f:for>
+			</f:if>
+		</div>
+		&nbsp;
+	</div>
+
+	<div class="grid_6 floatleft">
+		<f:render partial="Kita/Social.html" arguments="{kita: kita}" />
+		<div class="gridleft clearfix rulerbefore4">
+			<dl class="extdl">
+				<dd>
+					<f:if condition="{kita.title}">{kita.title}</f:if>
+					<br/>
+					<f:render partial="Kita/Address" arguments="{kita: kita}" />
+				</dd>
+				<f:render partial="Kita/SingleLine" arguments="{field: 'district', value: kita.district.district}" />
+			</dl>
+			<dl class="extdl clearfix rulerafter">
+				<dd class="grid_8 floatleft noborder">
+					<f:if condition="{kita.telephones -> f:count()}">
+						<f:for each="{kita.telephones}" as="telephone">
+							<span aria-hidden="true" class="icon-phone_pf"></span>{telephone.telephone}<br />
+						</f:for>
+					</f:if>
+					<f:render partial="Kita/Contact" arguments="{kita: kita}" />
+				</dd>
+				<f:if condition="{kita.txMaps2Uid}">
+					<dd class="grid_4 floatleft noborder">
+						<f:link.action action="show" controller="PoiCollection" extensionName="maps2" pluginName="maps2" pageUid="{settings.pidOfMaps2Plugin}" arguments="{poiCollection: kita.txMaps2Uid}">
+							<f:image class="floatright" src="fileadmin/templates/img/thumbmaps.png" alt="{f:translate(key: 'altTextMapImg')}" />
+						</f:link.action>
+					</dd>
+				</f:if>
+			</dl>
+
+			<dl class="extdl marginbottom2">
+				<f:render partial="Kita/SingleLine" arguments="{field: 'leader', value: kita.leader}" />
+				<f:if condition="{kita.responseTimes}">
+					<dt>
+						<f:translate key="tx_daycarecenters_domain_model_kita.response_times" />:
+					</dt>
+					<dd>{kita.responseTimes -> f:format.html(parseFuncTSPath: 'lib.parseFunc') -> f:format.nl2br()}</dd>
+				</f:if>
+				<dt class="floatleft">
+					<f:translate key="tx_daycarecenters_domain_model_kita.opening_time" />:
+				</dt>
+				<dd>{kita.earliestOpeningTime -> dcc:time()}
+					<f:if condition="{kita.latestOpeningTime}"> - {kita.latestOpeningTime -> dcc:time()}</f:if> <f:translate key="timeUnit" />
+				</dd>
+			</dl>
+
+			<dl class="extdl marginbottom2">
+				<dt class="floatleft">
+					<f:translate key="tx_daycarecenters_domain_model_kita.earliest_age" />
+					:
+				</dt>
+				<dd>{kita.earliestAge}
+					<f:if condition="{kita.latestAge}">
+						- {kita.latestAge}
+					</f:if> <f:translate key="ageYears"/>
+				</dd>
+				<f:render partial="Kita/SingleLine" arguments="{field: 'amount_of_groups', value: kita.amountOfGroups}" />
+				<f:render partial="Kita/SingleLine" arguments="{field: 'space_offered', value: kita.spaceOffered}" />
+
+				<f:render partial="Kita/SingleLine" arguments="{field: 'closing_days', value: kita.closingDays}" />
+			</dl>
+
+			<f:if condition="{kita.foodSupply}">
+				<dl class="extdl marginbottom2">
+					<f:render partial="Kita/SingleLine" arguments="{field: 'food_supply', value: '{f:translate(key: \'yes\')}'}" />
+					<f:render partial="Kita/SingleLine" arguments="{field: 'food_info', value: kita.foodInfo}" />
+					<f:render partial="Kita/SingleLine" arguments="{field: 'food_prices', value: kita.foodPrices}" />
+				</dl>
+			</f:if>
+			<dl class="extdl">
+				<dd>
+					<f:translate key="tx_daycarecenters_domain_model_kita.holder" />: <f:link.action action="show" controller="Holder" arguments="{holder: kita.holder}">{kita.holder.title}</f:link.action>
+				</dd>
+			</dl>
+
+		</div>
+	</div>
+</div>

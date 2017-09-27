@@ -1,0 +1,11 @@
+<f:layout name="Default" />
+
+<f:section name="main">
+
+	<f:flashMessages />
+	<div class="grid_8 floatleft">
+		<header><h1><f:translate key="extensionTitle"/></h1></header>
+		<f:render partial="Kita/Search" arguments="{districts: districts, search: search, earliestAge: earliestAge, latestAge: latestAge, earliestOpeningTime: earliestOpeningTime, latestOpeningTime: latestOpeningTime}" />
+		<f:render partial="Kita/List" arguments="{kitas: kitas}" />
+	</div>
+</f:section>

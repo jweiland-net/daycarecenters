@@ -1,0 +1,6 @@
+<f:layout name="Default" />
+
+<f:section name="main">
+	<f:render partial="Kita/Search" arguments="{earliestAge: earliestAge, latestAge: latestAge, earliestOpeningTime: earliestOpeningTime, latestOpeningTime: latestOpeningTime, food: food, district: district, districts: districts}" />
+	<f:render partial="Kita/List" arguments="{kitas: kitas}" />
+</f:section>

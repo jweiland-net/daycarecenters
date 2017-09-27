@@ -1,0 +1,19 @@
+<f:layout name="Default" />
+
+<f:section name="main">
+	<dl class="extdl marginbottom2">
+		<f:render partial="Holder/SingleLine" arguments="{field: 'title', value: holder.title}" />
+		<f:render partial="Holder/SingleLine" arguments="{field: 'contact_person', value: holder.contactPerson}" />
+		<f:render partial="Holder/SingleLine" arguments="{field: 'street', value: holder.street}" />
+		<f:render partial="Holder/SingleLine" arguments="{field: 'house_number', value: holder.houseNumber}" />
+		<f:render partial="Holder/SingleLine" arguments="{field: 'zip', value: holder.zip}" />
+		<f:render partial="Holder/SingleLine" arguments="{field: 'city', value: holder.city}" />
+		<f:render partial="Holder/SingleLine" arguments="{field: 'telephone', value: holder.telephone}" />
+		<f:render partial="Holder/SingleLine" arguments="{field: 'fax', value: holder.fax}" />
+		<f:render partial="Holder/SingleLine" arguments="{field: 'email', value: holder.email}" />
+		<f:render partial="Holder/SingleLine" arguments="{field: 'website', value: holder.website}" />
+	</dl>
+	<f:if condition="{holder.logo}">
+		<f:image image="{holder.logo}" alt="Logo: {holder.title}" width="{settings.list.image.width}" height="{settings.list.image.height}" minWidth="{settings.list.image.minWidth}" maxWidth="{settings.list.image.maxWidth}" minHeight="{settings.list.image.minHeight}" maxHeight="{settings.list.image.maxHeight}" />
+	</f:if>
+</f:section>

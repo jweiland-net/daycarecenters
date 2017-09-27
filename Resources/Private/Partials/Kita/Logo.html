@@ -1,0 +1,17 @@
+{namespace dcc=JWeiland\Daycarecenters\ViewHelpers}
+
+<f:if condition="{kita.logo}">
+	<f:then>
+		<dcc:grayScaleImage image="{kita.logo}" alt="Logo: {kita.title}" width="{settings.list.image.width}" height="{settings.list.image.height}" minWidth="{settings.list.image.minWidth}" maxWidth="{settings.list.image.maxWidth}" minHeight="{settings.list.image.minHeight}" maxHeight="{settings.list.image.maxHeight}" />
+	</f:then>
+	<f:else>
+		<f:if condition="{kita.holder.logo}">
+			<f:then>
+				<dcc:grayScaleImage image="{kita.holder.logo}" alt="Logo: {kita.title}" width="{settings.list.image.width}" height="{settings.list.image.height}" minWidth="{settings.list.image.minWidth}" maxWidth="{settings.list.image.maxWidth}" minHeight="{settings.list.image.minHeight}" maxHeight="{settings.list.image.maxHeight}" />
+			</f:then>
+			<f:else>
+				<dcc:grayScaleImage src="fileadmin/templates/img/theme_icons/kita.png" alt="Logo: {kita.title}" width="{settings.list.image.width}" height="{settings.list.image.height}" minWidth="{settings.list.image.minWidth}" maxWidth="{settings.list.image.maxWidth}" minHeight="{settings.list.image.minHeight}" maxHeight="{settings.list.image.maxHeight}" />
+			</f:else>
+		</f:if>
+	</f:else>
+</f:if>

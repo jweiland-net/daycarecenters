@@ -1,0 +1,20 @@
+<f:if condition="{kita.telephone}">
+	<span aria-hidden="true" class="icon-phone_pf"></span>{kita.telephone}
+</f:if>
+<br/>
+
+<f:if condition="{kita.fax}">
+	<span aria-hidden="true" class="icon-fax_pf"></span>{kita.fax}
+</f:if>
+<br/>
+
+<f:if condition="{kita.email}">
+	<span aria-hidden="true" class="icon-email"></span>
+	<f:link.email email="{kita.email}">E-Mail</f:link.email>
+</f:if>
+<br/>
+
+<f:if condition="{kita.website}">
+	<span aria-hidden="true" class="icon-earth"></span>
+	<f:link.external uri="{kita.website}">Website</f:link.external>
+</f:if>
