@@ -19,12 +19,11 @@
       "source": "https://github.com/jweiland-net/daycarecenters"
     },
     "require": {
-      "php": ">=7.0.0 <8.0",
       "typo3/cms-core": ">=8.7.0,<8.8"
     },
     "autoload": {
         "psr-4": {
-            "JWeiland\\Maps2\\": "Classes"
+            "JWeiland\\Daycarecenters\\": "Classes"
         }
     }
 }
