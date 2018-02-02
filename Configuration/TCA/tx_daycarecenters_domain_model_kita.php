@@ -1,9 +1,4 @@
 <?php
-if (\TYPO3\CMS\Core\Utility\GeneralUtility::compat_version('7.6')) {
-    $ttContentLanguageFile = 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf';
-} else {
-    $ttContentLanguageFile = 'LLL:EXT:cms/locallang_ttc.xlf';
-}
 return [
     'ctrl' => [
         'title' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_kita',
@@ -28,9 +23,28 @@ return [
         'searchFields' => 'title,leader,street,zip,city,email,website,food_info,closing_days,response_times,facebook,twitter,google',
         'iconfile' => 'EXT:daycarecenters/Resources/Public/Icons/tx_daycarecenters_domain_model_kita.gif'
     ],
+    'interface' => [
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, leader, street, house_number, zip, city, email, website, telephones, amount_of_groups, space_offered, food_supply, food_info, food_prices, closing_days, logo, images, response_times, facebook, twitter, google, additional_informations, earliest_opening_time, latest_opening_time, earliest_age, latest_age, holder, care_form, district, tx_maps2_uid'
+    ],
+    'types' => [
+        '1' => [
+            'showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, title, leader, street,
+            house_number, zip, city, email, website, telephones, amount_of_groups, space_offered, food_supply,
+            food_info, food_prices, closing_days, logo, images, response_times, facebook, twitter, google,
+            additional_informations, earliest_opening_time, latest_opening_time, earliest_age, latest_age,
+            holder, care_form, district, tx_maps2_uid,
+            --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.tabs.access, 
+            --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.palettes.access;access'
+        ]
+    ],
+    'palettes' => [
+        'access' => [
+            'showitem' => 'starttime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:starttime_formlabel,endtime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:endtime_formlabel',
+        ]
+    ],
     'columns' => [
         'sys_language_uid' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.language',
             'config' => [
                 'type' => 'select',
@@ -47,21 +61,19 @@ return [
             ]
         ],
         'l10n_parent' => [
-            'exclude' => 1,
             'displayCond' => 'FIELD:sys_language_uid:>:0',
+            'exclude' => true,
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.l18n_parent',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'items' => [
-                    [
-                        '',
-                        0
-                    ]
+                    ['', 0],
                 ],
-                'foreign_table' => 'tt_content',
-                'foreign_table_where' => 'AND tt_content.pid=###CURRENT_PID### AND tt_content.sys_language_uid IN (-1,0)',
-                'default' => 0
+                'foreign_table' => 'tx_daycarecenters_domain_model_kita',
+                'foreign_table_where' => 'AND tx_daycarecenters_domain_model_kita.pid=###CURRENT_PID### AND tx_daycarecenters_domain_model_kita.sys_language_uid IN (-1,0)',
+                'showIconTable' => false,
+                'default' => 0,
             ]
         ],
         'l10n_diffsource' => [
@@ -79,7 +91,7 @@ return [
             ]
         ],
         'hidden' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.hidden',
             'config' => [
                 'type' => 'check',
@@ -91,7 +103,7 @@ return [
             ]
         ],
         'starttime' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.starttime',
             'config' => [
                 'type' => 'input',
@@ -103,7 +115,7 @@ return [
             'l10n_display' => 'defaultAsReadonly'
         ],
         'endtime' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.endtime',
             'config' => [
                 'type' => 'input',
@@ -118,7 +130,7 @@ return [
             'l10n_display' => 'defaultAsReadonly'
         ],
         'title' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_kita.title',
             'config' => [
                 'type' => 'input',
@@ -127,7 +139,7 @@ return [
             ]
         ],
         'leader' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_kita.leader',
             'config' => [
                 'type' => 'input',
@@ -136,7 +148,7 @@ return [
             ]
         ],
         'street' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_kita.street',
             'config' => [
                 'type' => 'input',
@@ -145,7 +157,7 @@ return [
             ]
         ],
         'house_number' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_kita.house_number',
             'config' => [
                 'type' => 'input',
@@ -154,7 +166,7 @@ return [
             ]
         ],
         'zip' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_kita.zip',
             'config' => [
                 'type' => 'input',
@@ -163,7 +175,7 @@ return [
             ]
         ],
         'city' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_kita.city',
             'config' => [
                 'type' => 'input',
@@ -172,7 +184,7 @@ return [
             ]
         ],
         'email' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_kita.email',
             'config' => [
                 'type' => 'input',
@@ -181,7 +193,7 @@ return [
             ]
         ],
         'website' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_kita.website',
             'config' => [
                 'type' => 'input',
@@ -204,7 +216,7 @@ return [
             ]
         ],
         'telephones' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_kita.telephones',
             'config' => [
                 'type' => 'inline',
@@ -221,7 +233,7 @@ return [
             ]
         ],
         'amount_of_groups' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_kita.amount_of_groups',
             'config' => [
                 'type' => 'input',
@@ -230,7 +242,7 @@ return [
             ]
         ],
         'space_offered' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_kita.space_offered',
             'config' => [
                 'type' => 'input',
@@ -239,7 +251,7 @@ return [
             ]
         ],
         'food_supply' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_kita.food_supply',
             'config' => [
                 'type' => 'check',
@@ -247,7 +259,7 @@ return [
             ]
         ],
         'food_info' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_kita.food_info',
             'config' => [
                 'type' => 'text',
@@ -257,7 +269,7 @@ return [
             ]
         ],
         'food_prices' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_kita.food_prices',
             'config' => [
                 'type' => 'text',
@@ -267,7 +279,7 @@ return [
             ]
         ],
         'closing_days' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_kita.closing_days',
             'config' => [
                 'type' => 'input',
@@ -276,7 +288,7 @@ return [
             ]
         ],
         'logo' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_kita.logo',
             'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
                 'logo',
@@ -287,7 +299,7 @@ return [
             )
         ],
         'images' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_kita.images',
             'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
                 'images',
@@ -298,7 +310,7 @@ return [
             )
         ],
         'response_times' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_kita.response_times',
             'config' => [
                 'type' => 'text',
@@ -308,7 +320,7 @@ return [
             ]
         ],
         'facebook' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_kita.facebook',
             'config' => [
                 'type' => 'input',
@@ -317,7 +329,7 @@ return [
             ]
         ],
         'twitter' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_kita.twitter',
             'config' => [
                 'type' => 'input',
@@ -326,7 +338,7 @@ return [
             ]
         ],
         'google' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_kita.google',
             'config' => [
                 'type' => 'input',
@@ -335,7 +347,7 @@ return [
             ]
         ],
         'additional_informations' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_kita.additional_informations',
             'config' => [
                 'type' => 'text',
@@ -359,7 +371,7 @@ return [
             'defaultExtras' => 'richtext:rte_transform[flag=rte_enabled|mode=ts]'
         ],
         'earliest_opening_time' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_kita.earliest_opening_time',
             'config' => [
                 'type' => 'input',
@@ -370,7 +382,7 @@ return [
             ]
         ],
         'latest_opening_time' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_kita.latest_opening_time',
             'config' => [
                 'type' => 'input',
@@ -381,7 +393,7 @@ return [
             ]
         ],
         'earliest_age' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_kita.earliest_age',
             'config' => [
                 'type' => 'input',
@@ -389,7 +401,7 @@ return [
             ]
         ],
         'latest_age' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_kita.latest_age',
             'config' => [
                 'type' => 'input',
@@ -397,7 +409,7 @@ return [
             ]
         ],
         'holder' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_kita.holder',
             'config' => [
                 'type' => 'select',
@@ -407,7 +419,7 @@ return [
             ]
         ],
         'care_form' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_kita.care_form',
             'config' => [
                 'type' => 'inline',
@@ -418,7 +430,7 @@ return [
             ]
         ],
         'district' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_kita.district',
             'config' => [
                 'type' => 'select',
@@ -432,7 +444,7 @@ return [
             ]
         ],
         'tx_maps2_uid' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:maps2/Resources/Private/Language/locallang_db.xlf:tx_maps2_uid',
             'config' => [
                 'type' => 'group',
@@ -455,14 +467,5 @@ return [
                 ]
             ]
         ]
-    ],
-    'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, leader, street, house_number, zip, city, email, website, telephones, amount_of_groups, space_offered, food_supply, food_info, food_prices, closing_days, logo, images, response_times, facebook, twitter, google, additional_informations, earliest_opening_time, latest_opening_time, earliest_age, latest_age, holder, care_form, district, tx_maps2_uid'
-    ],
-    'types' => [
-        '1' => ['showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, title, leader, street, house_number, zip, city, email, website, telephones, amount_of_groups, space_offered, food_supply, food_info, food_prices, closing_days, logo, images, response_times, facebook, twitter, google, additional_informations, earliest_opening_time, latest_opening_time, earliest_age, latest_age, holder, care_form, district, tx_maps2_uid,--div--;' . $ttContentLanguageFile . ':tabs.access,starttime, endtime']
-    ],
-    'palettes' => [
-        '1' => ['showitem' => '']
     ]
 ];

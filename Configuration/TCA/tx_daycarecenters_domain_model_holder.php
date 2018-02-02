@@ -1,9 +1,4 @@
 <?php
-if (\TYPO3\CMS\Core\Utility\GeneralUtility::compat_version('7.6')) {
-    $ttContentLanguageFile = 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf';
-} else {
-    $ttContentLanguageFile = 'LLL:EXT:cms/locallang_ttc.xlf';
-}
 return [
     'ctrl' => [
         'title' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_holder',
@@ -30,9 +25,25 @@ return [
                 'daycarecenters'
             ) . 'Resources/Public/Icons/tx_daycarecenters_domain_model_holder.gif'
     ],
+    'interface' => [
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, contact_person, street, house_number, zip, city, telephone, fax, email, website, logo'
+    ],
+    'types' => [
+        '1' => [
+            'showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, title, contact_person,
+            street, house_number, zip, city, telephone, fax, email, website, logo,
+            --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.tabs.access, 
+            --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.palettes.access;access'
+        ]
+    ],
+    'palettes' => [
+        'access' => [
+            'showitem' => 'starttime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:starttime_formlabel,endtime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:endtime_formlabel',
+        ]
+    ],
     'columns' => [
         'sys_language_uid' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.language',
             'config' => [
                 'type' => 'select',
@@ -49,21 +60,19 @@ return [
             ]
         ],
         'l10n_parent' => [
-            'exclude' => 1,
             'displayCond' => 'FIELD:sys_language_uid:>:0',
+            'exclude' => true,
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.l18n_parent',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'items' => [
-                    [
-                        '',
-                        0
-                    ]
+                    ['', 0],
                 ],
-                'foreign_table' => 'tt_content',
-                'foreign_table_where' => 'AND tt_content.pid=###CURRENT_PID### AND tt_content.sys_language_uid IN (-1,0)',
-                'default' => 0
+                'foreign_table' => 'tx_daycarecenters_domain_model_holder',
+                'foreign_table_where' => 'AND tx_daycarecenters_domain_model_holder.pid=###CURRENT_PID### AND tx_daycarecenters_domain_model_holder.sys_language_uid IN (-1,0)',
+                'showIconTable' => false,
+                'default' => 0,
             ]
         ],
         'l10n_diffsource' => [
@@ -81,7 +90,7 @@ return [
             ]
         ],
         'hidden' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.hidden',
             'config' => [
                 'type' => 'check',
@@ -93,7 +102,7 @@ return [
             ]
         ],
         'starttime' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.starttime',
             'config' => [
                 'type' => 'input',
@@ -105,7 +114,7 @@ return [
             'l10n_display' => 'defaultAsReadonly'
         ],
         'endtime' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.endtime',
             'config' => [
                 'type' => 'input',
@@ -120,7 +129,7 @@ return [
             'l10n_display' => 'defaultAsReadonly'
         ],
         'title' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_holder.title',
             'config' => [
                 'type' => 'input',
@@ -129,7 +138,7 @@ return [
             ]
         ],
         'contact_person' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_holder.contact_person',
             'config' => [
                 'type' => 'input',
@@ -138,7 +147,7 @@ return [
             ]
         ],
         'street' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_holder.street',
             'config' => [
                 'type' => 'input',
@@ -147,7 +156,7 @@ return [
             ]
         ],
         'house_number' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_holder.house_number',
             'config' => [
                 'type' => 'input',
@@ -156,7 +165,7 @@ return [
             ]
         ],
         'zip' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_holder.zip',
             'config' => [
                 'type' => 'input',
@@ -165,7 +174,7 @@ return [
             ]
         ],
         'city' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_holder.city',
             'config' => [
                 'type' => 'input',
@@ -174,7 +183,7 @@ return [
             ]
         ],
         'telephone' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_holder.telephone',
             'config' => [
                 'type' => 'input',
@@ -183,7 +192,7 @@ return [
             ]
         ],
         'fax' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_holder.fax',
             'config' => [
                 'type' => 'input',
@@ -192,7 +201,7 @@ return [
             ]
         ],
         'email' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_holder.email',
             'config' => [
                 'type' => 'input',
@@ -201,7 +210,7 @@ return [
             ]
         ],
         'website' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_holder.website',
             'config' => [
                 'type' => 'input',
@@ -224,7 +233,7 @@ return [
             ]
         ],
         'logo' => [
-            'exclude' => 1,
+            'exclude' => true,
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_holder.logo',
             'config' => [
                 'type' => 'group',
@@ -238,14 +247,5 @@ return [
                 'maxitems' => 1
             ]
         ]
-    ],
-    'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, contact_person, street, house_number, zip, city, telephone, fax, email, website, logo'
-    ],
-    'types' => [
-        '1' => ['showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, title, contact_person, street, house_number, zip, city, telephone, fax, email, website, logo,--div--;' . $ttContentLanguageFile . ':tabs.access,starttime, endtime']
-    ],
-    'palettes' => [
-        '1' => ['showitem' => '']
     ]
 ];
