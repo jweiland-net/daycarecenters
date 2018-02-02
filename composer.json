@@ -3,7 +3,7 @@
     "type": "typo3-cms-extension",
     "description": "This extensions lets create and show you records of day care centers",
     "version": "2.0.0",
-    "license": "GPL-2.0+",
+    "license": "GPL-2.0-or-later",
     "keywords": ["typo3", "TYPO3 CMS", "day", "care", "center"],
     "homepage": "http://www.jweiland.net",
     "authors": [
