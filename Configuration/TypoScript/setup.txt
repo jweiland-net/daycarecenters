@@ -1,4 +1,4 @@
-page.includeJSlibs {
+page.includeJSLibs {
   dccJQueryUi20 = //ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js
   dccJQueryUi20.if.isTrue = {$plugin.tx_daycarecenters.settings.includeJQueryUiLibrary}
   dccJQueryUi20.disableCompression = 1
