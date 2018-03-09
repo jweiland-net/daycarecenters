@@ -16,6 +16,10 @@
 				<source>Head</source>
 				<target>Leiter/in</target>
 			</trans-unit>
+			<trans-unit id="tx_daycarecenters_domain_model_kita.places">
+				<source>Places</source>
+				<target>Plätze</target>
+			</trans-unit>
 			<trans-unit id="tx_daycarecenters_domain_model_kita.street">
 				<source>Street</source>
 				<target>Straße</target>

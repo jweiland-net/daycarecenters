@@ -41,6 +41,13 @@ class Kita extends AbstractEntity
     protected $leader = '';
 
     /**
+     * Places
+     *
+     * @var string
+     */
+    protected $places = '';
+
+    /**
      * Street
      *
      * @var string
@@ -298,6 +305,27 @@ class Kita extends AbstractEntity
     public function setLeader(string $leader)
     {
         $this->leader = $leader;
+    }
+
+    /**
+     * Returns Places
+     *
+     * @return string
+     */
+    public function getPlaces()
+    {
+        return $this->places;
+    }
+
+    /**
+     * Sets Places
+     *
+     * @param string $places
+     * @return void
+     */
+    public function setPlaces(string $places)
+    {
+        $this->places = $places;
     }
 
     /**

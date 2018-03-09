@@ -8,6 +8,7 @@ CREATE TABLE tx_daycarecenters_domain_model_kita (
 
 	title varchar(255) DEFAULT '' NOT NULL,
 	leader varchar(255) DEFAULT '' NOT NULL,
+	places varchar(30) DEFAULT '' NOT NULL,
 	street varchar(255) DEFAULT '' NOT NULL,
 	house_number varchar(255) DEFAULT '' NOT NULL,
 	zip varchar(255) DEFAULT '' NOT NULL,

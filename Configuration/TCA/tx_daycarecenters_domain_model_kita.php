@@ -20,15 +20,15 @@ return [
             'starttime' => 'starttime',
             'endtime' => 'endtime'
         ],
-        'searchFields' => 'title,leader,street,zip,city,email,website,food_info,closing_days,response_times,facebook,twitter,google',
+        'searchFields' => 'title,leader,places,street,zip,city,email,website,food_info,closing_days,response_times,facebook,twitter,google',
         'iconfile' => 'EXT:daycarecenters/Resources/Public/Icons/tx_daycarecenters_domain_model_kita.gif'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, leader, street, house_number, zip, city, email, website, telephones, amount_of_groups, space_offered, food_supply, food_info, food_prices, closing_days, logo, images, response_times, facebook, twitter, google, additional_informations, earliest_opening_time, latest_opening_time, earliest_age, latest_age, holder, care_form, district, tx_maps2_uid'
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, leader, places, street, house_number, zip, city, email, website, telephones, amount_of_groups, space_offered, food_supply, food_info, food_prices, closing_days, logo, images, response_times, facebook, twitter, google, additional_informations, earliest_opening_time, latest_opening_time, earliest_age, latest_age, holder, care_form, district, tx_maps2_uid'
     ],
     'types' => [
         '1' => [
-            'showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, title, leader, street,
+            'showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, title, leader, places, street,
             house_number, zip, city, email, website, telephones, amount_of_groups, space_offered, food_supply,
             food_info, food_prices, closing_days, logo, images, response_times, facebook, twitter, google,
             additional_informations, earliest_opening_time, latest_opening_time, earliest_age, latest_age,
@@ -146,6 +146,15 @@ return [
                 'size' => 30,
                 'eval' => 'trim'
             ]
+        ],
+        'places' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_kita.places',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim'
+            ],
         ],
         'street' => [
             'exclude' => true,
