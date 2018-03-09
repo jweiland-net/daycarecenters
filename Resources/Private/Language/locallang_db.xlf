@@ -39,22 +39,22 @@
 				<source>Website</source>
 			</trans-unit>
 			<trans-unit id="tx_daycarecenters_domain_model_kita.amount_of_groups">
-				<source>Amount Of Groups</source>
+				<source>Number of groups</source>
 			</trans-unit>
 			<trans-unit id="tx_daycarecenters_domain_model_kita.space_offered">
-				<source>Space Offered</source>
+				<source>Number of spaces</source>
 			</trans-unit>
 			<trans-unit id="tx_daycarecenters_domain_model_kita.receptive_age">
 				<source>Receptive Age</source>
 			</trans-unit>
 			<trans-unit id="tx_daycarecenters_domain_model_kita.food_supply">
-				<source>Food supply</source>
+				<source>Meals available</source>
 			</trans-unit>
 			<trans-unit id="tx_daycarecenters_domain_model_kita.food_info">
-				<source>Food Supply</source>
+				<source>Meal details</source>
 			</trans-unit>
 			<trans-unit id="tx_daycarecenters_domain_model_kita.food_prices">
-				<source>Food Prices</source>
+				<source>Cost of food</source>
 			</trans-unit>
 			<trans-unit id="tx_daycarecenters_domain_model_kita.closing_days">
 				<source>Closing Days</source>
@@ -66,7 +66,7 @@
 				<source>Images</source>
 			</trans-unit>
 			<trans-unit id="tx_daycarecenters_domain_model_kita.response_times">
-				<source>Response Times</source>
+				<source>Consulting hours</source>
 			</trans-unit>
 			<trans-unit id="tx_daycarecenters_domain_model_kita.facebook">
 				<source>Facebook</source>
@@ -87,13 +87,13 @@
 				<source>Latest opening time</source>
 			</trans-unit>
 			<trans-unit id="tx_daycarecenters_domain_model_kita.earliest_age">
-				<source>Earliest age</source>
+				<source>Age of admission</source>
 			</trans-unit>
 			<trans-unit id="tx_daycarecenters_domain_model_kita.latest_age">
 				<source>Latest age</source>
 			</trans-unit>
 			<trans-unit id="tx_daycarecenters_domain_model_kita.holder">
-				<source>Holder</source>
+				<source>Responsible body</source>
 			</trans-unit>
 			<trans-unit id="tx_daycarecenters_domain_model_kita.care_form">
 				<source>Care Form</source>
@@ -106,7 +106,7 @@
 			</trans-unit>
 
 			<trans-unit id="tx_daycarecenters_domain_model_holder">
-				<source>Holder</source>
+				<source>Responsible body</source>
 			</trans-unit>
 			<trans-unit id="tx_daycarecenters_domain_model_holder.title">
 				<source>Title</source>

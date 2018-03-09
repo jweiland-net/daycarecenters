@@ -47,23 +47,23 @@
 				<target>Webseite</target>
 			</trans-unit>
 			<trans-unit id="tx_daycarecenters_domain_model_kita.amount_of_groups">
-				<source>Amount Of Groups</source>
+				<source>Number of groups</source>
 				<target>Anzahl der Gruppen</target>
 			</trans-unit>
 			<trans-unit id="tx_daycarecenters_domain_model_kita.space_offered">
-				<source>Space Offered</source>
+				<source>Number of spaces</source>
 				<target>Platzangebot</target>
 			</trans-unit>
 			<trans-unit id="tx_daycarecenters_domain_model_kita.food_supply">
-				<source>Food supply</source>
+				<source>Meals available</source>
 				<target>Essensangebot</target>
 			</trans-unit>
 			<trans-unit id="tx_daycarecenters_domain_model_kita.food_info">
-				<source>Food Supply</source>
+				<source>Meal details</source>
 				<target>Informationen zum Essensangebot</target>
 			</trans-unit>
 			<trans-unit id="tx_daycarecenters_domain_model_kita.food_prices">
-				<source>Food Prices</source>
+				<source>Cost of food</source>
 				<target>Kosten für Verpflegung</target>
 			</trans-unit>
 			<trans-unit id="tx_daycarecenters_domain_model_kita.closing_days">
@@ -79,7 +79,7 @@
 				<target>Bilder (max. 5)</target>
 			</trans-unit>
 			<trans-unit id="tx_daycarecenters_domain_model_kita.response_times">
-				<source>Response Times</source>
+				<source>Consulting hours</source>
 				<target>Sprechzeiten</target>
 			</trans-unit>
 			<trans-unit id="tx_daycarecenters_domain_model_kita.facebook">
@@ -107,7 +107,7 @@
 				<target>Späteste Öffnungszeit</target>
 			</trans-unit>
 			<trans-unit id="tx_daycarecenters_domain_model_kita.earliest_age">
-				<source>Earliest age</source>
+				<source>Age of admission</source>
 				<target>Aufnahmealter von</target>
 			</trans-unit>
 			<trans-unit id="tx_daycarecenters_domain_model_kita.latest_age">
@@ -115,7 +115,7 @@
 				<target>Aufnahmealter bis</target>
 			</trans-unit>
 			<trans-unit id="tx_daycarecenters_domain_model_kita.holder">
-				<source>Holder</source>
+				<source>Responsible body</source>
 				<target>Träger der Einrichtung</target>
 			</trans-unit>
 			<trans-unit id="tx_daycarecenters_domain_model_kita.care_form">
@@ -132,7 +132,7 @@
 			</trans-unit>
 
 			<trans-unit id="tx_daycarecenters_domain_model_holder">
-				<source>Holder</source>
+				<source>Responsible body</source>
 				<target>Träger der Einrichtung</target>
 			</trans-unit>
 			<trans-unit id="tx_daycarecenters_domain_model_holder.title">

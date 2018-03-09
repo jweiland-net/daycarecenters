@@ -41,23 +41,23 @@
 				<target>Webseite</target>
 			</trans-unit>
 			<trans-unit id="tx_daycarecenters_domain_model_kita.amount_of_groups">
-				<source>Amount of groups</source>
+				<source>Number of groups</source>
 				<target>Anzahl Gruppen</target>
 			</trans-unit>
 			<trans-unit id="tx_daycarecenters_domain_model_kita.space_offered">
-				<source>Space offered</source>
+				<source>Number of spaces</source>
 				<target>Platzangebot</target>
 			</trans-unit>
 			<trans-unit id="tx_daycarecenters_domain_model_kita.food_supply">
-				<source>Food supply</source>
+				<source>Meals available</source>
 				<target>Essensangebot</target>
 			</trans-unit>
 			<trans-unit id="tx_daycarecenters_domain_model_kita.food_info">
-				<source>Foot Supply</source>
+				<source>Meal details</source>
 				<target>Essensinformation</target>
 			</trans-unit>
 			<trans-unit id="tx_daycarecenters_domain_model_kita.food_prices">
-				<source>Foot Prices</source>
+				<source>Cost of food</source>
 				<target>Essenspreis</target>
 			</trans-unit>
 			<trans-unit id="tx_daycarecenters_domain_model_kita.closing_days">
@@ -73,7 +73,7 @@
 				<target>Bilder</target>
 			</trans-unit>
 			<trans-unit id="tx_daycarecenters_domain_model_kita.response_times">
-				<source>Response Times</source>
+				<source>Consulting hours</source>
 				<target>Gesprächszeiten</target>
 			</trans-unit>
 			<trans-unit id="tx_daycarecenters_domain_model_kita.facebook">
@@ -101,7 +101,7 @@
 				<target>Späteste Öffnungszeit</target>
 			</trans-unit>
 			<trans-unit id="tx_daycarecenters_domain_model_kita.opening_time">
-				<source>Opening times</source>
+				<source>Opening hours</source>
 				<target>Öffnungszeiten</target>
 			</trans-unit>
 			<trans-unit id="tx_daycarecenters_domain_model_kita.from_to">
@@ -109,7 +109,7 @@
 				<target>von - bis</target>
 			</trans-unit>
 			<trans-unit id="tx_daycarecenters_domain_model_kita.earliest_age">
-				<source>Earliest age</source>
+				<source>Age of admission</source>
 				<target>Aufnahmealter</target>
 			</trans-unit>
 			<trans-unit id="tx_daycarecenters_domain_model_kita.latest_age">
@@ -117,7 +117,7 @@
 				<target>Aufnahmealter</target>
 			</trans-unit>
 			<trans-unit id="tx_daycarecenters_domain_model_kita.holder">
-				<source>Holder</source>
+				<source>Responsible body</source>
 				<target>Träger</target>
 			</trans-unit>
 			<trans-unit id="tx_daycarecenters_domain_model_kita.care_form">
@@ -132,9 +132,9 @@
 				<source>Telephones</source>
 				<target>Telefone</target>
 			</trans-unit>
-			
+
 			<trans-unit id="tx_daycarecenters_domain_model_holder">
-				<source>Holder</source>
+				<source>Responsible body</source>
 				<target>Träger</target>
 			</trans-unit>
 			<trans-unit id="tx_daycarecenters_domain_model_holder.title">
@@ -181,7 +181,7 @@
 				<source>Logo</source>
 				<target>Logo</target>
 			</trans-unit>
-			
+
 			<trans-unit id="tx_daycarecenters_domain_model_careform">
 				<source>CareForm</source>
 				<target>Betreuungsform</target>
@@ -190,7 +190,7 @@
 				<source>Title</source>
 				<target>Titel</target>
 			</trans-unit>
-			
+
 			<trans-unit id="tx_daycarecenters_domain_model_district">
 				<source>District</source>
 				<target>Stadtteil</target>
@@ -199,7 +199,7 @@
 				<source>District</source>
 				<target>Stadtteil</target>
 			</trans-unit>
-			
+
 			<trans-unit id="tx_daycarecenters_domain_model_telephone">
 				<source>Telephone</source>
 				<target>Telefone</target>

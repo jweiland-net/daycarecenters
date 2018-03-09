@@ -29,19 +29,19 @@
 				<source>Website</source>
 			</trans-unit>
 			<trans-unit id="amount_of_groups.description">
-				<source>Amount of groups</source>
+				<source>Number of groups</source>
 			</trans-unit>
 			<trans-unit id="space_offered.description">
-				<source>Space offered</source>
+				<source>Number of spaces</source>
 			</trans-unit>
 			<trans-unit id="receptive_age.description">
 				<source>Receptive age</source>
 			</trans-unit>
 			<trans-unit id="food_supply.description">
-				<source>Foot Supply</source>
+				<source>Meal details</source>
 			</trans-unit>
 			<trans-unit id="food_prices.description">
-				<source>Foot Prices</source>
+				<source>Cost of food</source>
 			</trans-unit>
 			<trans-unit id="closing_days.description">
 				<source>Closing Days</source>
@@ -53,7 +53,7 @@
 				<source>Images</source>
 			</trans-unit>
 			<trans-unit id="response_times.description">
-				<source>Response Times</source>
+				<source>Consulting hours</source>
 			</trans-unit>
 			<trans-unit id="facebook.description">
 				<source>Facebook</source>
@@ -65,7 +65,7 @@
 				<source>Google</source>
 			</trans-unit>
 			<trans-unit id="holder.description">
-				<source>Holder</source>
+				<source>Responsible body</source>
 			</trans-unit>
 			<trans-unit id="care_form.description">
 				<source>Care Form</source>
