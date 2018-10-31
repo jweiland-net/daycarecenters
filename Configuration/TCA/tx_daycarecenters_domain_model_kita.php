@@ -8,8 +8,7 @@ return [
         'cruser_id' => 'cruser_id',
         'dividers2tabs' => true,
         'default_sortby' => 'ORDER BY title',
-        'versioningWS' => 2,
-        'versioning_followPages' => true,
+        'versioningWS' => true,
         'origUid' => 't3_origuid',
         'languageField' => 'sys_language_uid',
         'transOrigPointerField' => 'l10n_parent',
@@ -20,7 +19,7 @@ return [
             'starttime' => 'starttime',
             'endtime' => 'endtime'
         ],
-        'searchFields' => 'title,leader,places,street,zip,city,email,website,food_info,closing_days,response_times,facebook,twitter,google',
+        'searchFields' => 'title,leader,places,street,zip,city,email,website,food_info,closing_days,response_times',
         'iconfile' => 'EXT:daycarecenters/Resources/Public/Icons/tx_daycarecenters_domain_model_kita.gif'
     ],
     'interface' => [
@@ -28,7 +27,7 @@ return [
     ],
     'types' => [
         '1' => [
-            'showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, title, leader, places, street,
+            'showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, leader, places, street,
             house_number, zip, city, email, website, telephones, amount_of_groups, space_offered, food_supply,
             food_info, food_prices, closing_days, logo, images, response_times, facebook, twitter, google,
             additional_informations, earliest_opening_time, latest_opening_time, earliest_age, latest_age,
@@ -72,7 +71,6 @@ return [
                 ],
                 'foreign_table' => 'tx_daycarecenters_domain_model_kita',
                 'foreign_table_where' => 'AND tx_daycarecenters_domain_model_kita.pid=###CURRENT_PID### AND tx_daycarecenters_domain_model_kita.sys_language_uid IN (-1,0)',
-                'showIconTable' => false,
                 'default' => 0,
             ]
         ],
@@ -86,8 +84,8 @@ return [
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.versionLabel',
             'config' => [
                 'type' => 'input',
-                'size' => '30',
-                'max' => '255'
+                'size' => 30,
+                'max' => 255
             ]
         ],
         'hidden' => [
@@ -107,7 +105,8 @@ return [
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.starttime',
             'config' => [
                 'type' => 'input',
-                'size' => '13',
+                'renderType' => 'inputDateTime',
+                'size' => 13,
                 'eval' => 'datetime',
                 'default' => 0
             ],
@@ -119,7 +118,8 @@ return [
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.endtime',
             'config' => [
                 'type' => 'input',
-                'size' => '13',
+                'renderType' => 'inputDateTime',
+                'size' => 13,
                 'eval' => 'datetime',
                 'default' => 0,
                 'range' => [
