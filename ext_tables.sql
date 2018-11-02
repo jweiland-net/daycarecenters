@@ -36,7 +36,6 @@ CREATE TABLE tx_daycarecenters_domain_model_kita (
 	care_form int(11) unsigned DEFAULT '0',
 	district int(11) unsigned DEFAULT '0',
 	telephones int(11) unsigned DEFAULT '0' NOT NULL,
-	tx_maps2_uid varchar(255) DEFAULT '' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,

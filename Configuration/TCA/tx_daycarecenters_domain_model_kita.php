@@ -23,7 +23,7 @@ return [
         'iconfile' => 'EXT:daycarecenters/Resources/Public/Icons/tx_daycarecenters_domain_model_kita.gif'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, leader, places, street, house_number, zip, city, email, website, telephones, amount_of_groups, space_offered, food_supply, food_info, food_prices, closing_days, logo, images, response_times, facebook, twitter, google, additional_informations, earliest_opening_time, latest_opening_time, earliest_age, latest_age, holder, care_form, district, tx_maps2_uid'
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, leader, places, street, house_number, zip, city, email, website, telephones, amount_of_groups, space_offered, food_supply, food_info, food_prices, closing_days, logo, images, response_times, facebook, twitter, google, additional_informations, earliest_opening_time, latest_opening_time, earliest_age, latest_age, holder, care_form, district'
     ],
     'types' => [
         '1' => [
@@ -31,7 +31,7 @@ return [
             house_number, zip, city, email, website, telephones, amount_of_groups, space_offered, food_supply,
             food_info, food_prices, closing_days, logo, images, response_times, facebook, twitter, google,
             additional_informations, earliest_opening_time, latest_opening_time, earliest_age, latest_age,
-            holder, care_form, district, tx_maps2_uid,
+            holder, care_form, district,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.tabs.access, 
             --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.palettes.access;access'
         ]
@@ -450,30 +450,6 @@ return [
                 ],
                 'minitems' => 0,
                 'maxitems' => 1
-            ]
-        ],
-        'tx_maps2_uid' => [
-            'exclude' => true,
-            'label' => 'LLL:EXT:maps2/Resources/Private/Language/locallang_db.xlf:tx_maps2_uid',
-            'config' => [
-                'type' => 'group',
-                'internal_type' => 'db',
-                'allowed' => 'tx_maps2_domain_model_poicollection',
-                'prepend_tname' => false,
-                'show_thumbs' => false,
-                'size' => 1,
-                'maxitems' => 1,
-                'wizards' => [
-                    'suggest' => [
-                        'type' => 'suggest',
-                        'default' => [
-                            'searchWholePhrase' => true
-                        ],
-                        'module' => [
-                            'name' => 'wizard_suggest'
-                        ]
-                    ]
-                ]
             ]
         ]
     ]
