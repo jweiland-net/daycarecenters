@@ -206,22 +206,9 @@ return [
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_kita.website',
             'config' => [
                 'type' => 'input',
+                'renderType' => 'inputLink',
                 'size' => 30,
                 'eval' => 'trim',
-                'wizards' => [
-                    '_PADDING' => 2,
-                    'link' => [
-                        'type' => 'popup',
-                        'title' => 'Link',
-                        'icon' => 'link_popup.gif',
-                        'script' => 'browse_links.php?mode=wizard',
-                        'JSopenParams' => 'height=300,width=500,status=0,menubar=0,scrollbars=1',
-                        'module' => [
-                            'name' => 'wizard_link'
-                        ]
-                    ]
-                ],
-                'softref' => 'typolink[linkList]'
             ]
         ],
         'telephones' => [
@@ -333,6 +320,7 @@ return [
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_kita.facebook',
             'config' => [
                 'type' => 'input',
+                'renderType' => 'inputLink',
                 'size' => 30,
                 'eval' => 'trim'
             ]
@@ -342,6 +330,7 @@ return [
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_kita.twitter',
             'config' => [
                 'type' => 'input',
+                'renderType' => 'inputLink',
                 'size' => 30,
                 'eval' => 'trim'
             ]
@@ -351,6 +340,7 @@ return [
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_kita.google',
             'config' => [
                 'type' => 'input',
+                'renderType' => 'inputLink',
                 'size' => 30,
                 'eval' => 'trim'
             ]
@@ -362,28 +352,17 @@ return [
                 'type' => 'text',
                 'cols' => 40,
                 'rows' => 15,
-                'eval' => 'trim',
-                'wizards' => [
-                    'RTE' => [
-                        'icon' => 'wizard_rte2.gif',
-                        'notNewRecords' => 1,
-                        'RTEonly' => 1,
-                        'script' => 'wizard_rte.php',
-                        'title' => 'LLL:EXT:cms/locallang_ttc.xlf:bodytext.W.RTE',
-                        'type' => 'script',
-                        'module' => [
-                            'name' => 'wizard_rte'
-                        ]
-                    ]
-                ]
+                'softref' => 'rtehtmlarea_images,typolink_tag,images,email[subst],url',
+                'enableRichtext' => true,
+                'richtextConfiguration' => 'default',
             ],
-            'defaultExtras' => 'richtext:rte_transform[flag=rte_enabled|mode=ts]'
         ],
         'earliest_opening_time' => [
             'exclude' => true,
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_kita.earliest_opening_time',
             'config' => [
                 'type' => 'input',
+                'renderType' => 'inputDateTime',
                 'size' => 4,
                 'eval' => 'time',
                 'checkbox' => 1,
@@ -395,6 +374,7 @@ return [
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_kita.latest_opening_time',
             'config' => [
                 'type' => 'input',
+                'renderType' => 'inputDateTime',
                 'size' => 4,
                 'eval' => 'time',
                 'checkbox' => 1,
@@ -422,6 +402,7 @@ return [
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_kita.holder',
             'config' => [
                 'type' => 'select',
+                'renderType' => 'selectSingle',
                 'foreign_table' => 'tx_daycarecenters_domain_model_holder',
                 'minitems' => 0,
                 'maxitems' => 1
@@ -443,6 +424,7 @@ return [
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_kita.district',
             'config' => [
                 'type' => 'select',
+                'renderType' => 'selectSingle',
                 'foreign_table' => 'tx_daycarecenters_domain_model_district',
                 'foreign_table_where' => 'ORDER BY tx_daycarecenters_domain_model_district.district',
                 'items' => [

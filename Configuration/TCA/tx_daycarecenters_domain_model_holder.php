@@ -20,9 +20,7 @@ return [
             'endtime' => 'endtime'
         ],
         'searchFields' => 'title,contact_person,street,zip,city,email,website',
-        'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath(
-                'daycarecenters'
-            ) . 'Resources/Public/Icons/tx_daycarecenters_domain_model_holder.gif'
+        'iconfile' => 'EXT:daycarecenters/Resources/Public/Icons/tx_daycarecenters_domain_model_holder.gif'
     ],
     'interface' => [
         'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, contact_person, street, house_number, zip, city, telephone, fax, email, website, logo'
@@ -214,22 +212,9 @@ return [
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_holder.website',
             'config' => [
                 'type' => 'input',
+                'renderType' => 'inputLink',
                 'size' => 30,
                 'eval' => 'trim',
-                'wizards' => [
-                    '_PADDING' => 2,
-                    'link' => [
-                        'type' => 'popup',
-                        'title' => 'Link',
-                        'icon' => 'link_popup.gif',
-                        'script' => 'browse_links.php?mode=wizard',
-                        'JSopenParams' => 'height=300,width=500,status=0,menubar=0,scrollbars=1',
-                        'module' => [
-                            'name' => 'wizard_link'
-                        ]
-                    ]
-                ],
-                'softref' => 'typolink[linkList]'
             ]
         ],
         'logo' => [
@@ -239,7 +224,6 @@ return [
                 'type' => 'group',
                 'internal_type' => 'file',
                 'uploadfolder' => 'uploads/tx_daycarecenters',
-                'show_thumbs' => 1,
                 'size' => 5,
                 'allowed' => $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'],
                 'disallowed' => '',
