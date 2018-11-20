@@ -4,12 +4,12 @@ if (!defined('TYPO3_MODE')) {
 }
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-    'JWeiland.' . $_EXTKEY,
+    'JWeiland.daycarecenters',
     'Daycarecenters',
     'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:plugin.title'
 );
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
-    $_EXTKEY,
+    'daycarecenters',
     'Configuration/TypoScript',
     'Day Care Centers'
 );
@@ -44,6 +44,3 @@ if (!defined('TYPO3_MODE')) {
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages(
     'tx_daycarecenters_domain_model_telephone'
 );
-$extConf = unserialize($_EXTCONF);
-$tsConfig = 'ext.daycarecenters.pid = ' . (int)$extConf['poiCollectionPid'];
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig($tsConfig);
