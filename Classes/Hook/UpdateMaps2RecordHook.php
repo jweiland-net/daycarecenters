@@ -46,44 +46,47 @@ class UpdateMaps2RecordHook
     /**
      * @param string $poiCollectionTableName
      * @param int $poiCollectionUid
+     * @param string $foreignTableName
      * @param array $foreignLocationRecord
      * @param array $options
      */
-    public function postUpdatePoiCollection(string $poiCollectionTableName, int $poiCollectionUid, array $foreignLocationRecord, array $options)
+    public function postUpdatePoiCollection(string $poiCollectionTableName, int $poiCollectionUid, string $foreignTableName, array $foreignLocationRecord, array $options)
     {
-        $connection = $this->getConnectionPool()->getConnectionForTable('sys_category_record_mm');
+        if ($foreignTableName === 'tx_daycarecenters_domain_model_kita') {
+            $connection = $this->getConnectionPool()->getConnectionForTable('sys_category_record_mm');
 
-        // delete all existing category relations
-        $connection->delete(
-            'sys_category_record_mm',
-            [
-                'uid_foreign' => $poiCollectionUid,
-                'tablenames' => 'tx_maps2_domain_model_poicollection'
-            ]
-        );
+            // delete all existing category relations
+            $connection->delete(
+                'sys_category_record_mm',
+                [
+                    'uid_foreign' => $poiCollectionUid,
+                    'tablenames' => 'tx_maps2_domain_model_poicollection'
+                ]
+            );
 
-        // Create new category relation
-        $connection->insert(
-            'sys_category_record_mm',
-            [
-                'uid_local' => $this->extConf->getDefaultMaps2Category(),
-                'uid_foreign' => $poiCollectionUid,
-                'fieldname' => 'categories',
-                'tablenames' => 'tx_maps2_domain_model_poicollection',
-                'sorting' => 1
-            ]
-        );
+            // Create new category relation
+            $connection->insert(
+                'sys_category_record_mm',
+                [
+                    'uid_local' => $this->extConf->getDefaultMaps2Category(),
+                    'uid_foreign' => $poiCollectionUid,
+                    'fieldname' => 'categories',
+                    'tablenames' => 'tx_maps2_domain_model_poicollection',
+                    'sorting' => 1
+                ]
+            );
 
-        // update amount of category relations
-        $connection->update(
-            'tx_maps2_domain_model_poicollection',
-            [
-                'categories' => 1
-            ],
-            [
-                'uid' => $poiCollectionUid
-            ]
-        );
+            // update amount of category relations
+            $connection->update(
+                'tx_maps2_domain_model_poicollection',
+                [
+                    'categories' => 1
+                ],
+                [
+                    'uid' => $poiCollectionUid
+                ]
+            );
+        }
     }
 
     /**
