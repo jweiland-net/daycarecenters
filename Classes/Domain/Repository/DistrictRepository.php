@@ -19,8 +19,6 @@ use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
  * Class DistrictRepository
- *
- * @package JWeiland\Daycarecenters\Domain\Repository
  */
 class DistrictRepository extends Repository
 {

@@ -17,8 +17,6 @@ namespace JWeiland\Daycarecenters\Converter;
 
 /**
  * Class TimeToStringConverter
- *
- * @package JWeiland\Daycarecenters\Converter
  */
 class TimeToStringConverter
 {

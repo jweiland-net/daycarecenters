@@ -19,8 +19,6 @@ use JWeiland\Daycarecenters\Domain\Model\Holder;
 
 /**
  * Class HolderController
- *
- * @package JWeiland\Daycarecenters\Controller
  */
 class HolderController extends AbstractController
 {

@@ -21,8 +21,6 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
  * Class AbstractController
- *
- * @package JWeiland\Daycarecenters\Controller
  */
 class AbstractController extends ActionController
 {

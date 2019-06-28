@@ -21,8 +21,6 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
  * Class Kita
- *
- * @package JWeiland\Daycarecenters\Domain\Model
  */
 class Kita extends AbstractEntity
 {

@@ -17,8 +17,6 @@ namespace JWeiland\Daycarecenters\Domain\Model;
 
 /**
  * Class FileReference
- *
- * @package JWeiland\Daycarecenters\Domain\Model
  */
 class FileReference extends \TYPO3\CMS\Extbase\Domain\Model\FileReference
 {

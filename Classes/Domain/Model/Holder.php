@@ -19,8 +19,6 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 /**
  * Class Holder
- *
- * @package JWeiland\Daycarecenters\Domain\Model
  */
 class Holder extends AbstractEntity
 {

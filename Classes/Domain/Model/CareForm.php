@@ -19,8 +19,6 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 /**
  * Class CareForm
- *
- * @package JWeiland\Daycarecenters\Domain\Model
  */
 class CareForm extends AbstractEntity
 {

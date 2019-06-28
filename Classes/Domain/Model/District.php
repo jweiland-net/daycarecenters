@@ -19,8 +19,6 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 /**
  * Class District
- *
- * @package JWeiland\Daycarecenters\Domain\Model
  */
 class District extends AbstractEntity
 {

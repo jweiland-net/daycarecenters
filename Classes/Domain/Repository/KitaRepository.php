@@ -18,8 +18,6 @@ use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
  * Class KitaRepository
- *
- * @package JWeiland\Daycarecenters\Domain\Repository
  */
 class KitaRepository extends Repository
 {

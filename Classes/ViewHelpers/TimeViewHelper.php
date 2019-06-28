@@ -20,8 +20,6 @@ use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 /**
  * Class TimeViewHelper
- *
- * @package JWeiland\Daycarecenters\ViewHelpers
  */
 class TimeViewHelper extends AbstractViewHelper
 {

@@ -19,8 +19,6 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 /**
  * Class Telephone
- *
- * @package JWeiland\Daycarecenters\Domain\Model
  */
 class Telephone extends AbstractEntity
 {

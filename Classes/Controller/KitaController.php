@@ -21,8 +21,6 @@ use TYPO3\CMS\Core\Page\PageRenderer;
 
 /**
  * Class KitaController
- *
- * @package JWeiland\Daycarecenters\Controller
  */
 class KitaController extends AbstractController
 {
