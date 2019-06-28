@@ -18,7 +18,7 @@ namespace JWeiland\Daycarecenters\Controller;
 use JWeiland\Daycarecenters\Domain\Model\Holder;
 
 /**
- * Class HolderController
+ * Controller to show holder of a kita
  */
 class HolderController extends AbstractController
 {

@@ -18,7 +18,7 @@ namespace JWeiland\Daycarecenters\Domain\Model;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 /**
- * Class Telephone
+ * Domain model which represents a Telephone
  */
 class Telephone extends AbstractEntity
 {

@@ -20,7 +20,7 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
- * Class Kita
+ * Domain model which represents a Kita
  */
 class Kita extends AbstractEntity
 {

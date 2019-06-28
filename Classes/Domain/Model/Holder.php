@@ -18,7 +18,7 @@ namespace JWeiland\Daycarecenters\Domain\Model;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 /**
- * Class Holder
+ * Domain model which represents a Holder
  */
 class Holder extends AbstractEntity
 {

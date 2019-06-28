@@ -19,7 +19,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 /**
- * Class TimeViewHelper
+ * A ViewHelper to convert a timesting into a human readable format
  */
 class TimeViewHelper extends AbstractViewHelper
 {

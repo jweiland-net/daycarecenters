@@ -16,7 +16,7 @@ namespace JWeiland\Daycarecenters\Converter;
  */
 
 /**
- * Class TimeToStringConverter
+ * Helper class to convert a timestamp into a human readable time format
  */
 class TimeToStringConverter
 {

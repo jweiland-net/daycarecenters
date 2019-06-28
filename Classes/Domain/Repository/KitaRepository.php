@@ -17,7 +17,7 @@ namespace JWeiland\Daycarecenters\Domain\Repository;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
- * Class KitaRepository
+ * Repository to get and search for kitas from DB
  */
 class KitaRepository extends Repository
 {

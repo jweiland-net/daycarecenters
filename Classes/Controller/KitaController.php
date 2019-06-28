@@ -20,7 +20,7 @@ use JWeiland\Daycarecenters\Domain\Repository\DistrictRepository;
 use TYPO3\CMS\Core\Page\PageRenderer;
 
 /**
- * Class KitaController
+ * Controller with methods to show and list kitas
  */
 class KitaController extends AbstractController
 {

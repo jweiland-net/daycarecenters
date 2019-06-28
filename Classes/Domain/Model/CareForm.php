@@ -18,7 +18,7 @@ namespace JWeiland\Daycarecenters\Domain\Model;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 /**
- * Class CareForm
+ * Domain model which represents a CareForm
  */
 class CareForm extends AbstractEntity
 {
