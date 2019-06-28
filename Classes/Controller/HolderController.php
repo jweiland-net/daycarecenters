@@ -18,17 +18,12 @@ namespace JWeiland\Daycarecenters\Controller;
 use JWeiland\Daycarecenters\Domain\Model\Holder;
 
 /**
- * Class HolderController
- *
- * @package JWeiland\Daycarecenters\Controller
+ * Controller to show holder of a kita
  */
 class HolderController extends AbstractController
 {
     /**
-     * action show
-     *
      * @param Holder $holder
-     * @return void
      */
     public function showAction(Holder $holder)
     {

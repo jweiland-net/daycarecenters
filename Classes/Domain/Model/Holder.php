@@ -18,104 +18,75 @@ namespace JWeiland\Daycarecenters\Domain\Model;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 /**
- * Class Holder
- *
- * @package JWeiland\Daycarecenters\Domain\Model
+ * Domain model which represents a Holder
  */
 class Holder extends AbstractEntity
 {
     /**
-     * Title
-     *
      * @var string
      */
     protected $title = '';
 
     /**
-     * Contact person
-     *
      * @var string
      */
     protected $contactPerson = '';
 
     /**
-     * Street
-     *
      * @var string
      */
     protected $street = '';
 
     /**
-     * House number
-     *
      * @var string
      */
     protected $houseNumber = '';
 
     /**
-     * Zip
-     *
      * @var string
      */
     protected $zip = '';
 
     /**
-     * City
-     *
      * @var string
      */
     protected $city = '';
 
     /**
-     * Telephone
-     *
      * @var string
      */
     protected $telephone = '';
 
     /**
-     * Fax
-     *
      * @var string
      */
     protected $fax = '';
 
     /**
-     * Email
-     *
      * @var string
      */
     protected $email = '';
 
     /**
-     * Website
-     *
      * @var string
      */
     protected $website = '';
 
     /**
-     * Logo
-     *
      * @var string
      */
     protected $logo = '';
 
     /**
-     * Returns the title
-     *
-     * @return string $title
+     * @return string
      */
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->title;
     }
 
     /**
-     * Sets the title
-     *
      * @param string $title
-     * @return void
      */
     public function setTitle(string $title)
     {
@@ -123,20 +94,15 @@ class Holder extends AbstractEntity
     }
 
     /**
-     * Returns the contactPerson
-     *
-     * @return string $contactPerson
+     * @return string
      */
-    public function getContactPerson()
+    public function getContactPerson(): string
     {
         return $this->contactPerson;
     }
 
     /**
-     * Sets the contactPerson
-     *
      * @param string $contactPerson
-     * @return void
      */
     public function setContactPerson(string $contactPerson)
     {
@@ -144,20 +110,15 @@ class Holder extends AbstractEntity
     }
 
     /**
-     * Returns the street
-     *
-     * @return string $street
+     * @return string
      */
-    public function getStreet()
+    public function getStreet(): string
     {
         return $this->street;
     }
 
     /**
-     * Sets the street
-     *
      * @param string $street
-     * @return void
      */
     public function setStreet(string $street)
     {
@@ -165,20 +126,15 @@ class Holder extends AbstractEntity
     }
 
     /**
-     * Returns the houseNumber
-     *
-     * @return string $houseNumber
+     * @return string
      */
-    public function getHouseNumber()
+    public function getHouseNumber(): string
     {
         return $this->houseNumber;
     }
 
     /**
-     * Sets the houseNumber
-     *
      * @param string $houseNumber
-     * @return void
      */
     public function setHouseNumber(string $houseNumber)
     {
@@ -186,20 +142,15 @@ class Holder extends AbstractEntity
     }
 
     /**
-     * Returns the zip
-     *
-     * @return string $zip
+     * @return string
      */
-    public function getZip()
+    public function getZip(): string
     {
         return $this->zip;
     }
 
     /**
-     * Sets the zip
-     *
      * @param string $zip
-     * @return void
      */
     public function setZip(string $zip)
     {
@@ -207,20 +158,15 @@ class Holder extends AbstractEntity
     }
 
     /**
-     * Returns the city
-     *
-     * @return string $city
+     * @return string
      */
-    public function getCity()
+    public function getCity(): string
     {
         return $this->city;
     }
 
     /**
-     * Sets the city
-     *
      * @param string $city
-     * @return void
      */
     public function setCity(string $city)
     {
@@ -228,20 +174,15 @@ class Holder extends AbstractEntity
     }
 
     /**
-     * Returns the telephone
-     *
-     * @return string $telephone
+     * @return string
      */
-    public function getTelephone()
+    public function getTelephone(): string
     {
         return $this->telephone;
     }
 
     /**
-     * Sets the telephone
-     *
      * @param string $telephone
-     * @return void
      */
     public function setTelephone(string $telephone)
     {
@@ -249,20 +190,15 @@ class Holder extends AbstractEntity
     }
 
     /**
-     * Returns the fax
-     *
-     * @return string $fax
+     * @return string
      */
-    public function getFax()
+    public function getFax(): string
     {
         return $this->fax;
     }
 
     /**
-     * Sets the fax
-     *
      * @param string $fax
-     * @return void
      */
     public function setFax(string $fax)
     {
@@ -270,20 +206,15 @@ class Holder extends AbstractEntity
     }
 
     /**
-     * Returns the email
-     *
-     * @return string $email
+     * @return string
      */
-    public function getEmail()
+    public function getEmail(): string
     {
         return $this->email;
     }
 
     /**
-     * Sets the email
-     *
      * @param string $email
-     * @return void
      */
     public function setEmail(string $email)
     {
@@ -291,20 +222,15 @@ class Holder extends AbstractEntity
     }
 
     /**
-     * Returns the website
-     *
-     * @return string $website
+     * @return string
      */
-    public function getWebsite()
+    public function getWebsite(): string
     {
         return $this->website;
     }
 
     /**
-     * Sets the website
-     *
      * @param string $website
-     * @return void
      */
     public function setWebsite(string $website)
     {
@@ -312,20 +238,15 @@ class Holder extends AbstractEntity
     }
 
     /**
-     * Returns the logo
-     *
-     * @return string $logo
+     * @return string
      */
-    public function getLogo()
+    public function getLogo(): string
     {
         return $this->logo;
     }
 
     /**
-     * Sets the logo
-     *
      * @param string $logo
-     * @return void
      */
     public function setLogo(string $logo)
     {

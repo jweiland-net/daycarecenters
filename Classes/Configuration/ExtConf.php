@@ -18,34 +18,27 @@ namespace JWeiland\Daycarecenters\Configuration;
 use TYPO3\CMS\Core\SingletonInterface;
 
 /**
- * Class ExtConf
- *
- * @package JWeiland\Daycarecenters\Configuration
+ * Class, which contains the configuration from ExtensionManager
  */
 class ExtConf implements SingletonInterface
 {
     /**
-     * poi collection pid
-     *
      * @var int
      */
     protected $poiCollectionPid = 0;
 
     /**
-     * default maps2 category
-     *
      * @var int
      */
     protected $defaultMaps2Category = 0;
 
-    /**
-     * constructor of this class
-     * This method reads the global configuration and calls the setter methods
-     */
     public function __construct()
     {
         // get global configuration
-        $extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['daycarecenters']);
+        $extConf = unserialize(
+            $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['daycarecenters'],
+            ['allowed_classes' => false]
+        );
         if (is_array($extConf) && count($extConf)) {
             // call setter method foreach configuration entry
             foreach ($extConf as $key => $value) {
@@ -58,44 +51,34 @@ class ExtConf implements SingletonInterface
     }
 
     /**
-     * getter for poiCollectionPid
-     *
      * @return int
      */
-    public function getPoiCollectionPid()
+    public function getPoiCollectionPid(): int
     {
         return $this->poiCollectionPid;
     }
 
     /**
-     * setter for poiCollectionPid
-     *
      * @param int $poiCollectionPid
-     * @return void
      */
-    public function setPoiCollectionPid(int $poiCollectionPid)
+    public function setPoiCollectionPid($poiCollectionPid)
     {
-        $this->poiCollectionPid = $poiCollectionPid;
+        $this->poiCollectionPid = (int)$poiCollectionPid;
     }
 
     /**
-     * getter for defaultMaps2Category
-     *
      * @return int
      */
-    public function getDefaultMaps2Category()
+    public function getDefaultMaps2Category(): int
     {
         return $this->defaultMaps2Category;
     }
 
     /**
-     * setter for defaultMaps2Category
-     *
      * @param int $defaultMaps2Category
-     * @return void
      */
-    public function setDefaultMaps2Category(int $defaultMaps2Category)
+    public function setDefaultMaps2Category($defaultMaps2Category)
     {
-        $this->defaultMaps2Category = $defaultMaps2Category;
+        $this->defaultMaps2Category = (int)$defaultMaps2Category;
     }
 }

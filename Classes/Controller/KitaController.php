@@ -20,15 +20,11 @@ use JWeiland\Daycarecenters\Domain\Repository\DistrictRepository;
 use TYPO3\CMS\Core\Page\PageRenderer;
 
 /**
- * Class KitaController
- *
- * @package JWeiland\Daycarecenters\Controller
+ * Controller with methods to show and list kitas
  */
 class KitaController extends AbstractController
 {
     /**
-     * districtRepository
-     *
      * @var DistrictRepository
      */
     protected $districtRepository;
@@ -39,10 +35,7 @@ class KitaController extends AbstractController
     protected $pageRenderer;
 
     /**
-     * inject districtRepository
-     *
      * @param DistrictRepository $districtRepository
-     * @return void
      */
     public function injectDistrictRepository(DistrictRepository $districtRepository)
     {
@@ -50,21 +43,13 @@ class KitaController extends AbstractController
     }
 
     /**
-     * inject pageRenderer
-     *
      * @param PageRenderer $pageRenderer
-     * @return void
      */
     public function injectPageRenderer(PageRenderer $pageRenderer)
     {
         $this->pageRenderer = $pageRenderer;
     }
 
-    /**
-     * action list
-     *
-     * @return void
-     */
     public function listAction()
     {
         $this->view->assign('earliestAge', (int)$this->settings['search']['earliestAge']);
@@ -76,10 +61,7 @@ class KitaController extends AbstractController
     }
 
     /**
-     * action show
-     *
      * @param Kita $kita
-     * @return void
      */
     public function showAction(Kita $kita)
     {
@@ -87,23 +69,20 @@ class KitaController extends AbstractController
     }
 
     /**
-     * search show
-     *
-     * @param integer $earliestAge
-     * @param integer $latestAge
+     * @param int $earliestAge
+     * @param int $latestAge
      * @param float $earliestOpeningTime
      * @param float $latestOpeningTime
-     * @param boolean $food
-     * @param integer $district
-     * @return void
+     * @param bool $food
+     * @param int $district
      */
     public function searchAction(
-        $earliestAge = 0,
-        $latestAge = 6,
-        $earliestOpeningTime = 7.00,
-        $latestOpeningTime = 18.00,
-        $food = false,
-        $district = 0
+        int $earliestAge = 0,
+        int $latestAge = 6,
+        float $earliestOpeningTime = 7.00,
+        float $latestOpeningTime = 18.00,
+        bool $food = false,
+        int $district = 0
     ) {
         $kitas = $this->kitaRepository->searchKitas(
             $earliestAge,

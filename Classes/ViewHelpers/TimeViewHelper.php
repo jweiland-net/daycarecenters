@@ -16,26 +16,23 @@ namespace JWeiland\Daycarecenters\ViewHelpers;
  */
 use JWeiland\Daycarecenters\Converter\TimeToStringConverter;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
+use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 /**
- * Class TimeViewHelper
- *
- * @package JWeiland\Daycarecenters\ViewHelpers
+ * This ViewHelper converts seconds since midnight 0:00 to a readable format
  */
 class TimeViewHelper extends AbstractViewHelper
 {
     /**
-     * implements a vievHelper to convert seconds since 0:00 to a readable format
+     * This ViewHelper converts seconds since midnight 0:00 to a readable format
      *
      * @return string
      */
-    public function render()
+    public function render(): string
     {
-        $timestamp = $this->renderChildren();
-        /** @var \JWeiland\Daycarecenters\Converter\TimeToStringConverter $converter */
+        $timestamp = (int)$this->renderChildren();
         $converter = GeneralUtility::makeInstance(TimeToStringConverter::class);
 
-        return $converter->convert((int)$timestamp);
+        return $converter->convert($timestamp);
     }
 }
