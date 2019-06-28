@@ -26,12 +26,12 @@ class KitaRepository extends Repository
     /**
      * search Kitas
      *
-     * @param integer $earliestAge
-     * @param integer $latestAge
+     * @param int $earliestAge
+     * @param int $latestAge
      * @param string $earliestOpeningTimes
      * @param string $latestOpeningTimes
-     * @param boolean $food
-     * @param integer $district
+     * @param bool $food
+     * @param int $district
      * @return QueryResultInterface
      */
     public function searchKitas(
