@@ -23,27 +23,20 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 class Telephone extends AbstractEntity
 {
     /**
-     * Telephone
-     *
      * @var string
      */
     protected $telephone = '';
 
     /**
-     * Returns the telephone
-     *
      * @return string $telephone
      */
-    public function getTelephone()
+    public function getTelephone(): string
     {
         return $this->telephone;
     }
 
     /**
-     * Sets the telephone
-     *
      * @param string $telephone
-     * @return void
      */
     public function setTelephone(string $telephone)
     {

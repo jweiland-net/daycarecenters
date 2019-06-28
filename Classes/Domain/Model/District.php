@@ -23,27 +23,20 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 class District extends AbstractEntity
 {
     /**
-     * District
-     *
      * @var string
      */
     protected $district = '';
 
     /**
-     * Returns the district
-     *
-     * @return string $district
+     * @return string
      */
-    public function getDistrict()
+    public function getDistrict(): string
     {
         return $this->district;
     }
 
     /**
-     * Sets the district
-     *
      * @param string $district
-     * @return void
      */
     public function setDistrict(string $district)
     {

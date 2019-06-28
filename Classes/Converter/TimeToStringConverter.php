@@ -26,7 +26,7 @@ class TimeToStringConverter
      * @param int $timestamp Timestamp to convert
      * @return string
      */
-    public function convert(int $timestamp)
+    public function convert(int $timestamp): string
     {
         if (empty($timestamp)) {
             return '00:00';
@@ -45,7 +45,7 @@ class TimeToStringConverter
      * @param int $time
      * @return float
      */
-    protected function getHours(int $time)
+    protected function getHours(int $time): float
     {
         return floor($time / 3600);
     }
@@ -60,9 +60,9 @@ class TimeToStringConverter
      *
      * @param int $time seconds since midnight
      * @param int $hours
-     * @return integer remaining minutes
+     * @return int remaining minutes
      */
-    protected function getRemainingMinutes(int $time, int $hours)
+    protected function getRemainingMinutes(int $time, int $hours): int
     {
         $minutes = 0;
 

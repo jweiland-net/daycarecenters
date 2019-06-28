@@ -23,10 +23,7 @@ use JWeiland\Daycarecenters\Domain\Model\Holder;
 class HolderController extends AbstractController
 {
     /**
-     * action show
-     *
      * @param Holder $holder
-     * @return void
      */
     public function showAction(Holder $holder)
     {

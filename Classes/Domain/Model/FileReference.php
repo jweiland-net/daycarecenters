@@ -21,48 +21,35 @@ namespace JWeiland\Daycarecenters\Domain\Model;
 class FileReference extends \TYPO3\CMS\Extbase\Domain\Model\FileReference
 {
     /**
-     * title
-     *
      * @var string
      */
     protected $title = '';
 
     /**
-     * cruserId
-     *
      * @var int
      */
     protected $cruserId = 0;
 
     /**
-     * uidLocal
-     *
      * @var int
      */
     protected $uidLocal = 0;
 
     /**
-     * tablenames
-     *
      * @var string
      */
     protected $tablenames = '';
 
     /**
-     * Returns the title
-     *
-     * @return string $title
+     * @return string
      */
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->title;
     }
 
     /**
-     * Sets the title
-     *
      * @param string $title
-     * @return void
      */
     public function setTitle(string $title)
     {
@@ -70,20 +57,15 @@ class FileReference extends \TYPO3\CMS\Extbase\Domain\Model\FileReference
     }
 
     /**
-     * Returns the cruserId
-     *
-     * @return int $cruserId
+     * @return int
      */
-    public function getCruserId()
+    public function getCruserId(): int
     {
         return $this->cruserId;
     }
 
     /**
-     * Sets the cruserId
-     *
      * @param int $cruserId
-     * @return void
      */
     public function setCruserId(int $cruserId)
     {
@@ -91,20 +73,15 @@ class FileReference extends \TYPO3\CMS\Extbase\Domain\Model\FileReference
     }
 
     /**
-     * Returns the uidLocal
-     *
-     * @return int $uidLocal
+     * @return int
      */
-    public function getUidLocal()
+    public function getUidLocal(): int
     {
         return $this->uidLocal;
     }
 
     /**
-     * Sets the uidLocal
-     *
      * @param int $uidLocal
-     * @return void
      */
     public function setUidLocal(int $uidLocal)
     {
@@ -112,20 +89,15 @@ class FileReference extends \TYPO3\CMS\Extbase\Domain\Model\FileReference
     }
 
     /**
-     * Returns the tablenames
-     *
-     * @return string $tablenames
+     * @return string
      */
-    public function getTablenames()
+    public function getTablenames(): string
     {
         return $this->tablenames;
     }
 
     /**
-     * Sets the tablenames
-     *
      * @param string $tablenames
-     * @return void
      */
     public function setTablenames(string $tablenames)
     {

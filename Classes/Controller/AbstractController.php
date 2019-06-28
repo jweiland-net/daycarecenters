@@ -25,17 +25,12 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 class AbstractController extends ActionController
 {
     /**
-     * kitaRepository
-     *
      * @var KitaRepository
      */
     protected $kitaRepository;
 
     /**
-     * inject kitaRepository
-     *
      * @param KitaRepository $kitaRepository
-     * @return void
      */
     public function injectKitaRepository(KitaRepository $kitaRepository)
     {
@@ -43,9 +38,7 @@ class AbstractController extends ActionController
     }
 
     /**
-     * preprocessing of all actions
-     *
-     * @return void
+     * Pre-Processing of all actions
      */
     public function initializeAction()
     {
@@ -60,10 +53,10 @@ class AbstractController extends ActionController
      * convert a time string to int
      * 7.25 => 25300. Seconds since 0:00
      *
-     * @param string $time
+     * @param float $time
      * @return int Seconds
      */
-    public function convertTimeToInt($time)
+    public function convertTimeToInt(float $time): int
     {
         $parts = GeneralUtility::trimExplode('.', number_format($time, 2, '.', ''));
         $seconds = (int)$parts[0] * 3600;

@@ -31,9 +31,7 @@ class UpdateMaps2RecordHook
     protected $extConf;
 
     /**
-     * UpdateMaps2RecordHook constructor.
-     *
-     * @param ExtConf $extConf
+     * @param ExtConf|null $extConf
      */
     public function __construct(ExtConf $extConf = null)
     {
@@ -94,7 +92,7 @@ class UpdateMaps2RecordHook
      *
      * @return ConnectionPool
      */
-    protected function getConnectionPool()
+    protected function getConnectionPool(): ConnectionPool
     {
         return GeneralUtility::makeInstance(ConnectionPool::class);
     }

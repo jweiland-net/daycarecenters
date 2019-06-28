@@ -1,4 +1,5 @@
 <?php
+declare(strict_types = 1);
 namespace JWeiland\Daycarecenters\Domain\Repository;
 
 /*
@@ -14,6 +15,7 @@ namespace JWeiland\Daycarecenters\Domain\Repository;
  * The TYPO3 project - inspiring people to share!
  */
 
+use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
@@ -30,7 +32,7 @@ class KitaRepository extends Repository
      * @param string $latestOpeningTimes
      * @param boolean $food
      * @param integer $district
-     * @return \TYPO3\CMS\Extbase\Persistence\QueryResultInterface
+     * @return QueryResultInterface
      */
     public function searchKitas(
         $earliestAge,
@@ -39,7 +41,7 @@ class KitaRepository extends Repository
         $latestOpeningTimes,
         $food,
         $district = 0
-    ) {
+    ): QueryResultInterface {
         $query = $this->createQuery();
         $constraint = [];
         // add age to constraint
