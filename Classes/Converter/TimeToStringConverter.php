@@ -1,5 +1,5 @@
 <?php
-declare(strict_types=1);
+declare(strict_types = 1);
 namespace JWeiland\Daycarecenters\Converter;
 
 /*
@@ -21,7 +21,7 @@ namespace JWeiland\Daycarecenters\Converter;
 class TimeToStringConverter
 {
     /**
-     * a method to convert a timestamp to a readable time format like: 21:35
+     * A method to convert a timestamp to a readable time format like: 21:35
      *
      * @param int $timestamp Timestamp to convert
      * @return string
@@ -32,7 +32,7 @@ class TimeToStringConverter
             return '00:00';
         }
         $hours = $this->getHours($timestamp);
-        $minutes = $this->getRemainingMinutes($timestamp, (int)$hours);
+        $minutes = $this->getRemainingMinutes($timestamp, $hours);
 
         return str_pad((string)$hours, 2, '0', STR_PAD_LEFT)
             . ':'
@@ -40,14 +40,14 @@ class TimeToStringConverter
     }
 
     /**
-     * this method rounds down (integer) the contained hours in $time
+     * This method rounds down (int) the contained hours in $time
      *
      * @param int $time
-     * @return float
+     * @return int
      */
-    protected function getHours(int $time): float
+    protected function getHours(int $time): int
     {
-        return floor($time / 3600);
+        return (int)floor($time / 3600);
     }
 
     /**
@@ -68,7 +68,7 @@ class TimeToStringConverter
 
         $seconds = $time % ($hours * 3600);
         if ($seconds) {
-            $minutes = ceil($seconds / 60);
+            $minutes = (int)ceil($seconds / 60);
         }
 
         return $minutes;
