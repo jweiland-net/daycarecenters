@@ -1,19 +1,15 @@
 <?php
-declare(strict_types = 1);
-namespace JWeiland\Daycarecenters\Controller;
+
+declare(strict_types=1);
 
 /*
- * This file is part of the TYPO3 CMS project.
- *
- * It is free software; you can redistribute it and/or modify it under
- * the terms of the GNU General Public License, either version 2
- * of the License, or any later version.
+ * This file is part of the package jweiland/daycarecenters.
  *
  * For the full copyright and license information, please read the
- * LICENSE.txt file that was distributed with this source code.
- *
- * The TYPO3 project - inspiring people to share!
+ * LICENSE file that was distributed with this source code.
  */
+
+namespace JWeiland\Daycarecenters\Controller;
 
 use JWeiland\Daycarecenters\Domain\Repository\KitaRepository;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -29,10 +25,7 @@ class AbstractController extends ActionController
      */
     protected $kitaRepository;
 
-    /**
-     * @param KitaRepository $kitaRepository
-     */
-    public function injectKitaRepository(KitaRepository $kitaRepository)
+    public function injectKitaRepository(KitaRepository $kitaRepository): void
     {
         $this->kitaRepository = $kitaRepository;
     }
@@ -40,7 +33,7 @@ class AbstractController extends ActionController
     /**
      * Pre-Processing of all actions
      */
-    public function initializeAction()
+    public function initializeAction(): void
     {
         // if this value was not set, then it will be filled with 0
         // but that is not good, because UriBuilder accepts 0 as pid, so it's better to set it to NULL

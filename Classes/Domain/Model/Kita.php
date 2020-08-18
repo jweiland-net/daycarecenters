@@ -1,19 +1,15 @@
 <?php
-declare(strict_types = 1);
-namespace JWeiland\Daycarecenters\Domain\Model;
+
+declare(strict_types=1);
 
 /*
- * This file is part of the TYPO3 CMS project.
- *
- * It is free software; you can redistribute it and/or modify it under
- * the terms of the GNU General Public License, either version 2
- * of the License, or any later version.
+ * This file is part of the package jweiland/daycarecenters.
  *
  * For the full copyright and license information, please read the
- * LICENSE.txt file that was distributed with this source code.
- *
- * The TYPO3 project - inspiring people to share!
+ * LICENSE file that was distributed with this source code.
  */
+
+namespace JWeiland\Daycarecenters\Domain\Model;
 
 use JWeiland\Maps2\Domain\Model\PoiCollection;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
@@ -156,25 +152,25 @@ class Kita extends AbstractEntity
 
     /**
      * @var \JWeiland\Daycarecenters\Domain\Model\Holder
-     * @lazy
+     * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
      */
     protected $holder;
 
     /**
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\JWeiland\Daycarecenters\Domain\Model\CareForm>
-     * @lazy
+     * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
      */
     protected $careForm;
 
     /**
      * @var \JWeiland\Daycarecenters\Domain\Model\District
-     * @lazy
+     * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
      */
     protected $district;
 
     /**
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\JWeiland\Daycarecenters\Domain\Model\Telephone>
-     * @lazy
+     * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
      */
     protected $telephones;
 
@@ -191,7 +187,7 @@ class Kita extends AbstractEntity
     /**
      * Initializes all \TYPO3\CMS\Extbase\Persistence\ObjectStorage properties.
      */
-    protected function initStorageObjects()
+    protected function initStorageObjects(): void
     {
         $this->telephones = new ObjectStorage();
     }
@@ -207,7 +203,7 @@ class Kita extends AbstractEntity
     /**
      * @param string $title
      */
-    public function setTitle(string $title)
+    public function setTitle(string $title): void
     {
         $this->title = $title;
     }
@@ -223,7 +219,7 @@ class Kita extends AbstractEntity
     /**
      * @param string $leader
      */
-    public function setLeader(string $leader)
+    public function setLeader(string $leader): void
     {
         $this->leader = $leader;
     }
@@ -239,7 +235,7 @@ class Kita extends AbstractEntity
     /**
      * @param string $places
      */
-    public function setPlaces(string $places)
+    public function setPlaces(string $places): void
     {
         $this->places = $places;
     }
@@ -255,7 +251,7 @@ class Kita extends AbstractEntity
     /**
      * @param string $street
      */
-    public function setStreet(string $street)
+    public function setStreet(string $street): void
     {
         $this->street = $street;
     }
@@ -271,7 +267,7 @@ class Kita extends AbstractEntity
     /**
      * @param string $houseNumber
      */
-    public function setHouseNumber(string $houseNumber)
+    public function setHouseNumber(string $houseNumber): void
     {
         $this->houseNumber = $houseNumber;
     }
@@ -287,7 +283,7 @@ class Kita extends AbstractEntity
     /**
      * @param string $zip
      */
-    public function setZip(string $zip)
+    public function setZip(string $zip): void
     {
         $this->zip = $zip;
     }
@@ -303,7 +299,7 @@ class Kita extends AbstractEntity
     /**
      * @param string $city
      */
-    public function setCity(string $city)
+    public function setCity(string $city): void
     {
         $this->city = $city;
     }
@@ -319,7 +315,7 @@ class Kita extends AbstractEntity
     /**
      * @param string $email
      */
-    public function setEmail(string $email)
+    public function setEmail(string $email): void
     {
         $this->email = $email;
     }
@@ -335,7 +331,7 @@ class Kita extends AbstractEntity
     /**
      * @param string $website
      */
-    public function setWebsite(string $website)
+    public function setWebsite(string $website): void
     {
         $this->website = $website;
     }
@@ -351,7 +347,7 @@ class Kita extends AbstractEntity
     /**
      * @param string $amountOfGroups
      */
-    public function setAmountOfGroups(string $amountOfGroups)
+    public function setAmountOfGroups(string $amountOfGroups): void
     {
         $this->amountOfGroups = $amountOfGroups;
     }
@@ -367,7 +363,7 @@ class Kita extends AbstractEntity
     /**
      * @param string $spaceOffered
      */
-    public function setSpaceOffered(string $spaceOffered)
+    public function setSpaceOffered(string $spaceOffered): void
     {
         $this->spaceOffered = $spaceOffered;
     }
@@ -383,7 +379,7 @@ class Kita extends AbstractEntity
     /**
      * @param bool $foodSupply
      */
-    public function setFoodSupply(bool $foodSupply)
+    public function setFoodSupply(bool $foodSupply): void
     {
         $this->foodSupply = $foodSupply;
     }
@@ -399,7 +395,7 @@ class Kita extends AbstractEntity
     /**
      * @param string $foodInfo
      */
-    public function setFoodInfo(string $foodInfo)
+    public function setFoodInfo(string $foodInfo): void
     {
         $this->foodInfo = $foodInfo;
     }
@@ -415,7 +411,7 @@ class Kita extends AbstractEntity
     /**
      * @param string $foodPrices
      */
-    public function setFoodPrices(string $foodPrices)
+    public function setFoodPrices(string $foodPrices): void
     {
         $this->foodPrices = $foodPrices;
     }
@@ -431,7 +427,7 @@ class Kita extends AbstractEntity
     /**
      * @param string $closingDays
      */
-    public function setClosingDays(string $closingDays)
+    public function setClosingDays(string $closingDays): void
     {
         $this->closingDays = $closingDays;
     }
@@ -439,7 +435,7 @@ class Kita extends AbstractEntity
     /**
      * @return FileReference|null
      */
-    public function getLogo()
+    public function getLogo(): ?FileReference
     {
         return $this->logo;
     }
@@ -447,7 +443,7 @@ class Kita extends AbstractEntity
     /**
      * @param FileReference|null $logo
      */
-    public function setLogo(FileReference $logo = null)
+    public function setLogo(FileReference $logo = null): void
     {
         $this->logo = $logo;
     }
@@ -463,7 +459,7 @@ class Kita extends AbstractEntity
     /**
      * @param ObjectStorage $images
      */
-    public function setImages(ObjectStorage $images)
+    public function setImages(ObjectStorage $images): void
     {
         $this->images = $images;
     }
@@ -479,7 +475,7 @@ class Kita extends AbstractEntity
     /**
      * @param string $responseTimes
      */
-    public function setResponseTimes(string $responseTimes)
+    public function setResponseTimes(string $responseTimes): void
     {
         $this->responseTimes = $responseTimes;
     }
@@ -495,7 +491,7 @@ class Kita extends AbstractEntity
     /**
      * @param string $facebook
      */
-    public function setFacebook(string $facebook)
+    public function setFacebook(string $facebook): void
     {
         $this->facebook = $facebook;
     }
@@ -511,7 +507,7 @@ class Kita extends AbstractEntity
     /**
      * @param string $twitter
      */
-    public function setTwitter(string $twitter)
+    public function setTwitter(string $twitter): void
     {
         $this->twitter = $twitter;
     }
@@ -527,7 +523,7 @@ class Kita extends AbstractEntity
     /**
      * @param string $google
      */
-    public function setGoogle(string $google)
+    public function setGoogle(string $google): void
     {
         $this->google = $google;
     }
@@ -543,7 +539,7 @@ class Kita extends AbstractEntity
     /**
      * @param string $additionalInformations
      */
-    public function setAdditionalInformations(string $additionalInformations)
+    public function setAdditionalInformations(string $additionalInformations): void
     {
         $this->additionalInformations = $additionalInformations;
     }
@@ -559,7 +555,7 @@ class Kita extends AbstractEntity
     /**
      * @param int $earliestOpeningTime
      */
-    public function setEarliestOpeningTime(int $earliestOpeningTime)
+    public function setEarliestOpeningTime(int $earliestOpeningTime): void
     {
         $this->earliestOpeningTime = $earliestOpeningTime;
     }
@@ -575,7 +571,7 @@ class Kita extends AbstractEntity
     /**
      * @param int $latestOpeningTime
      */
-    public function setLatestOpeningTime(int $latestOpeningTime)
+    public function setLatestOpeningTime(int $latestOpeningTime): void
     {
         $this->latestOpeningTime = $latestOpeningTime;
     }
@@ -591,7 +587,7 @@ class Kita extends AbstractEntity
     /**
      * @param int $earliestAge
      */
-    public function setEarliestAge(int $earliestAge)
+    public function setEarliestAge(int $earliestAge): void
     {
         $this->earliestAge = $earliestAge;
     }
@@ -607,7 +603,7 @@ class Kita extends AbstractEntity
     /**
      * @param int $latestAge
      */
-    public function setLatestAge(int $latestAge)
+    public function setLatestAge(int $latestAge): void
     {
         $this->latestAge = $latestAge;
     }
@@ -615,7 +611,7 @@ class Kita extends AbstractEntity
     /**
      * @return Holder|null
      */
-    public function getHolder()
+    public function getHolder(): ?Holder
     {
         return $this->holder;
     }
@@ -623,7 +619,7 @@ class Kita extends AbstractEntity
     /**
      * @param Holder|null $holder
      */
-    public function setHolder(Holder $holder = null)
+    public function setHolder(Holder $holder = null): void
     {
         $this->holder = $holder;
     }
@@ -639,7 +635,7 @@ class Kita extends AbstractEntity
     /**
      * @param ObjectStorage $careForm
      */
-    public function setCareForm(ObjectStorage $careForm)
+    public function setCareForm(ObjectStorage $careForm): void
     {
         $this->careForm = $careForm;
     }
@@ -647,7 +643,7 @@ class Kita extends AbstractEntity
     /**
      * @return District|null
      */
-    public function getDistrict()
+    public function getDistrict(): ?District
     {
         return $this->district;
     }
@@ -655,7 +651,7 @@ class Kita extends AbstractEntity
     /**
      * @param District $district
      */
-    public function setDistrict(District $district = null)
+    public function setDistrict(District $district = null): void
     {
         $this->district = $district;
     }
@@ -663,7 +659,7 @@ class Kita extends AbstractEntity
     /**
      * @param Telephone $telephone
      */
-    public function addTelephone(Telephone $telephone)
+    public function addTelephone(Telephone $telephone): void
     {
         $this->telephones->attach($telephone);
     }
@@ -671,7 +667,7 @@ class Kita extends AbstractEntity
     /**
      * @param Telephone $telephone
      */
-    public function removeTelephone(Telephone $telephone)
+    public function removeTelephone(Telephone $telephone): void
     {
         $this->telephones->detach($telephone);
     }
@@ -687,7 +683,7 @@ class Kita extends AbstractEntity
     /**
      * @param ObjectStorage $telephones
      */
-    public function setTelephones(ObjectStorage $telephones)
+    public function setTelephones(ObjectStorage $telephones): void
     {
         $this->telephones = $telephones;
     }
@@ -695,7 +691,7 @@ class Kita extends AbstractEntity
     /**
      * @return PoiCollection|null
      */
-    public function getTxMaps2Uid()
+    public function getTxMaps2Uid(): ?PoiCollection
     {
         return $this->txMaps2Uid;
     }
@@ -703,7 +699,7 @@ class Kita extends AbstractEntity
     /**
      * @param PoiCollection $txMaps2Uid
      */
-    public function setTxMaps2Uid(PoiCollection $txMaps2Uid)
+    public function setTxMaps2Uid(PoiCollection $txMaps2Uid): void
     {
         $this->txMaps2Uid = $txMaps2Uid;
     }

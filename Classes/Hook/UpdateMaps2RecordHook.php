@@ -1,19 +1,15 @@
 <?php
-declare(strict_types = 1);
-namespace JWeiland\Daycarecenters\Hook;
+
+declare(strict_types=1);
 
 /*
- * This file is part of the daycarecenters project.
- *
- * It is free software; you can redistribute it and/or modify it under
- * the terms of the GNU General Public License, either version 2
- * of the License, or any later version.
+ * This file is part of the package jweiland/daycarecenters.
  *
  * For the full copyright and license information, please read the
- * LICENSE.txt file that was distributed with this source code.
- *
- * The TYPO3 project - inspiring people to share!
+ * LICENSE file that was distributed with this source code.
  */
+
+namespace JWeiland\Daycarecenters\Hook;
 
 use JWeiland\Daycarecenters\Configuration\ExtConf;
 use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -48,7 +44,7 @@ class UpdateMaps2RecordHook
      * @param array $foreignLocationRecord
      * @param array $options
      */
-    public function postUpdatePoiCollection(string $poiCollectionTableName, int $poiCollectionUid, string $foreignTableName, array $foreignLocationRecord, array $options)
+    public function postUpdatePoiCollection(string $poiCollectionTableName, int $poiCollectionUid, string $foreignTableName, array $foreignLocationRecord, array $options): void
     {
         if ($foreignTableName === 'tx_daycarecenters_domain_model_kita') {
             $connection = $this->getConnectionPool()->getConnectionForTable('sys_category_record_mm');
@@ -87,11 +83,6 @@ class UpdateMaps2RecordHook
         }
     }
 
-    /**
-     * Get TYPO3s Connection Pool
-     *
-     * @return ConnectionPool
-     */
     protected function getConnectionPool(): ConnectionPool
     {
         return GeneralUtility::makeInstance(ConnectionPool::class);

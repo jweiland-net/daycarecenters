@@ -1,19 +1,15 @@
 <?php
-declare(strict_types = 1);
-namespace JWeiland\Daycarecenters\Controller;
+
+declare(strict_types=1);
 
 /*
- * This file is part of the TYPO3 CMS project.
- *
- * It is free software; you can redistribute it and/or modify it under
- * the terms of the GNU General Public License, either version 2
- * of the License, or any later version.
+ * This file is part of the package jweiland/daycarecenters.
  *
  * For the full copyright and license information, please read the
- * LICENSE.txt file that was distributed with this source code.
- *
- * The TYPO3 project - inspiring people to share!
+ * LICENSE file that was distributed with this source code.
  */
+
+namespace JWeiland\Daycarecenters\Controller;
 
 use JWeiland\Daycarecenters\Domain\Model\Kita;
 use JWeiland\Daycarecenters\Domain\Repository\DistrictRepository;
@@ -34,23 +30,17 @@ class KitaController extends AbstractController
      */
     protected $pageRenderer;
 
-    /**
-     * @param DistrictRepository $districtRepository
-     */
-    public function injectDistrictRepository(DistrictRepository $districtRepository)
+    public function injectDistrictRepository(DistrictRepository $districtRepository): void
     {
         $this->districtRepository = $districtRepository;
     }
 
-    /**
-     * @param PageRenderer $pageRenderer
-     */
-    public function injectPageRenderer(PageRenderer $pageRenderer)
+    public function injectPageRenderer(PageRenderer $pageRenderer): void
     {
         $this->pageRenderer = $pageRenderer;
     }
 
-    public function listAction()
+    public function listAction(): void
     {
         $this->view->assign('earliestAge', (int)$this->settings['search']['earliestAge']);
         $this->view->assign('latestAge', (int)$this->settings['search']['latestAge']);
@@ -63,7 +53,7 @@ class KitaController extends AbstractController
     /**
      * @param Kita $kita
      */
-    public function showAction(Kita $kita)
+    public function showAction(Kita $kita): void
     {
         $this->view->assign('kita', $kita);
     }
@@ -83,7 +73,7 @@ class KitaController extends AbstractController
         float $latestOpeningTime = 18.00,
         bool $food = false,
         int $district = 0
-    ) {
+    ): void {
         $kitas = $this->kitaRepository->searchKitas(
             $earliestAge,
             $latestAge,
