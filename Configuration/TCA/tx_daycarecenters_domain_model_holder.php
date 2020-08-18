@@ -244,16 +244,14 @@ return [
         'logo' => [
             'exclude' => true,
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_holder.logo',
-            'config' => [
-                'type' => 'group',
-                'internal_type' => 'file',
-                'uploadfolder' => 'uploads/tx_daycarecenters',
-                'size' => 5,
-                'allowed' => $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'],
-                'disallowed' => '',
-                'minitems' => 0,
-                'maxitems' => 1
-            ]
+            'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+                'logo',
+                [
+                    'maxitems' => 1,
+                    'minitems' => 0,
+                ],
+                $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
+            )
         ]
     ]
 ];

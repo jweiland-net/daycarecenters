@@ -34,4 +34,7 @@ call_user_func(function ($extKey) {
         \JWeiland\Daycarecenters\Hook\UpdateMaps2RecordHook::class,
         'postUpdatePoiCollection'
     );
+
+    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['daycarecentersHolderLogo']
+        = \JWeiland\Daycarecenters\Updates\HolderLogoUpdateWizard::class;
 }, 'daycarecenters');
