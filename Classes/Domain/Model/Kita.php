@@ -13,6 +13,7 @@ namespace JWeiland\Daycarecenters\Domain\Model;
 
 use JWeiland\Maps2\Domain\Model\PoiCollection;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
@@ -609,9 +610,9 @@ class Kita extends AbstractEntity
     }
 
     /**
-     * @return Holder|null
+     * @return Holder|LazyLoadingProxy|null
      */
-    public function getHolder(): ?Holder
+    public function getHolder()
     {
         return $this->holder;
     }
@@ -641,9 +642,9 @@ class Kita extends AbstractEntity
     }
 
     /**
-     * @return District|null
+     * @return District|LazyLoadingProxy|null
      */
-    public function getDistrict(): ?District
+    public function getDistrict()
     {
         return $this->district;
     }
