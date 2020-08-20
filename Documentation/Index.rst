@@ -1,57 +1,65 @@
-..  Editor configuration
-	...................................................
-	* utf-8 with BOM as encoding
-	* tab indent with 4 characters for code snippet.
-	* optional: soft carriage return preferred.
+.. every .rst file should include Includes.txt
+.. use correct path!
 
-.. Includes roles, substitutions, ...
-.. include:: _IncludedDirectives.rst
+.. include:: Includes.txt
 
-=================
+.. Every manual should have a start label for cross-referencing to
+.. start page. Do not remove this!
+
+.. _start:
+
+=============================================================
 Extension Name
-=================
+=============================================================
 
-:Extension name: Day Care Centers
-:Extension key: daycarecenters
-:Version: 0.0.1
-:Description: manuals covering TYPO3 extension "Day Care Centers"
-:Language: en
-:Author: Stefan Frömken
-:Creation: 2013-04-05
-:Generation: 12:44
-:Licence: Open Content License available from `www.opencontent.org/opl.shtml <http://www.opencontent.org/opl.shtml>`_
+:Version:
+   |release|
 
-The content of this document is related to TYPO3, a GNU/GPL CMS/Framework available from `www.typo3.org
-<http://www.typo3.org/>`_
+:Language:
+   en
 
-**Table of Contents**
+:Authors:
+   Pascal Rinker
+
+:Email:
+   projects@jweiland.net
+
+:License:
+   This extension documentation is published under the
+   `CC BY-NC-SA 4.0 <https://creativecommons.org/licenses/by-nc-sa/4.0/>`__ (Creative Commons)
+   license
+
+This extension allows you to create a list of daycare centers including some filter options and maps integration.
+
+**TYPO3**
+
+The content of this document is related to TYPO3 CMS,
+a GNU/GPL CMS/Framework available from `typo3.org <https://typo3.org/>`_ .
+
+**Community Documentation**
+
+This documentation is community documentation for the TYPO3 extension {extension.name}
+
+It is maintained as part of this third party extension.
+
+If you find an error or something is missing, please:
+`Report a Problem <https://github.com/TYPO3-Documentation/TYPO3CMS-Example-ExtensionManual/issues/new>`__
+
+**Extension Manual**
+
+This documentation is for the TYPO3 extension <extkey>.
+
+**For Contributors**
+
+You are welcome to help improve this guide.
+Just click on "Edit me on GitHub" on the top right to submit your change request.
 
 .. toctree::
-	:maxdepth: 2
+   :maxdepth: 3
 
-	ProjectInformation
-	UserManual
-	AdministratorManual
-	TyposcriptReference
-	DeveloperCorner
-	RestructuredtextHelp
-
-.. STILL TO ADD IN THIS DOCUMENT
-	@todo: add section about how screenshots can be automated. Pointer to PhantomJS could be added.
-	@todo: explain how documentation can be rendered locally and remotely.
-	@todo: explain what files should be versionned and what not (_build, Makefile, conf.py, ...)
-
-.. include:: ../Readme.rst
-
-What does it do?
-=================
-
-In this chapter should be given a brief overview of the extension. What does it do? What problem does it solve? Who is interested in this? Basically, this section includes everything people need to know to decide whether they should go on with this extension.
-
-.. figure:: Images/IntroductionPackage.png
-		:width: 500px
-		:alt: Introduction Package
-
-		Introduction Package just after installation (caption of the image)
-
-		How the Frontend of the Introduction Package looks like just after installation (legend of the image)
+   Introduction/Index
+   Editor/Index
+   Installation/Index
+   Configuration/Index
+   Changelog/Index
+   Sitemap
