@@ -26,7 +26,7 @@ CREATE TABLE tx_daycarecenters_domain_model_kita (
 	response_times text NOT NULL,
 	facebook varchar(255) DEFAULT '' NOT NULL,
 	twitter varchar(255) DEFAULT '' NOT NULL,
-	google varchar(255) DEFAULT '' NOT NULL,
+	instagram varchar(255) DEFAULT '' NOT NULL,
 	additional_informations text NOT NULL,
 	earliest_opening_time int(11) DEFAULT '0' NOT NULL,
 	latest_opening_time int(11) DEFAULT '0' NOT NULL,

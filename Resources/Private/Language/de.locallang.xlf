@@ -88,9 +88,9 @@
 				<source>Twitter</source>
 				<target>Twitter</target>
 			</trans-unit>
-			<trans-unit id="tx_daycarecenters_domain_model_kita.google">
-				<source>Google</source>
-				<target>Google</target>
+			<trans-unit id="tx_daycarecenters_domain_model_kita.instagram">
+				<source>Instagram</source>
+				<target>Instagram</target>
 			</trans-unit>
 			<trans-unit id="tx_daycarecenters_domain_model_kita.additional_informations">
 				<source>Additional informations</source>

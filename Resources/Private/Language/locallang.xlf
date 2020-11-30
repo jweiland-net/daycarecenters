@@ -70,8 +70,8 @@
 			<trans-unit id="tx_daycarecenters_domain_model_kita.twitter">
 				<source>Twitter</source>
 			</trans-unit>
-			<trans-unit id="tx_daycarecenters_domain_model_kita.google">
-				<source>Google</source>
+			<trans-unit id="tx_daycarecenters_domain_model_kita.instagram">
+				<source>Instagram</source>
 			</trans-unit>
 			<trans-unit id="tx_daycarecenters_domain_model_kita.additional_informations">
 				<source>Additional informations</source>
