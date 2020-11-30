@@ -61,8 +61,8 @@
 			<trans-unit id="twitter.description">
 				<source>Twitter</source>
 			</trans-unit>
-			<trans-unit id="google.description">
-				<source>Google</source>
+			<trans-unit id="instagram.description">
+				<source>Instagram</source>
 			</trans-unit>
 			<trans-unit id="holder.description">
 				<source>Responsible body</source>
