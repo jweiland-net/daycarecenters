@@ -28,7 +28,9 @@ return [
             'endtime' => 'endtime'
         ],
         'searchFields' => 'title,description',
-        'iconfile' => 'EXT:daycarecenters/Resources/Public/Icons/tx_daycarecenters_domain_model_careform.gif'
+        'typeicon_classes' => [
+            'default' => 'ext-daycarecenters-careform'
+        ]
     ],
     'interface' => [
         'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, description'

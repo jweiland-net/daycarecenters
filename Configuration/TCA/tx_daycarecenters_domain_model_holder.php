@@ -28,7 +28,9 @@ return [
             'endtime' => 'endtime'
         ],
         'searchFields' => 'title,contact_person,street,zip,city,email,website',
-        'iconfile' => 'EXT:daycarecenters/Resources/Public/Icons/tx_daycarecenters_domain_model_holder.gif'
+        'typeicon_classes' => [
+            'default' => 'ext-daycarecenters-holder'
+        ]
     ],
     'interface' => [
         'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, contact_person, street, house_number, zip, city, telephone, fax, email, website, logo'

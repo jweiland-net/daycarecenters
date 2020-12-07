@@ -28,7 +28,9 @@ return [
             'endtime' => 'endtime'
         ],
         'searchFields' => 'district',
-        'iconfile' => 'EXT:daycarecenters/Resources/Public/Icons/tx_daycarecenters_domain_model_district.gif'
+        'typeicon_classes' => [
+            'default' => 'ext-daycarecenters-district'
+        ]
     ],
     'interface' => [
         'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, district'

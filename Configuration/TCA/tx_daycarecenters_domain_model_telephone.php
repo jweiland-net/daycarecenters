@@ -27,8 +27,9 @@ return [
             'endtime' => 'endtime'
         ],
         'searchFields' => 'telephone',
-        'iconfile' => 'EXT:daycarecenters/Resources/Public/Icons/tx_daycarecenters_domain_model_telephone.gif'
-    ],
+        'typeicon_classes' => [
+            'default' => 'ext-daycarecenters-telephone'
+        ]    ],
     'interface' => [
         'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, telephone'
     ],

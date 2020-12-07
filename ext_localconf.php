@@ -37,4 +37,21 @@ call_user_func(function ($extKey) {
 
     $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['daycarecentersHolderLogo']
         = \JWeiland\Daycarecenters\Updates\HolderLogoUpdateWizard::class;
+
+    // Register SVG Icon Identifier
+    $svgIcons = [
+        'ext-daycarecenters-careform' => 'careform.svg',
+        'ext-daycarecenters-district' => 'district.svg',
+        'ext-daycarecenters-holder' => 'holder.svg',
+        'ext-daycarecenters-kita' => 'kita.svg',
+        'ext-daycarecenters-telephone' => 'telephone.svg',
+    ];
+    $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
+    foreach ($svgIcons as $identifier => $fileName) {
+        $iconRegistry->registerIcon(
+            $identifier,
+            \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+            ['source' => 'EXT:daycarecenters/Resources/Public/Icons/' . $fileName]
+        );
+    }
 }, 'daycarecenters');

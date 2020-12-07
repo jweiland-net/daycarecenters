@@ -28,8 +28,9 @@ return [
             'endtime' => 'endtime'
         ],
         'searchFields' => 'title,leader,places,street,zip,city,email,website,food_info,closing_days,response_times',
-        'iconfile' => 'EXT:daycarecenters/Resources/Public/Icons/tx_daycarecenters_domain_model_kita.gif'
-    ],
+        'typeicon_classes' => [
+            'default' => 'ext-daycarecenters-kita'
+        ]    ],
     'interface' => [
         'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, leader, places, street, house_number, zip, city, email, website, telephones, amount_of_groups, space_offered, food_supply, food_info, food_prices, closing_days, logo, images, response_times, facebook, twitter, instagram, additional_informations, earliest_opening_time, latest_opening_time, earliest_age, latest_age, holder, care_form, district'
     ],
