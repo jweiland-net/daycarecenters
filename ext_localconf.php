@@ -1,12 +1,4 @@
 <?php
-
-/*
- * This file is part of the package jweiland/daycarecenters.
- *
- * For the full copyright and license information, please read the
- * LICENSE file that was distributed with this source code.
- */
-
 if (!defined('TYPO3_MODE')) {
     die('Access denied.');
 }
@@ -37,6 +29,8 @@ call_user_func(function ($extKey) {
 
     $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['daycarecentersHolderLogo']
         = \JWeiland\Daycarecenters\Updates\HolderLogoUpdateWizard::class;
+    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['daycarecentersUpdateSlug']
+        = \JWeiland\Daycarecenters\Updates\SlugUpdateWizard::class;
 
     // Register SVG Icon Identifier
     $svgIcons = [

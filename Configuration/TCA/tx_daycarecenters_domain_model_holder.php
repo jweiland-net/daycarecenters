@@ -1,12 +1,4 @@
 <?php
-
-/*
- * This file is part of the package jweiland/daycarecenters.
- *
- * For the full copyright and license information, please read the
- * LICENSE file that was distributed with this source code.
- */
-
 return [
     'ctrl' => [
         'title' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_holder',
@@ -37,13 +29,18 @@ return [
     ],
     'types' => [
         '1' => [
-            'showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, contact_person,
-            street, house_number, zip, city, telephone, fax, email, website, logo,
+            'showitem' => '--palette--;;languageHidden, title, contact_person,
+            --palette--;;streetHouseNumber, --palette--;;zipCity, --palette--;;telephoneFax, --palette--;;emailWebsite, logo,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.tabs.access, 
             --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.palettes.access;access'
         ]
     ],
     'palettes' => [
+        'languageHidden' => ['showitem' => 'sys_language_uid, l10n_parent, hidden'],
+        'streetHouseNumber' => ['showitem' => 'street, house_number'],
+        'zipCity' => ['showitem' => 'zip, city'],
+        'telephoneFax' => ['showitem' => 'telephone, fax'],
+        'emailWebsite' => ['showitem' => 'email, website'],
         'access' => [
             'showitem' => 'starttime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:starttime_formlabel,endtime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:endtime_formlabel',
         ]

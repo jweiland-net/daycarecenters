@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2013-04-19T12:44:19Z"
-		  product-name="daycarecenters">
+	<file source-language="en" datatype="plaintext" original="messages" date="2013-04-19T12:44:19Z" product-name="daycarecenters">
 		<header/>
 		<body>
-
 			<trans-unit id="plugin.title">
 				<source>Day Care Centers</source>
 				<target>Kindertagesstätten</target>
@@ -17,6 +15,10 @@
 			<trans-unit id="tx_daycarecenters_domain_model_kita.title">
 				<source>Title</source>
 				<target>Bezeichnung</target>
+			</trans-unit>
+			<trans-unit id="tx_daycarecenters_domain_model_kita.path_segment">
+				<source>Segment for URL</source>
+				<target>Abschnitt für URL</target>
 			</trans-unit>
 			<trans-unit id="tx_daycarecenters_domain_model_kita.leader">
 				<source>Leader</source>
@@ -214,7 +216,6 @@
 				<source>Telephone</source>
 				<target>Telefon</target>
 			</trans-unit>
-
 		</body>
 	</file>
 </xliff>
