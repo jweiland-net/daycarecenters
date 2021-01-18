@@ -3,7 +3,6 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2013-04-19T12:44:19Z" product-name="daycarecenters">
 		<header/>
 		<body>
-
 			<trans-unit id="plugin.title">
 				<source>Day Care Centers</source>
 			</trans-unit>
@@ -13,6 +12,9 @@
 			</trans-unit>
 			<trans-unit id="tx_daycarecenters_domain_model_kita.title">
 				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_daycarecenters_domain_model_kita.path_segment">
+				<source>Segment for URL</source>
 			</trans-unit>
 			<trans-unit id="tx_daycarecenters_domain_model_kita.description">
 				<source>Description</source>
@@ -168,7 +170,6 @@
 			<trans-unit id="tx_daycarecenters_domain_model_telephone.telephone">
 				<source>Telephone</source>
 			</trans-unit>
-
 		</body>
 	</file>
 </xliff>

@@ -7,6 +7,7 @@ CREATE TABLE tx_daycarecenters_domain_model_kita (
 	pid int(11) DEFAULT '0' NOT NULL,
 
 	title varchar(255) DEFAULT '' NOT NULL,
+	path_segment varchar(2048) DEFAULT '' NOT NULL,
 	leader varchar(255) DEFAULT '' NOT NULL,
 	places varchar(30) DEFAULT '' NOT NULL,
 	street varchar(255) DEFAULT '' NOT NULL,

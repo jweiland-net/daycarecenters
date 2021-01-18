@@ -1,12 +1,4 @@
 <?php
-
-/*
- * This file is part of the package jweiland/daycarecenters.
- *
- * For the full copyright and license information, please read the
- * LICENSE file that was distributed with this source code.
- */
-
 return [
     'ctrl' => [
         'title' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_kita',
@@ -32,20 +24,26 @@ return [
             'default' => 'ext-daycarecenters-kita'
         ]    ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, leader, places, street, house_number, zip, city, email, website, telephones, amount_of_groups, space_offered, food_supply, food_info, food_prices, closing_days, logo, images, response_times, facebook, twitter, instagram, additional_informations, earliest_opening_time, latest_opening_time, earliest_age, latest_age, holder, care_form, district'
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, path_segment, leader, places, street, house_number, zip, city, email, website, telephones, amount_of_groups, space_offered, food_supply, food_info, food_prices, closing_days, logo, images, response_times, facebook, twitter, instagram, additional_informations, earliest_opening_time, latest_opening_time, earliest_age, latest_age, holder, care_form, district'
     ],
     'types' => [
         '1' => [
-            'showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, leader, places, street,
-            house_number, zip, city, email, website, telephones, amount_of_groups, space_offered, food_supply,
+            'showitem' => '--palette--;;languageHidden, title, path_segment, leader, places,
+            --palette--;;streetHouseNumber, --palette--;;zipCity, --palette--;;emailWebsite, telephones, amount_of_groups, space_offered, food_supply,
             food_info, food_prices, closing_days, logo, images, response_times, facebook, twitter, instagram,
-            additional_informations, earliest_opening_time, latest_opening_time, earliest_age, latest_age,
+            additional_informations, --palette--;;openingTimes, --palette--;;ages,
             holder, care_form, district,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.tabs.access, 
             --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.palettes.access;access'
         ]
     ],
     'palettes' => [
+        'languageHidden' => ['showitem' => 'sys_language_uid, l10n_parent, hidden'],
+        'streetHouseNumber' => ['showitem' => 'street, house_number'],
+        'zipCity' => ['showitem' => 'zip, city'],
+        'emailWebsite' => ['showitem' => 'email, website'],
+        'openingTimes' => ['showitem' => 'earliest_opening_time, latest_opening_time'],
+        'ages' => ['showitem' => 'earliest_age, latest_age'],
         'access' => [
             'showitem' => 'starttime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:starttime_formlabel,endtime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:endtime_formlabel',
         ]
@@ -161,6 +159,26 @@ return [
                 'type' => 'input',
                 'size' => 30,
                 'eval' => 'trim'
+            ]
+        ],
+        'path_segment' => [
+            'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_kita.path_segment',
+            'displayCond' => 'VERSION:IS:false',
+            'config' => [
+                'type' => 'slug',
+                'size' => 50,
+                'generatorOptions' => [
+                    'fields' => ['title'],
+                    // Do not add pageSlug, as we add pageSlug on our own in RouteEnhancer
+                    'prefixParentPageSlug' => false,
+                    'fieldSeparator' => '-',
+                    'replacements' => [
+                        '/' => '-'
+                    ],
+                ],
+                'fallbackCharacter' => '-',
+                'eval' => 'uniqueInSite',
+                'default' => ''
             ]
         ],
         'leader' => [
