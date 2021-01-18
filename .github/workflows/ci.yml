@@ -1,7 +1,7 @@
 # Adapted from https://github.com/TYPO3GmbH/blog/blob/master/.github/workflows/ci.yml
 name: CI
 
-on: [push, pull_request]
+on: [pull_request]
 
 jobs:
   build:
@@ -9,7 +9,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        typo3: [^8.7, ^9.5, ^10.4]
+        typo3: [^9.5, ^10.4]
         php: ['7.1', '7.2', '7.3', '7.4']
         os: [ubuntu-latest]
         exclude:

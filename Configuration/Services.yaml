@@ -1,0 +1,11 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  JWeiland\Daycarecenters\:
+    resource: '../Classes/*'
+
+  JWeiland\Daycarecenters\Configuration\ExtConf:
+    public: true

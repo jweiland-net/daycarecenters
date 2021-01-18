@@ -1,0 +1,13 @@
+# Remove that part while removing TYPO3 9 compatibility
+config.tx_extbase {
+  persistence{
+    classes {
+      JWeiland\Daycarecenters\Domain\Model\FileReference {
+        mapping {
+          tableName = sys_file_reference
+          recordType =
+        }
+      }
+    }
+  }
+}
