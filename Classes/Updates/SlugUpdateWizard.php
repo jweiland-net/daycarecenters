@@ -39,19 +39,6 @@ class SlugUpdateWizard implements UpgradeWizardInterface
      */
     protected $slugHelper;
 
-    public function __construct(SlugHelper $slugHelper = null)
-    {
-        if ($slugHelper === null) {
-            $slugHelper = GeneralUtility::makeInstance(
-                SlugHelper::class,
-                $this->tableName,
-                $this->fieldName,
-                $GLOBALS['TCA'][$this->tableName]['columns']['path_segment']['config']
-            );
-        }
-        $this->slugHelper = $slugHelper;
-    }
-
     /**
      * Return the identifier for this wizard
      * This should be the same string as used in the ext_localconf class registration
@@ -143,6 +130,20 @@ class SlugUpdateWizard implements UpgradeWizardInterface
         }
 
         return true;
+    }
+
+    protected function getSlugHelper(): SlugHelper
+    {
+        if ($this->slugHelper === null) {
+            $this->slugHelper = GeneralUtility::makeInstance(
+                SlugHelper::class,
+                $this->tableName,
+                $this->fieldName,
+                $GLOBALS['TCA'][$this->tableName]['columns']['path_segment']['config']
+            );
+        }
+
+        return $this->slugHelper;
     }
 
     /**
