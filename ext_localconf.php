@@ -3,17 +3,17 @@ if (!defined('TYPO3_MODE')) {
     die('Access denied.');
 }
 
-call_user_func(function ($extKey) {
+call_user_func(static function () {
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-        'JWeiland.' . $extKey,
+        'Daycarecenters',
         'Daycarecenters',
         [
-            'Kita' => 'list, show, search',
-            'Holder' => 'show'
+            \JWeiland\Daycarecenters\Controller\KitaController::class => 'list, show, search',
+            \JWeiland\Daycarecenters\Controller\HolderController::class => 'show',
         ],
         // non-cacheable actions
         [
-            'Kita' => 'search'
+            \JWeiland\Daycarecenters\Controller\KitaController::class => 'search',
         ]
     );
 
@@ -48,4 +48,4 @@ call_user_func(function ($extKey) {
             ['source' => 'EXT:daycarecenters/Resources/Public/Icons/' . $fileName]
         );
     }
-}, 'daycarecenters');
+});

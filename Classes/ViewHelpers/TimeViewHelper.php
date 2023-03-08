@@ -29,9 +29,11 @@ class TimeViewHelper extends AbstractViewHelper
         \Closure $renderChildrenClosure,
         RenderingContextInterface $renderingContext
     ) {
-        $timestamp = (int)$renderChildrenClosure();
-        $converter = GeneralUtility::makeInstance(TimeToStringConverter::class);
+        return self::getTimeToStringConverter()->convert((int)$renderChildrenClosure());
+    }
 
-        return $converter->convert($timestamp);
+    private static function getTimeToStringConverter(): TimeToStringConverter
+    {
+        return GeneralUtility::makeInstance(TimeToStringConverter::class);
     }
 }

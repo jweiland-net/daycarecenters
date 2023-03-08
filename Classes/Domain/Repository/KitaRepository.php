@@ -19,17 +19,6 @@ use TYPO3\CMS\Extbase\Persistence\Repository;
  */
 class KitaRepository extends Repository
 {
-    /**
-     * search Kitas
-     *
-     * @param int $earliestAge
-     * @param int $latestAge
-     * @param int $earliestOpeningTimes
-     * @param int $latestOpeningTimes
-     * @param bool $food
-     * @param int $district
-     * @return QueryResultInterface
-     */
     public function searchKitas(
         int $earliestAge,
         int $latestAge,
@@ -40,16 +29,20 @@ class KitaRepository extends Repository
     ): QueryResultInterface {
         $query = $this->createQuery();
         $constraint = [];
+
         // add age to constraint
         $constraint[] = $query->lessThanOrEqual('earliestAge', $earliestAge);
         $constraint[] = $query->greaterThanOrEqual('latestAge', $latestAge);
+
         // add openingTimes
         $constraint[] = $query->lessThanOrEqual('earliestOpeningTime', $earliestOpeningTimes);
         $constraint[] = $query->greaterThanOrEqual('latestOpeningTime', $latestOpeningTimes);
+
         // add food supply
         if ($food) {
             $constraint[] = $query->equals('foodSupply', $food);
         }
+
         // add district
         if (!empty($district)) {
             $constraint[] = $query->equals('district', $district);

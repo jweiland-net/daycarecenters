@@ -42,8 +42,6 @@ class SlugUpdateWizard implements UpgradeWizardInterface
     /**
      * Return the identifier for this wizard
      * This should be the same string as used in the ext_localconf class registration
-     *
-     * @return string
      */
     public function getIdentifier(): string
     {
@@ -88,8 +86,6 @@ class SlugUpdateWizard implements UpgradeWizardInterface
 
     /**
      * Performs the accordant updates.
-     *
-     * @return bool Whether everything went smoothly or not
      */
     public function executeUpdate(): bool
     {
@@ -120,10 +116,10 @@ class SlugUpdateWizard implements UpgradeWizardInterface
                 $connection->update(
                     $this->tableName,
                     [
-                        $this->fieldName => $slug
+                        $this->fieldName => $slug,
                     ],
                     [
-                        'uid' => (int)$recordToUpdate['uid']
+                        'uid' => (int)$recordToUpdate['uid'],
                     ]
                 );
             }
@@ -152,7 +148,7 @@ class SlugUpdateWizard implements UpgradeWizardInterface
     public function getPrerequisites(): array
     {
         return [
-            DatabaseUpdatedPrerequisite::class
+            DatabaseUpdatedPrerequisite::class,
         ];
     }
 

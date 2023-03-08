@@ -26,26 +26,18 @@ class UpdateMaps2RecordHook
      */
     protected $extConf;
 
-    /**
-     * @param ExtConf|null $extConf
-     */
-    public function __construct(ExtConf $extConf = null)
+    public function __construct(ExtConf $extConf)
     {
-        if ($extConf === null) {
-            $extConf = GeneralUtility::makeInstance(ExtConf::class);
-        }
         $this->extConf = $extConf;
     }
 
-    /**
-     * @param string $poiCollectionTableName
-     * @param int $poiCollectionUid
-     * @param string $foreignTableName
-     * @param array $foreignLocationRecord
-     * @param array $options
-     */
-    public function postUpdatePoiCollection(string $poiCollectionTableName, int $poiCollectionUid, string $foreignTableName, array $foreignLocationRecord, array $options): void
-    {
+    public function postUpdatePoiCollection(
+        string $poiCollectionTableName,
+        int $poiCollectionUid,
+        string $foreignTableName,
+        array $foreignLocationRecord,
+        array $options
+    ): void {
         if ($foreignTableName === 'tx_daycarecenters_domain_model_kita') {
             $connection = $this->getConnectionPool()->getConnectionForTable('sys_category_record_mm');
 
@@ -54,7 +46,7 @@ class UpdateMaps2RecordHook
                 'sys_category_record_mm',
                 [
                     'uid_foreign' => $poiCollectionUid,
-                    'tablenames' => 'tx_maps2_domain_model_poicollection'
+                    'tablenames' => 'tx_maps2_domain_model_poicollection',
                 ]
             );
 
@@ -66,7 +58,7 @@ class UpdateMaps2RecordHook
                     'uid_foreign' => $poiCollectionUid,
                     'fieldname' => 'categories',
                     'tablenames' => 'tx_maps2_domain_model_poicollection',
-                    'sorting' => 1
+                    'sorting' => 1,
                 ]
             );
 
@@ -74,10 +66,10 @@ class UpdateMaps2RecordHook
             $connection->update(
                 'tx_maps2_domain_model_poicollection',
                 [
-                    'categories' => 1
+                    'categories' => 1,
                 ],
                 [
-                    'uid' => $poiCollectionUid
+                    'uid' => $poiCollectionUid,
                 ]
             );
         }

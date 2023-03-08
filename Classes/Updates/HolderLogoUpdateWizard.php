@@ -12,27 +12,25 @@ declare(strict_types=1);
 namespace JWeiland\Daycarecenters\Updates;
 
 use Doctrine\DBAL\DBALException;
+use Psr\Log\LoggerAwareInterface;
+use Psr\Log\LoggerAwareTrait;
 use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder;
-use TYPO3\CMS\Core\Log\Logger;
-use TYPO3\CMS\Core\Log\LogManager;
+use TYPO3\CMS\Core\Resource\FileInterface;
 use TYPO3\CMS\Core\Resource\ResourceStorage;
 use TYPO3\CMS\Core\Resource\StorageRepository;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 
-class HolderLogoUpdateWizard implements UpgradeWizardInterface
+class HolderLogoUpdateWizard implements UpgradeWizardInterface, LoggerAwareInterface
 {
+    use LoggerAwareTrait;
+
     /**
      * @var ResourceStorage
      */
     protected $storage;
-
-    /**
-     * @var Logger
-     */
-    protected $logger;
 
     /**
      * @var string
@@ -57,14 +55,6 @@ class HolderLogoUpdateWizard implements UpgradeWizardInterface
      */
     protected $targetPath = '_migrated/daycarecenters/';
 
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->logger = GeneralUtility::makeInstance(LogManager::class)->getLogger(__CLASS__);
-    }
-
     public function getIdentifier(): string
     {
         return 'daycarecentersHolderLogo';
@@ -84,10 +74,12 @@ class HolderLogoUpdateWizard implements UpgradeWizardInterface
     public function executeUpdate(): bool
     {
         $customMessage = '';
+
         try {
             $storages = GeneralUtility::makeInstance(StorageRepository::class)->findAll();
             $this->storage = $storages[0];
 
+            $dbQueries = [];
             $records = $this->getRecordsFromTable($dbQueries);
             foreach ($records as $record) {
                 $this->migrateField($record, $customMessage, $dbQueries);
@@ -95,6 +87,7 @@ class HolderLogoUpdateWizard implements UpgradeWizardInterface
         } catch (\Exception $e) {
             $customMessage .= PHP_EOL . $e->getMessage();
         }
+
         return empty($customMessage);
     }
 
@@ -102,12 +95,9 @@ class HolderLogoUpdateWizard implements UpgradeWizardInterface
      * Get records from table where the field to migrate is not empty (NOT NULL and != '')
      * and also not numeric (which means that it is migrated)
      *
-     * @param array $dbQueries
-     *
-     * @return array
      * @throws \RuntimeException
      */
-    protected function getRecordsFromTable(&$dbQueries)
+    protected function getRecordsFromTable(array &$dbQueries): array
     {
         $connectionPool = GeneralUtility::makeInstance(ConnectionPool::class);
         $queryBuilder = $connectionPool->getQueryBuilderForTable($this->table);
@@ -145,14 +135,8 @@ class HolderLogoUpdateWizard implements UpgradeWizardInterface
 
     /**
      * Migrates a single field.
-     *
-     * @param array $row
-     * @param string $customMessage
-     * @param array $dbQueries
-     *
-     * @throws \Exception
      */
-    protected function migrateField($row, &$customMessage, &$dbQueries)
+    protected function migrateField($row, string &$customMessage, array &$dbQueries): void
     {
         $fieldItems = GeneralUtility::trimExplode(',', $row[$this->fieldToMigrate], true);
         if (empty($fieldItems) || is_numeric($row[$this->fieldToMigrate])) {
@@ -206,11 +190,10 @@ class HolderLogoUpdateWizard implements UpgradeWizardInterface
                 try {
                     // if the source file does not exist, we should just continue, but leave a message in the docs;
                     // ideally, the user would be informed after the update as well.
-                    /** @var File $file */
+                    /** @var FileInterface $file */
                     $file = $this->storage->getFile($this->targetPath . $item);
                     $fileUid = $file->getUid();
                 } catch (\InvalidArgumentException $e) {
-
                     // no file found, no reference can be set
                     $this->logger->notice(
                         'File ' . $this->sourcePath . $item . ' does not exist. Reference was not migrated.',
@@ -243,7 +226,7 @@ class HolderLogoUpdateWizard implements UpgradeWizardInterface
                     'uid_local' => $fileUid,
                     'tablenames' => $this->table,
                     'crdate' => time(),
-                    'tstamp' => time()
+                    'tstamp' => time(),
                 ];
 
                 $queryBuilder = $connectionPool->getQueryBuilderForTable('sys_file_reference');

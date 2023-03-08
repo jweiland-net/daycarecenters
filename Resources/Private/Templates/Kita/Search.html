@@ -1,6 +1,11 @@
-<f:layout name="Default" />
+<html lang="en"
+      xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<f:layout name="Default"/>
 
 <f:section name="main">
-	<f:render partial="Kita/Search" arguments="{earliestAge: earliestAge, latestAge: latestAge, earliestOpeningTime: earliestOpeningTime, latestOpeningTime: latestOpeningTime, food: food, district: district, districts: districts}" />
-	<f:render partial="Kita/List" arguments="{kitas: kitas}" />
+    <f:render partial="Kita/Search" arguments="{_all}"/>
+    <f:render partial="Kita/List" arguments="{kitas: kitas}"/>
 </f:section>
+</html>

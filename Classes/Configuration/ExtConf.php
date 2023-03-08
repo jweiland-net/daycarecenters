@@ -11,6 +11,8 @@ declare(strict_types=1);
 
 namespace JWeiland\Daycarecenters\Configuration;
 
+use TYPO3\CMS\Core\Configuration\Exception\ExtensionConfigurationExtensionNotConfiguredException;
+use TYPO3\CMS\Core\Configuration\Exception\ExtensionConfigurationPathDoesNotExistException;
 use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 use TYPO3\CMS\Core\SingletonInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -30,56 +32,39 @@ class ExtConf implements SingletonInterface
      */
     protected $defaultMaps2Category = 0;
 
-    public function __construct()
+    public function __construct(ExtensionConfiguration $extensionConfiguration)
     {
-        $extConf = [];
-        if (class_exists(ExtensionConfiguration::class)) {
+        try {
             $extConf = GeneralUtility::makeInstance(ExtensionConfiguration::class)->get('daycarecenters');
-        } elseif (isset($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['daycarecenters'])) {
-            $extConf = unserialize(
-                $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['daycarecenters'],
-                ['allowed_classes' => false]
-            );
-        }
-        if (is_array($extConf) && count($extConf)) {
-            // call setter method foreach configuration entry
-            foreach ($extConf as $key => $value) {
-                $methodName = 'set' . ucfirst($key);
-                if (method_exists($this, $methodName)) {
-                    $this->$methodName($value);
+            if (is_array($extConf)) {
+                // call setter method foreach configuration entry
+                foreach ($extConf as $key => $value) {
+                    $methodName = 'set' . ucfirst($key);
+                    if (method_exists($this, $methodName)) {
+                        $this->$methodName($value);
+                    }
                 }
             }
+        } catch (ExtensionConfigurationExtensionNotConfiguredException | ExtensionConfigurationPathDoesNotExistException $e) {
         }
     }
 
-    /**
-     * @return int
-     */
     public function getPoiCollectionPid(): int
     {
         return $this->poiCollectionPid;
     }
 
-    /**
-     * @param int $poiCollectionPid
-     */
-    public function setPoiCollectionPid($poiCollectionPid)
+    public function setPoiCollectionPid(string $poiCollectionPid): void
     {
         $this->poiCollectionPid = (int)$poiCollectionPid;
     }
 
-    /**
-     * @return int
-     */
     public function getDefaultMaps2Category(): int
     {
         return $this->defaultMaps2Category;
     }
 
-    /**
-     * @param int $defaultMaps2Category
-     */
-    public function setDefaultMaps2Category($defaultMaps2Category)
+    public function setDefaultMaps2Category(string $defaultMaps2Category): void
     {
         $this->defaultMaps2Category = (int)$defaultMaps2Category;
     }

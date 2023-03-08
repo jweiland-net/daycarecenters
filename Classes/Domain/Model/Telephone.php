@@ -23,17 +23,11 @@ class Telephone extends AbstractEntity
      */
     protected $telephone = '';
 
-    /**
-     * @return string $telephone
-     */
     public function getTelephone(): string
     {
         return $this->telephone;
     }
 
-    /**
-     * @param string $telephone
-     */
     public function setTelephone(string $telephone): void
     {
         $this->telephone = $telephone;

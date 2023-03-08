@@ -61,9 +61,6 @@ plugin.tx_daycarecenters {
 
     pageBrowser {
       itemsPerPage = {$plugin.tx_daycarecenters.settings.pageBrowser.itemsPerPage}
-      insertAbove = {$plugin.tx_daycarecenters.settings.pageBrowser.insertAbove}
-      insertBelow = {$plugin.tx_daycarecenters.settings.pageBrowser.insertBelow}
-      maximumNumberOfLinks = {$plugin.tx_daycarecenters.settings.pageBrowser.maximumNumberOfLinks}
     }
   }
 }
