@@ -17,8 +17,6 @@ use Psr\Log\LoggerAwareTrait;
 use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder;
-use TYPO3\CMS\Core\Log\Logger;
-use TYPO3\CMS\Core\Log\LogManager;
 use TYPO3\CMS\Core\Resource\FileInterface;
 use TYPO3\CMS\Core\Resource\ResourceStorage;
 use TYPO3\CMS\Core\Resource\StorageRepository;
@@ -196,7 +194,6 @@ class HolderLogoUpdateWizard implements UpgradeWizardInterface, LoggerAwareInter
                     $file = $this->storage->getFile($this->targetPath . $item);
                     $fileUid = $file->getUid();
                 } catch (\InvalidArgumentException $e) {
-
                     // no file found, no reference can be set
                     $this->logger->notice(
                         'File ' . $this->sourcePath . $item . ' does not exist. Reference was not migrated.',
