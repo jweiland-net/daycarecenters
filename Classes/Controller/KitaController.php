@@ -14,6 +14,7 @@ namespace JWeiland\Daycarecenters\Controller;
 use JWeiland\Daycarecenters\Domain\Model\Kita;
 use JWeiland\Daycarecenters\Domain\Repository\DistrictRepository;
 use JWeiland\Daycarecenters\Domain\Repository\KitaRepository;
+use JWeiland\Daycarecenters\Event\PostProcessFluidVariablesEvent;
 use TYPO3\CMS\Core\Page\PageRenderer;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
@@ -64,17 +65,21 @@ class KitaController extends ActionController
 
     public function listAction(): void
     {
-        $this->view->assign('earliestAge', (int)$this->settings['search']['earliestAge']);
-        $this->view->assign('latestAge', (int)$this->settings['search']['latestAge']);
-        $this->view->assign('earliestOpeningTime', $this->settings['search']['earliestOpeningTime']);
-        $this->view->assign('latestOpeningTime', $this->settings['search']['latestOpeningTime']);
-        $this->view->assign('districts', $this->districtRepository->findAll());
-        $this->view->assign('kitas', $this->kitaRepository->findAll());
+        $this->postProcessAndAssignFluidVariables([
+            'earliestAge' => (int)$this->settings['search']['earliestAge'],
+            'latestAge' => (int)$this->settings['search']['latestAge'],
+            'earliestOpeningTime' => $this->settings['search']['earliestOpeningTime'],
+            'latestOpeningTime' => $this->settings['search']['latestOpeningTime'],
+            'districts' => $this->districtRepository->findAll(),
+            'kitas' => $this->kitaRepository->findAll(),
+        ]);
     }
 
     public function showAction(Kita $kita): void
     {
-        $this->view->assign('kita', $kita);
+        $this->postProcessAndAssignFluidVariables([
+            'kita' => $kita,
+        ]);
     }
 
     public function searchAction(
@@ -93,14 +98,17 @@ class KitaController extends ActionController
             $food,
             $district
         );
-        $this->view->assign('earliestAge', $earliestAge);
-        $this->view->assign('latestAge', $latestAge);
-        $this->view->assign('earliestOpeningTime', $earliestOpeningTime);
-        $this->view->assign('latestOpeningTime', $latestOpeningTime);
-        $this->view->assign('food', $food);
-        $this->view->assign('district', $district);
-        $this->view->assign('districts', $this->districtRepository->findAll());
-        $this->view->assign('kitas', $kitas);
+
+        $this->postProcessAndAssignFluidVariables([
+            'earliestAge' => $earliestAge,
+            'latestAge' => $latestAge,
+            'earliestOpeningTime' => $earliestOpeningTime,
+            'latestOpeningTime' => $latestOpeningTime,
+            'food' => $food,
+            'district' => $district,
+            'districts' => $this->districtRepository->findAll(),
+            'kitas' => $kitas,
+        ]);
     }
 
     /**
@@ -117,5 +125,19 @@ class KitaController extends ActionController
         }
 
         return $seconds;
+    }
+
+    protected function postProcessAndAssignFluidVariables(array $variables = []): void
+    {
+        /** @var PostProcessFluidVariablesEvent $event */
+        $event = $this->eventDispatcher->dispatch(
+            new PostProcessFluidVariablesEvent(
+                $this->request,
+                $this->settings,
+                $variables
+            )
+        );
+
+        $this->view->assignMultiple($event->getFluidVariables());
     }
 }

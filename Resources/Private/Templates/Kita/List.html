@@ -5,16 +5,14 @@
 <f:layout name="Default"/>
 
 <f:section name="main">
-
     <f:flashMessages/>
+
     <div class="grid_8 floatleft">
         <header>
-            <h1>
-                <f:translate key="extensionTitle"/>
-            </h1>
+            <h1>{f:translate(key: 'extensionTitle')}</h1>
         </header>
         <f:render partial="Kita/Search" arguments="{_all}"/>
-        <f:render partial="Kita/List" arguments="{kitas: kitas}"/>
+        <f:render partial="Kita/List" arguments="{kitas: kitas, actionName: 'list'}"/>
     </div>
 </f:section>
 </html>
