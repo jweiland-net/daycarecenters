@@ -9,3 +9,8 @@ services:
 
   JWeiland\Daycarecenters\Configuration\ExtConf:
     public: true
+
+  JWeiland\Daycarecenters\EventListener\AddPaginatorEventListener:
+    tags:
+    - name: event.listener
+      event: JWeiland\Daycarecenters\Event\PostProcessFluidVariablesEvent

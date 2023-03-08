@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace JWeiland\Daycarecenters\Controller;
 
 use JWeiland\Daycarecenters\Domain\Model\Holder;
+use JWeiland\Daycarecenters\Event\PostProcessFluidVariablesEvent;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
@@ -30,6 +31,22 @@ class HolderController extends ActionController
 
     public function showAction(Holder $holder): void
     {
-        $this->view->assign('holder', $holder);
+        $this->postProcessAndAssignFluidVariables([
+            'holder' => $holder,
+        ]);
+    }
+
+    protected function postProcessAndAssignFluidVariables(array $variables = []): void
+    {
+        /** @var PostProcessFluidVariablesEvent $event */
+        $event = $this->eventDispatcher->dispatch(
+            new PostProcessFluidVariablesEvent(
+                $this->request,
+                $this->settings,
+                $variables
+            )
+        );
+
+        $this->view->assignMultiple($event->getFluidVariables());
     }
 }
