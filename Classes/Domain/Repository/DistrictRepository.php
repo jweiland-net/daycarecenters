@@ -14,7 +14,7 @@ namespace JWeiland\Daycarecenters\Domain\Repository;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
- * Repository to get districts from DB
+ * Repository to get districts from database
  */
 class DistrictRepository extends Repository
 {

@@ -11,6 +11,6 @@ declare(strict_types=1);
 
 return [
     \JWeiland\Daycarecenters\Domain\Model\FileReference::class => [
-        'tableName' => 'sys_file_reference'
-    ]
+        'tableName' => 'sys_file_reference',
+    ],
 ];

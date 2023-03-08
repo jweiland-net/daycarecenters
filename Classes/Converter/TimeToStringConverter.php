@@ -18,15 +18,13 @@ class TimeToStringConverter
 {
     /**
      * A method to convert a timestamp to a readable time format like: 21:35
-     *
-     * @param int $timestamp Timestamp to convert
-     * @return string
      */
     public function convert(int $timestamp): string
     {
         if (empty($timestamp)) {
             return '00:00';
         }
+
         $hours = $this->getHours($timestamp);
         $minutes = $this->getRemainingMinutes($timestamp, $hours);
 
@@ -37,9 +35,6 @@ class TimeToStringConverter
 
     /**
      * This method rounds down (int) the contained hours in $time
-     *
-     * @param int $time
-     * @return int
      */
     protected function getHours(int $time): int
     {
@@ -55,14 +50,13 @@ class TimeToStringConverter
      * 900 / 60 = 15 minutes
      *
      * @param int $time seconds since midnight
-     * @param int $hours
      * @return int remaining minutes
      */
     protected function getRemainingMinutes(int $time, int $hours): int
     {
         $minutes = 0;
-
         $seconds = $time % ($hours * 3600);
+
         if ($seconds) {
             $minutes = (int)ceil($seconds / 60);
         }

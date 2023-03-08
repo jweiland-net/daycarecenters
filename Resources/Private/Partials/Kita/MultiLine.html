@@ -1,6 +1,14 @@
+<html lang="en"
+      xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
 <f:if condition="{value}">
-	<dt>
-		<f:translate key="tx_daycarecenters_domain_model_kita.{field}"/>:
-	</dt>
-	<dd><f:format.html>{value}</f:format.html></dd>
+    <dt>
+        <f:translate key="tx_daycarecenters_domain_model_kita.{field}"/>
+        :
+    </dt>
+    <dd>
+        <f:format.html>{value}</f:format.html>
+    </dd>
 </f:if>
+</html>

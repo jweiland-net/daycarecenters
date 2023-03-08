@@ -1,17 +1,54 @@
-.. include:: ../Includes.txt
+..  include:: /Includes.rst.txt
 
-.. _installation:
+
+..  _installation:
 
 ============
 Installation
 ============
 
-Using composer
-..............
+Composer
+========
 
-Use `composer require jweiland/daycarecenters` inside your TYPO3 project to get the extension. Then activate it using the TYPO3 Extension Manager.
+If your TYPO3 installation works in composer mode, please execute following command:
 
-Using TER
-.........
+..  code-block:: bash
 
-Open the Extension Manager in the backend, select "Get Extensions", update the extension list and search for daycarecenters. Then press "Import and install".
+    composer req jweiland/daycarecenters
+    vendor/bin/typo3 extension:setup --extension=daycarecenters
+
+If you work with DDEV please execute this command:
+
+..  code-block:: bash
+
+    ddev composer req jweiland/daycarecenters
+    ddev exec vendor/bin/typo3 extension:setup --extension=daycarecenters
+
+ExtensionManager
+================
+
+On non composer based TYPO3 installations you can install `daycarecenters` still over the ExtensionManager:
+
+..  rst-class:: bignums
+
+1.  Login
+
+    Login to backend of your TYPO3 installation as an administrator or system maintainer.
+
+2.  Open ExtensionManager
+
+    Click on `Extensions` from the left menu to open the ExtensionManager.
+
+3.  Update Extensions
+
+    Choose `Get Extensions` from the upper selectbox and click on the `Update now` button at the upper right.
+
+4.  Install `daycarecenters`
+
+    Use the search field to find `daycarecenters`. Choose the `daycarecenters` line from the search result and click on the cloud
+    icon to install `daycarecenters`.
+
+Next step
+=========
+
+:ref:`Configure daycarecenters <configuration>`.

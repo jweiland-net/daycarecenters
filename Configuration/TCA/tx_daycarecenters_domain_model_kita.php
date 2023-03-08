@@ -17,14 +17,12 @@ return [
         'enablecolumns' => [
             'disabled' => 'hidden',
             'starttime' => 'starttime',
-            'endtime' => 'endtime'
+            'endtime' => 'endtime',
         ],
         'searchFields' => 'title,leader,places,street,zip,city,email,website,food_info,closing_days,response_times',
         'typeicon_classes' => [
-            'default' => 'ext-daycarecenters-kita'
-        ]    ],
-    'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, path_segment, leader, places, street, house_number, zip, city, email, website, telephones, amount_of_groups, space_offered, food_supply, food_info, food_prices, closing_days, logo, images, response_times, facebook, twitter, instagram, additional_informations, earliest_opening_time, latest_opening_time, earliest_age, latest_age, holder, care_form, district'
+            'default' => 'ext-daycarecenters-kita',
+        ],
     ],
     'types' => [
         '1' => [
@@ -33,9 +31,9 @@ return [
             food_info, food_prices, closing_days, logo, images, response_times, facebook, twitter, instagram,
             additional_informations, --palette--;;openingTimes, --palette--;;ages,
             holder, care_form, district,
-            --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.tabs.access, 
-            --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.palettes.access;access'
-        ]
+            --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.tabs.access,
+            --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.palettes.access;access',
+        ],
     ],
     'palettes' => [
         'languageHidden' => ['showitem' => 'sys_language_uid, l10n_parent, hidden'],
@@ -46,7 +44,7 @@ return [
         'ages' => ['showitem' => 'earliest_age, latest_age'],
         'access' => [
             'showitem' => 'starttime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:starttime_formlabel,endtime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:endtime_formlabel',
-        ]
+        ],
     ],
     'columns' => [
         'sys_language_uid' => [
@@ -60,11 +58,11 @@ return [
                     [
                         'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.allLanguages',
                         -1,
-                        'flags-multiple'
+                        'flags-multiple',
                     ],
                 ],
                 'default' => 0,
-            ]
+            ],
         ],
         'l10n_parent' => [
             'displayCond' => 'FIELD:sys_language_uid:>:0',
@@ -84,45 +82,45 @@ return [
                     ],
                 ],
                 'default' => 0,
-            ]
+            ],
         ],
         'l10n_diffsource' => [
             'config' => [
                 'type' => 'passthrough',
-                'default' => ''
-            ]
+                'default' => '',
+            ],
         ],
         'hidden' => [
             'exclude' => true,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
             'config' => [
                 'type' => 'check',
-                'default' => 0
-            ]
+                'default' => 0,
+            ],
         ],
         'cruser_id' => [
             'label' => 'cruser_id',
             'config' => [
-                'type' => 'passthrough'
-            ]
+                'type' => 'passthrough',
+            ],
         ],
         'pid' => [
             'label' => 'pid',
             'config' => [
-                'type' => 'passthrough'
-            ]
+                'type' => 'passthrough',
+            ],
         ],
         'crdate' => [
             'label' => 'crdate',
             'config' => [
                 'type' => 'passthrough',
-            ]
+            ],
         ],
         'tstamp' => [
             'label' => 'tstamp',
             'config' => [
                 'type' => 'passthrough',
-            ]
+            ],
         ],
         'starttime' => [
             'exclude' => true,
@@ -136,7 +134,7 @@ return [
                 'behaviour' => [
                     'allowLanguageSynchronization' => true,
                 ],
-            ]
+            ],
         ],
         'endtime' => [
             'exclude' => true,
@@ -150,7 +148,7 @@ return [
                 'behaviour' => [
                     'allowLanguageSynchronization' => true,
                 ],
-            ]
+            ],
         ],
         'title' => [
             'exclude' => true,
@@ -158,8 +156,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'trim'
-            ]
+                'eval' => 'trim',
+            ],
         ],
         'path_segment' => [
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_kita.path_segment',
@@ -173,13 +171,13 @@ return [
                     'prefixParentPageSlug' => false,
                     'fieldSeparator' => '-',
                     'replacements' => [
-                        '/' => '-'
+                        '/' => '-',
                     ],
                 ],
                 'fallbackCharacter' => '-',
                 'eval' => 'unique',
-                'default' => ''
-            ]
+                'default' => '',
+            ],
         ],
         'leader' => [
             'exclude' => true,
@@ -187,8 +185,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'trim'
-            ]
+                'eval' => 'trim',
+            ],
         ],
         'places' => [
             'exclude' => true,
@@ -196,7 +194,7 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'trim'
+                'eval' => 'trim',
             ],
         ],
         'street' => [
@@ -205,8 +203,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'trim'
-            ]
+                'eval' => 'trim',
+            ],
         ],
         'house_number' => [
             'exclude' => true,
@@ -214,8 +212,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'trim'
-            ]
+                'eval' => 'trim',
+            ],
         ],
         'zip' => [
             'exclude' => true,
@@ -223,8 +221,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'trim'
-            ]
+                'eval' => 'trim',
+            ],
         ],
         'city' => [
             'exclude' => true,
@@ -232,8 +230,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'trim'
-            ]
+                'eval' => 'trim',
+            ],
         ],
         'email' => [
             'exclude' => true,
@@ -241,8 +239,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'trim'
-            ]
+                'eval' => 'trim',
+            ],
         ],
         'website' => [
             'exclude' => true,
@@ -252,7 +250,7 @@ return [
                 'renderType' => 'inputLink',
                 'size' => 30,
                 'eval' => 'trim',
-            ]
+            ],
         ],
         'telephones' => [
             'exclude' => true,
@@ -267,9 +265,9 @@ return [
                     'levelLinksPosition' => 'both',
                     'showSynchronizationLink' => 1,
                     'showPossibleLocalizationRecords' => 1,
-                    'showAllLocalizationLink' => 1
-                ]
-            ]
+                    'showAllLocalizationLink' => 1,
+                ],
+            ],
         ],
         'amount_of_groups' => [
             'exclude' => true,
@@ -277,8 +275,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'trim'
-            ]
+                'eval' => 'trim',
+            ],
         ],
         'space_offered' => [
             'exclude' => true,
@@ -286,16 +284,16 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'trim'
-            ]
+                'eval' => 'trim',
+            ],
         ],
         'food_supply' => [
             'exclude' => true,
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_kita.food_supply',
             'config' => [
                 'type' => 'check',
-                'default' => 0
-            ]
+                'default' => 0,
+            ],
         ],
         'food_info' => [
             'exclude' => true,
@@ -304,8 +302,8 @@ return [
                 'type' => 'text',
                 'cols' => 30,
                 'rows' => 8,
-                'eval' => 'trim'
-            ]
+                'eval' => 'trim',
+            ],
         ],
         'food_prices' => [
             'exclude' => true,
@@ -314,8 +312,8 @@ return [
                 'type' => 'text',
                 'cols' => 30,
                 'rows' => 8,
-                'eval' => 'trim'
-            ]
+                'eval' => 'trim',
+            ],
         ],
         'closing_days' => [
             'exclude' => true,
@@ -323,8 +321,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'trim'
-            ]
+                'eval' => 'trim',
+            ],
         ],
         'logo' => [
             'exclude' => true,
@@ -333,9 +331,9 @@ return [
                 'logo',
                 [
                     'minitems' => 0,
-                    'maxitems' => 1
-                ]
-            )
+                    'maxitems' => 1,
+                ],
+            ),
         ],
         'images' => [
             'exclude' => true,
@@ -344,9 +342,9 @@ return [
                 'images',
                 [
                     'minitems' => 0,
-                    'maxitems' => 5
-                ]
-            )
+                    'maxitems' => 5,
+                ],
+            ),
         ],
         'response_times' => [
             'exclude' => true,
@@ -355,8 +353,8 @@ return [
                 'type' => 'text',
                 'cols' => 30,
                 'rows' => 8,
-                'eval' => 'trim'
-            ]
+                'eval' => 'trim',
+            ],
         ],
         'facebook' => [
             'exclude' => true,
@@ -365,8 +363,8 @@ return [
                 'type' => 'input',
                 'renderType' => 'inputLink',
                 'size' => 30,
-                'eval' => 'trim'
-            ]
+                'eval' => 'trim',
+            ],
         ],
         'twitter' => [
             'exclude' => true,
@@ -375,8 +373,8 @@ return [
                 'type' => 'input',
                 'renderType' => 'inputLink',
                 'size' => 30,
-                'eval' => 'trim'
-            ]
+                'eval' => 'trim',
+            ],
         ],
         'instagram' => [
             'exclude' => true,
@@ -385,8 +383,8 @@ return [
                 'type' => 'input',
                 'renderType' => 'inputLink',
                 'size' => 30,
-                'eval' => 'trim'
-            ]
+                'eval' => 'trim',
+            ],
         ],
         'additional_informations' => [
             'exclude' => true,
@@ -408,8 +406,8 @@ return [
                 'size' => 4,
                 'eval' => 'time',
                 'checkbox' => 1,
-                'default' => 25200
-            ]
+                'default' => 25200,
+            ],
         ],
         'latest_opening_time' => [
             'exclude' => true,
@@ -420,8 +418,8 @@ return [
                 'size' => 4,
                 'eval' => 'time',
                 'checkbox' => 1,
-                'default' => 25200
-            ]
+                'default' => 25200,
+            ],
         ],
         'earliest_age' => [
             'exclude' => true,
@@ -429,8 +427,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 4,
-                'eval' => 'int'
-            ]
+                'eval' => 'int',
+            ],
         ],
         'latest_age' => [
             'exclude' => true,
@@ -438,8 +436,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 4,
-                'eval' => 'int'
-            ]
+                'eval' => 'int',
+            ],
         ],
         'holder' => [
             'exclude' => true,
@@ -449,8 +447,8 @@ return [
                 'renderType' => 'selectSingle',
                 'foreign_table' => 'tx_daycarecenters_domain_model_holder',
                 'minitems' => 0,
-                'maxitems' => 1
-            ]
+                'maxitems' => 1,
+            ],
         ],
         'care_form' => [
             'exclude' => true,
@@ -460,8 +458,8 @@ return [
                 'foreign_table' => 'tx_daycarecenters_domain_model_careform',
                 'foreign_field' => 'kita',
                 'minitems' => 0,
-                'maxitems' => 100
-            ]
+                'maxitems' => 100,
+            ],
         ],
         'district' => [
             'exclude' => true,
@@ -472,12 +470,12 @@ return [
                 'foreign_table' => 'tx_daycarecenters_domain_model_district',
                 'foreign_table_where' => 'ORDER BY tx_daycarecenters_domain_model_district.district',
                 'items' => [
-                    ['', '']
+                    ['', ''],
                 ],
                 'minitems' => 0,
                 'maxitems' => 1,
-                'eval' => 'required'
-            ]
-        ]
-    ]
+                'eval' => 'required',
+            ],
+        ],
+    ],
 ];
