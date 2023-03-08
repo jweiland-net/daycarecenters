@@ -23,9 +23,6 @@ return [
             'default' => 'ext-daycarecenters-telephone',
         ],
     ],
-    'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, telephone',
-    ],
     'types' => [
         '1' => [
             'showitem' => '--palette--;;languageHidden, telephone,
