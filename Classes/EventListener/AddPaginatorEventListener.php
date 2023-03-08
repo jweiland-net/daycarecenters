@@ -12,7 +12,6 @@ declare(strict_types=1);
 namespace JWeiland\Daycarecenters\EventListener;
 
 use JWeiland\Daycarecenters\Event\PostProcessFluidVariablesEvent;
-use JWeiland\Daycarecenters\Pagination\CircularPagination;
 use JWeiland\Daycarecenters\Pagination\DaycarecenterPagination;
 use TYPO3\CMS\Extbase\Pagination\QueryResultPaginator;
 
