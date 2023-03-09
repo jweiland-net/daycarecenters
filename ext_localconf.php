@@ -17,6 +17,11 @@ call_user_func(static function () {
         ]
     );
 
+    // Add daycarecenters plugin to new element wizard
+    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
+        '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:daycarecenters/Configuration/TSconfig/ContentElementWizard.tsconfig">'
+    );
+
     $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['daycarecentersHolderLogo']
         = \JWeiland\Daycarecenters\Updates\HolderLogoUpdateWizard::class;
     $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['daycarecentersUpdateSlug']

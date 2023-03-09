@@ -1,0 +1,16 @@
+mod.wizards.newContentElement.wizardItems.plugins {
+  elements {
+    daycarecenters {
+      iconIdentifier = ext-daycarecenters-kita
+      title = LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:plugin.daycarecenters.title
+      description = LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:plugin.daycarecenters.description
+      tt_content_defValues {
+        CType = list
+        list_type = daycarecenters_daycarecenters
+      }
+    }
+  }
+}
+
+# Add CType Preview
+mod.web_layout.tt_content.preview.list.daycarecenters_daycarecenters = EXT:daycarecenters/Resources/Private/Templates/PluginPreview/TableView.html

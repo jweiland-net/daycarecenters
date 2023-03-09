@@ -3,8 +3,11 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2013-04-19T12:44:19Z" product-name="daycarecenters">
 		<header/>
 		<body>
-			<trans-unit id="plugin.title">
+			<trans-unit id="plugin.daycarecenters.title">
 				<source>Day Care Centers</source>
+			</trans-unit>
+			<trans-unit id="plugin.daycarecenters.description">
+				<source>Provides a list and detail view of day care centers</source>
 			</trans-unit>
 
 			<trans-unit id="tx_daycarecenters_domain_model_kita">
