@@ -17,16 +17,6 @@ call_user_func(static function () {
         ]
     );
 
-    /** @var \TYPO3\CMS\Extbase\SignalSlot\Dispatcher $signalSlotDispatcher */
-    $signalSlotDispatcher = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\SignalSlot\Dispatcher::class);
-    // update poiCollection record while saving kita records
-    $signalSlotDispatcher->connect(
-        \JWeiland\Maps2\Hook\CreateMaps2RecordHook::class,
-        'postUpdatePoiCollection',
-        \JWeiland\Daycarecenters\Hook\UpdateMaps2RecordHook::class,
-        'postUpdatePoiCollection'
-    );
-
     $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['daycarecentersHolderLogo']
         = \JWeiland\Daycarecenters\Updates\HolderLogoUpdateWizard::class;
     $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['daycarecentersUpdateSlug']

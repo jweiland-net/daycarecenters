@@ -9,17 +9,17 @@ declare(strict_types=1);
  * LICENSE file that was distributed with this source code.
  */
 
-namespace JWeiland\Daycarecenters\Hook;
+namespace JWeiland\Daycarecenters\EventListener;
 
 use JWeiland\Daycarecenters\Configuration\ExtConf;
+use JWeiland\Maps2\Event\PostProcessPoiCollectionRecordEvent;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
- * Set default category, defined in extension configuration of daycarecenters, to POI collection records,
- * while saving kita records.
+ * Register paginator to paginate through the company records in frontend
  */
-class UpdateMaps2RecordHook
+class SetDefaultCategoryToPOIEventListener
 {
     /**
      * @var ExtConf
@@ -31,21 +31,16 @@ class UpdateMaps2RecordHook
         $this->extConf = $extConf;
     }
 
-    public function postUpdatePoiCollection(
-        string $poiCollectionTableName,
-        int $poiCollectionUid,
-        string $foreignTableName,
-        array $foreignLocationRecord,
-        array $options
-    ): void {
-        if ($foreignTableName === 'tx_daycarecenters_domain_model_kita') {
+    public function __invoke(PostProcessPoiCollectionRecordEvent $event): void
+    {
+        if ($event->getForeignTableName() === 'tx_daycarecenters_domain_model_kita') {
             $connection = $this->getConnectionPool()->getConnectionForTable('sys_category_record_mm');
 
             // delete all existing category relations
             $connection->delete(
                 'sys_category_record_mm',
                 [
-                    'uid_foreign' => $poiCollectionUid,
+                    'uid_foreign' => $event->getPoiCollectionUid(),
                     'tablenames' => 'tx_maps2_domain_model_poicollection',
                 ]
             );
@@ -55,7 +50,7 @@ class UpdateMaps2RecordHook
                 'sys_category_record_mm',
                 [
                     'uid_local' => $this->extConf->getDefaultMaps2Category(),
-                    'uid_foreign' => $poiCollectionUid,
+                    'uid_foreign' => $event->getPoiCollectionUid(),
                     'fieldname' => 'categories',
                     'tablenames' => 'tx_maps2_domain_model_poicollection',
                     'sorting' => 1,
@@ -69,7 +64,7 @@ class UpdateMaps2RecordHook
                     'categories' => 1,
                 ],
                 [
-                    'uid' => $poiCollectionUid,
+                    'uid' => $event->getPoiCollectionUid(),
                 ]
             );
         }
