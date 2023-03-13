@@ -3,7 +3,6 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2013-04-19T12:44:19Z" product-name="daycarecenters">
 		<header/>
 		<body>
-
 			<trans-unit id="tx_daycarecenters_domain_model_kita">
 				<source>Day Care Center</source>
 				<target>Kindertagesstätte</target>

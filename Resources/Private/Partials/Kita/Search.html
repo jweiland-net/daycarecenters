@@ -2,95 +2,67 @@
       xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
       data-namespace-typo3-fluid="true">
 
-<script>
-    $(function () {
-        var earliestAge = { earliestAge };
-        var latestAge = { latestAge };
-        var earliestOpeningTime = { earliestOpeningTime };
-        var latestOpeningTime = { latestOpeningTime };
+<f:asset.css identifier="kitaRangeSlider"
+             href="EXT:daycarecenters/Resources/Public/Css/RangeSlider/RangeSlider.min.css"/>
 
-        jQuery('#ageSlider').slider({
-            range: true,
-            values: [earliestAge, latestAge],
-            min: 0,
-            max: 6,
-            step: 1,
-            slide: function (event, ui) {
-                jQuery('#earliestAge').val(ui.values[0]);
-                jQuery('#latestAge').val(ui.values[1]);
-                jQuery('label[for=\'earliestAge\'] span').text(ui.values[0] + ' - ' + ui.values[1]);
-            }
-        });
-        jQuery('#earliestAge').val($('#ageSlider').slider('values', 0));
-        jQuery('#latestAge').val($('#ageSlider').slider('values', 1));
-        jQuery('label[for=\'earliestAge\'] span').text(jQuery('#ageSlider').slider('values', 0) + ' - ' + jQuery('#ageSlider').slider('values', 1));
-
-        jQuery('#openingTimeSlider').slider({
-            range: true,
-            values: [earliestOpeningTime, latestOpeningTime],
-            min: 7.00,
-            max: 18.00,
-            step: 0.25,
-            slide: function (event, ui) {
-                jQuery('#earliestOpeningTime').val(ui.values[0]);
-                jQuery('#latestOpeningTime').val(ui.values[1]);
-                jQuery('label[for=\'earliestOpeningTime\'] span').text(convertToHHMM(ui.values[0]) + ' - ' + convertToHHMM(ui.values[1]));
-            }
-        });
-        jQuery('#earliestOpeningTime').val($('#openingTimeSlider').slider('values', 0));
-        jQuery('#latestOpeningTime').val($('#openingTimeSlider').slider('values', 1));
-        jQuery('label[for=\'earliestOpeningTime\'] span').text(convertToHHMM(jQuery('#openingTimeSlider').slider('values', 0)) + ' - ' + convertToHHMM(jQuery('#openingTimeSlider').slider('values', 1)));
-
-        function convertToHHMM (value) {
-            var hrs = parseInt(Number(value));
-            var min = Math.round((Number(value) - hrs) * 60);
-            return str_padding(hrs) + ':' + str_padding(min);
-        }
-
-        function str_padding (value) {
-            return String('00' + value).slice(-2);
-        }
-    });
-</script>
+<f:asset.script identifier="kitaRangeSlider"
+                src="EXT:daycarecenters/Resources/Public/JavaScript/RangeSlider/RangeSlider.min.js"/>
+<f:asset.script identifier="kitaMain"
+                src="EXT:daycarecenters/Resources/Public/JavaScript/Main.js"/>
 
 <div class="extcss clearfix rulerafter4">
     <f:form action="search" name="search" class="extform" noCache="1">
-        <f:form.hidden id="earliestAge" name="earliestAge" value="{earliestAge}"/>
-        <f:form.hidden id="latestAge" name="latestAge" value="{latestAge}"/>
-        <f:form.hidden id="earliestOpeningTime" name="earliestOpeningTime" value="{earliestOpeningTime}"/>
-        <f:form.hidden id="latestOpeningTime" name="latestOpeningTime" value="{latestOpeningTime}"/>
-        <div class="extdiv">
-            <label>
-                <f:translate key="tx_daycarecenters_domain_model_kita.district"/>
-            </label>
-            <f:form.select name="district" options="{districts}" optionLabelField="district" optionValueField="uid"
-                           sortByOptionLabel="1" prependOptionLabel="" prependOptionValue="0"/>
-        </div>
-        <div class="extdiv">
-            <label class="extlabelslider" for="earliestAge">
-                <f:translate key="tx_daycarecenters_domain_model_kita.earliest_age"/>
-                <br/>
-                <f:translate key="tx_daycarecenters_domain_model_kita.from_to"/>
-                : <b><span></span></b></label>
-            <div id="ageSlider"></div>
-        </div>
-        <div class="extdiv">
-            <label class="extlabelslider" for="earliestOpeningTime">
-                <f:translate key="tx_daycarecenters_domain_model_kita.opening_time"/>
-                <br/>
-                <f:translate key="tx_daycarecenters_domain_model_kita.from_to"/>
-                :<br/><b><span></span></b></label>
-            <div id="openingTimeSlider"></div>
+        <f:form.hidden id="earliestAge"
+                       name="earliestAge"
+                       data="{min-value: 0}"
+                       value="{earliestAge}"/>
+        <f:form.hidden id="latestAge"
+                       name="latestAge"
+                       data="{max-value: 6}"
+                       value="{latestAge}"/>
+        <f:form.hidden id="earliestOpeningTime"
+                       name="earliestOpeningTime"
+                       data="{min-value: 07.00}"
+                       value="{earliestOpeningTime}"/>
+        <f:form.hidden id="latestOpeningTime"
+                       name="latestOpeningTime"
+                       data="{max-value: 18.00}"
+                       value="{latestOpeningTime}"/>
+
+        <div>
+            <label>{f:translate(key: 'tx_daycarecenters_domain_model_kita.district')}</label>
+            <f:form.select name="district"
+                           options="{districts}"
+                           optionLabelField="district"
+                           optionValueField="uid"
+                           sortByOptionLabel="1"
+                           prependOptionLabel=""
+                           prependOptionValue="0"/>
         </div>
 
-        <div class="extdiv">
-            <label class="powermail_check_legend">
-                <f:translate key="tx_daycarecenters_domain_model_kita.food_supply"/>
+        <div>
+            <label for="earliestAge">
+                {f:translate(key: 'tx_daycarecenters_domain_model_kita.earliest_age')}
+            </label>
+            <f:form.textfield id="ageSlider" name="ageSlider"/>
+        </div>
+
+        <div>
+            <label for="earliestOpeningTime">
+                {f:translate(key: 'tx_daycarecenters_domain_model_kita.opening_time')}
+            </label>
+            <f:form.textfield id="openingTimeSlider" name="openingTimeSlider"/>
+        </div>
+
+        <div>
+            <label>
+                {f:translate(key: 'tx_daycarecenters_domain_model_kita.food_supply')}
             </label>
             <f:form.checkbox name="food" value="1" checked="{f:if(condition: food, then: 'checked')}"/>
         </div>
-        <div class="powermail_fieldwrap_submit marginbottom">
-            <f:form.submit class="powermail_submit" value="{f:translate(key: 'search')}"/>
+
+        <div class="marginbottom">
+            <f:form.submit value="{f:translate(key: 'search')}"/>
         </div>
     </f:form>
 </div>
