@@ -10,7 +10,7 @@
 		"care",
 		"center"
 	],
-	"homepage": "https://www.jweiland.net",
+	"homepage": "https://jweiland.net",
 	"authors": [
 		{
 			"name": "Stefan Froemken",
@@ -30,6 +30,9 @@
 	"require-dev": {
 		"roave/security-advisories": "dev-latest",
 		"friendsofphp/php-cs-fixer": "^3.10"
+	},
+	"replace": {
+		"typo3-ter/daycarecenters": "self.version"
 	},
 	"autoload": {
 		"psr-4": {
