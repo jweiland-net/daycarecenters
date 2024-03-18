@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff version="1.0">
+  <file source-language="en" datatype="plaintext" original="messages" date="2013-03-28T08:36:00Z" product-name="daycarecenters" target-language="de">
+    <header/>
+    <body>
+      <trans-unit id="poiCollectionPid" xml:space="preserve" approved="yes">
+				<source>PID for poiCollections: Define a storage pid where to store records of type Point of Interest.</source>
+			<target state="final">PID für POI Sammlungen: Definieren Sie eine Speicher-PID wo Datensätze vom Typ Point of Interest gespeichert werden sollen.</target></trans-unit>
+      <trans-unit id="defaultMaps2Category" xml:space="preserve" approved="yes">
+				<source>Default Maps2 Category: Type in a sys_category UID which should be set to all created maps2 records as default.</source>
+			<target state="final">Standard Maps2 Kategorie: Geben Sie eine sys_category UID ein, die auf alle erstellten maps2 Einträge als Standard gesetzt werden soll.</target></trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -1,253 +1,252 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2013-04-19T12:44:19Z" product-name="daycarecenters">
-		<header/>
-		<body>
-			<trans-unit id="tx_daycarecenters_domain_model_kita">
-				<source>Day Care Center</source>
-				<target>Kindertagesstätte</target>
-			</trans-unit>
-			<trans-unit id="tx_daycarecenters_domain_model_kita.title">
-				<source>Title</source>
-				<target>Titel</target>
-			</trans-unit>
-			<trans-unit id="tx_daycarecenters_domain_model_kita.leader">
-				<source>Head</source>
-				<target>Leiter/in</target>
-			</trans-unit>
-			<trans-unit id="tx_daycarecenters_domain_model_kita.places">
-				<source>Places</source>
-				<target>Plätze</target>
-			</trans-unit>
-			<trans-unit id="tx_daycarecenters_domain_model_kita.street">
-				<source>Street</source>
-				<target>Straße</target>
-			</trans-unit>
-			<trans-unit id="tx_daycarecenters_domain_model_kita.house_number">
-				<source>House number</source>
-				<target>Hausnummer</target>
-			</trans-unit>
-			<trans-unit id="tx_daycarecenters_domain_model_kita.zip">
-				<source>Zip</source>
-				<target>PLZ</target>
-			</trans-unit>
-			<trans-unit id="tx_daycarecenters_domain_model_kita.city">
-				<source>City</source>
-				<target>Ort</target>
-			</trans-unit>
-			<trans-unit id="tx_daycarecenters_domain_model_kita.email">
-				<source>Email</source>
-				<target>E-Mail</target>
-			</trans-unit>
-			<trans-unit id="tx_daycarecenters_domain_model_kita.website">
-				<source>Website</source>
-				<target>Webseite</target>
-			</trans-unit>
-			<trans-unit id="tx_daycarecenters_domain_model_kita.amount_of_groups">
-				<source>Number of groups</source>
-				<target>Anzahl Gruppen</target>
-			</trans-unit>
-			<trans-unit id="tx_daycarecenters_domain_model_kita.space_offered">
-				<source>Number of spaces</source>
-				<target>Platzangebot</target>
-			</trans-unit>
-			<trans-unit id="tx_daycarecenters_domain_model_kita.food_supply">
-				<source>Meals available</source>
-				<target>Essensangebot</target>
-			</trans-unit>
-			<trans-unit id="tx_daycarecenters_domain_model_kita.food_info">
-				<source>Meal details</source>
-				<target>Essensinformation</target>
-			</trans-unit>
-			<trans-unit id="tx_daycarecenters_domain_model_kita.food_prices">
-				<source>Cost of food</source>
-				<target>Essenspreis</target>
-			</trans-unit>
-			<trans-unit id="tx_daycarecenters_domain_model_kita.closing_days">
-				<source>Closing Days</source>
-				<target>Schließungstage (Anzahl)</target>
-			</trans-unit>
-			<trans-unit id="tx_daycarecenters_domain_model_kita.logo">
-				<source>Logo</source>
-				<target>Logo</target>
-			</trans-unit>
-			<trans-unit id="tx_daycarecenters_domain_model_kita.images">
-				<source>Images</source>
-				<target>Bilder</target>
-			</trans-unit>
-			<trans-unit id="tx_daycarecenters_domain_model_kita.response_times">
-				<source>Consulting hours</source>
-				<target>Gesprächszeiten</target>
-			</trans-unit>
-			<trans-unit id="tx_daycarecenters_domain_model_kita.facebook">
-				<source>Facebook</source>
-				<target>Facebook</target>
-			</trans-unit>
-			<trans-unit id="tx_daycarecenters_domain_model_kita.twitter">
-				<source>Twitter</source>
-				<target>Twitter</target>
-			</trans-unit>
-			<trans-unit id="tx_daycarecenters_domain_model_kita.instagram">
-				<source>Instagram</source>
-				<target>Instagram</target>
-			</trans-unit>
-			<trans-unit id="tx_daycarecenters_domain_model_kita.additional_informations">
-				<source>Additional informations</source>
-				<target>Zusatzinformationen</target>
-			</trans-unit>
-			<trans-unit id="tx_daycarecenters_domain_model_kita.earliest_opening_time">
-				<source>Earliest opening time</source>
-				<target>Früheste Öffnungszeit</target>
-			</trans-unit>
-			<trans-unit id="tx_daycarecenters_domain_model_kita.latest_opening_time">
-				<source>Latest opening time</source>
-				<target>Späteste Öffnungszeit</target>
-			</trans-unit>
-			<trans-unit id="tx_daycarecenters_domain_model_kita.opening_time">
-				<source>Opening hours</source>
-				<target>Öffnungszeiten</target>
-			</trans-unit>
-			<trans-unit id="tx_daycarecenters_domain_model_kita.from_to">
-				<source>from - to</source>
-				<target>von - bis</target>
-			</trans-unit>
-			<trans-unit id="tx_daycarecenters_domain_model_kita.earliest_age">
-				<source>Age of admission</source>
-				<target>Aufnahmealter</target>
-			</trans-unit>
-			<trans-unit id="tx_daycarecenters_domain_model_kita.latest_age">
-				<source>Latest age</source>
-				<target>Aufnahmealter</target>
-			</trans-unit>
-			<trans-unit id="tx_daycarecenters_domain_model_kita.holder">
-				<source>Responsible body</source>
-				<target>Träger</target>
-			</trans-unit>
-			<trans-unit id="tx_daycarecenters_domain_model_kita.care_form">
-				<source>Care Form(s)</source>
-				<target>Betreuungsform(en)</target>
-			</trans-unit>
-			<trans-unit id="tx_daycarecenters_domain_model_kita.district">
-				<source>District</source>
-				<target>Stadtteil</target>
-			</trans-unit>
-			<trans-unit id="tx_daycarecenters_domain_model_kita.telephones">
-				<source>Telephones</source>
-				<target>Telefone</target>
-			</trans-unit>
-
-			<trans-unit id="tx_daycarecenters_domain_model_holder">
-				<source>Responsible body</source>
-				<target>Träger</target>
-			</trans-unit>
-			<trans-unit id="tx_daycarecenters_domain_model_holder.title">
-				<source>Title</source>
-				<target>Titel</target>
-			</trans-unit>
-			<trans-unit id="tx_daycarecenters_domain_model_holder.contact_person">
-				<source>Contact person</source>
-				<target>Kontaktperson</target>
-			</trans-unit>
-			<trans-unit id="tx_daycarecenters_domain_model_holder.street">
-				<source>Street</source>
-				<target>Straße</target>
-			</trans-unit>
-			<trans-unit id="tx_daycarecenters_domain_model_holder.house_number">
-				<source>House number</source>
-				<target>Hausnummer</target>
-			</trans-unit>
-			<trans-unit id="tx_daycarecenters_domain_model_holder.zip">
-				<source>Zip</source>
-				<target>PLZ</target>
-			</trans-unit>
-			<trans-unit id="tx_daycarecenters_domain_model_holder.city">
-				<source>City</source>
-				<target>Ort</target>
-			</trans-unit>
-			<trans-unit id="tx_daycarecenters_domain_model_holder.telephone">
-				<source>Telephone</source>
-				<target>Telefone</target>
-			</trans-unit>
-			<trans-unit id="tx_daycarecenters_domain_model_holder.fax">
-				<source>Fax</source>
-				<target>Fax</target>
-			</trans-unit>
-			<trans-unit id="tx_daycarecenters_domain_model_holder.email">
-				<source>Email</source>
-				<target>E-Mail</target>
-			</trans-unit>
-			<trans-unit id="tx_daycarecenters_domain_model_holder.website">
-				<source>Website</source>
-				<target>Webseite</target>
-			</trans-unit>
-			<trans-unit id="tx_daycarecenters_domain_model_holder.logo">
-				<source>Logo</source>
-				<target>Logo</target>
-			</trans-unit>
-
-			<trans-unit id="tx_daycarecenters_domain_model_careform">
-				<source>CareForm</source>
-				<target>Betreuungsform</target>
-			</trans-unit>
-			<trans-unit id="tx_daycarecenters_domain_model_careform.title">
-				<source>Title</source>
-				<target>Titel</target>
-			</trans-unit>
-
-			<trans-unit id="tx_daycarecenters_domain_model_district">
-				<source>District</source>
-				<target>Stadtteil</target>
-			</trans-unit>
-			<trans-unit id="tx_daycarecenters_domain_model_district.district">
-				<source>District</source>
-				<target>Stadtteil</target>
-			</trans-unit>
-
-			<trans-unit id="tx_daycarecenters_domain_model_telephone">
-				<source>Telephone</source>
-				<target>Telefone</target>
-			</trans-unit>
-			<trans-unit id="tx_daycarecenters_domain_model_telephone.telephone">
-				<source>Telephone</source>
-				<target>Telefon</target>
-			</trans-unit>
-
-			<trans-unit id="yes">
-				<source>Yes</source>
-				<target>Ja</target>
-			</trans-unit>
-			<trans-unit id="no">
-				<source>No</source>
-				<target>Nein</target>
-			</trans-unit>
-			<trans-unit id="search">
-				<source>Search</source>
-				<target>Suchen</target>
-			</trans-unit>
-			<trans-unit id="noResults">
-				<source>No results</source>
-				<target>Keine Ergebnisse gefunden</target>
-			</trans-unit>
-			<trans-unit id="extensionTitle">
-				<source>Daycare Center</source>
-				<target>Kindertagesstätte</target>
-			</trans-unit>
-			<trans-unit id="backToList">
-				<source>Back to list</source>
-				<target>Zurück zur Listenansicht</target>
-			</trans-unit>
-			<trans-unit id="timeUnit">
-				<source>o'clock</source>
-				<target>Uhr</target>
-			</trans-unit>
-			<trans-unit id="ageYears">
-				<source>years</source>
-				<target>Jahre</target>
-			</trans-unit>
-			<trans-unit id="altTextMapImg">
-				<source>Map</source>
-				<target>Karte</target>
-			</trans-unit>
-		</body>
-	</file>
+  <file source-language="en" datatype="plaintext" original="messages" date="2013-04-19T12:44:19Z" product-name="daycarecenters" target-language="de">
+    <header/>
+    <body>
+      <trans-unit id="tx_daycarecenters_domain_model_kita" approved="yes">
+        <source>Day Care Center</source>
+        <target state="final">Kindertagesstätte</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.title" approved="yes">
+        <source>Title</source>
+        <target state="final">Bezeichnung</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.leader" approved="yes">
+        <source>Head</source>
+        <target state="final">Leiter/in</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.places" approved="yes">
+        <source>Places</source>
+        <target state="final">Plätze</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.street" approved="yes">
+        <source>Street</source>
+        <target state="final">Straße</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.house_number" approved="yes">
+        <source>House number</source>
+        <target state="final">Hausnummer</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.zip" approved="yes">
+        <source>Zip</source>
+        <target state="final">Postleitzahl</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.city" approved="yes">
+        <source>City</source>
+        <target state="final">Ort</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.email" approved="yes">
+        <source>Email</source>
+        <target state="final">E-Mail</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.website" approved="yes">
+        <source>Website</source>
+        <target state="final">Webseite</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.amount_of_groups" approved="yes">
+        <source>Number of groups</source>
+        <target state="final">Anzahl der Gruppen</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.space_offered" approved="yes">
+        <source>Number of spaces</source>
+        <target state="final">Platzangebot</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.receptive_age" approved="yes">
+        <source>Receptive age</source>
+        <target state="final">Aufnehmendes Alter</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.food_supply" approved="yes">
+        <source>Meals available</source>
+        <target state="final">Essensangebot</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.food_info" approved="yes">
+        <source>Meal details</source>
+        <target state="final">Informationen zum Essensangebot</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.food_prices" approved="yes">
+        <source>Cost of food</source>
+        <target state="final">Kosten für Verpflegung</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.closing_days" approved="yes">
+        <source>Closing Days</source>
+        <target state="final">Schließungstage (Anzahl)</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.logo" approved="yes">
+        <source>Logo</source>
+        <target state="final">Logo</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.images" approved="yes">
+        <source>Images</source>
+        <target state="final">Bilder (max. 5)</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.response_times" approved="yes">
+        <source>Consulting hours</source>
+        <target state="final">Sprechzeiten</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.facebook" approved="yes">
+        <source>Facebook</source>
+        <target state="final">Facebook</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.twitter" approved="yes">
+        <source>Twitter</source>
+        <target state="final">Twitter</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.instagram" approved="yes">
+        <source>Instagram</source>
+        <target state="final">Instagram</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.additional_informations" approved="yes">
+        <source>Additional informations</source>
+        <target state="final">Ergänzende Infos oder Betreuungsangebote</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.earliest_opening_time" approved="yes">
+        <source>Earliest opening time</source>
+        <target state="final">Früheste Öffnungszeit</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.latest_opening_time" approved="yes">
+        <source>Latest opening time</source>
+        <target state="final">Späteste Öffnungszeit</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.opening_time" approved="yes">
+        <source>Opening hours</source>
+        <target state="final">Öffnungszeiten</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.from_to" approved="yes">
+        <source>from - to</source>
+        <target state="final">von - bis</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.earliest_age" approved="yes">
+        <source>Age of admission</source>
+        <target state="final">Aufnahmealter von</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.latest_age" approved="yes">
+        <source>Latest age</source>
+        <target state="final">Aufnahmealter</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.holder" approved="yes">
+        <source>Responsible body</source>
+        <target state="final">Träger der Einrichtung</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.care_form" approved="yes">
+        <source>Care Form(s)</source>
+        <target state="final">Betreuungsform(en)</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.district" approved="yes">
+        <source>District</source>
+        <target state="final">Stadtteil</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.telephones" approved="yes">
+        <source>Telephones</source>
+        <target state="final">Telefon</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_holder" approved="yes">
+        <source>Responsible body</source>
+        <target state="final">Träger der Einrichtung</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_holder.title" approved="yes">
+        <source>Title</source>
+        <target state="final">Bezeichnung</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_holder.contact_person" approved="yes">
+        <source>Contact person</source>
+        <target state="final">Kontaktperson</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_holder.street" approved="yes">
+        <source>Street</source>
+        <target state="final">Straße</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_holder.house_number" approved="yes">
+        <source>House number</source>
+        <target state="final">Hausnummer</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_holder.zip" approved="yes">
+        <source>Zip</source>
+        <target state="final">Postleitzahl</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_holder.city" approved="yes">
+        <source>City</source>
+        <target state="final">Ort</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_holder.telephone" approved="yes">
+        <source>Telephone</source>
+        <target state="final">Telefon</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_holder.fax" approved="yes">
+        <source>Fax</source>
+        <target state="final">Fax</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_holder.email" approved="yes">
+        <source>Email</source>
+        <target state="final">E-Mail</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_holder.website" approved="yes">
+        <source>Website</source>
+        <target state="final">Webseite</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_holder.logo" approved="yes">
+        <source>Logo</source>
+        <target state="final">Logo</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_careform" approved="yes">
+        <source>CareForm</source>
+        <target state="final">Betreuungsform</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_careform.title" approved="yes">
+        <source>Title</source>
+        <target state="final">Bezeichnung</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_district" approved="yes">
+        <source>District</source>
+        <target state="final">Stadtteil</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_district.district" approved="yes">
+        <source>District</source>
+        <target state="final">Stadtteil</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_telephone" approved="yes">
+        <source>Telephone</source>
+        <target state="final">Telefon</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_telephone.telephone" approved="yes">
+        <source>Telephone</source>
+        <target state="final">Telefon</target>
+      </trans-unit>
+      <trans-unit id="yes" approved="yes">
+        <source>Yes</source>
+        <target state="final">Ja</target>
+      </trans-unit>
+      <trans-unit id="no" approved="yes">
+        <source>No</source>
+        <target state="final">Nein</target>
+      </trans-unit>
+      <trans-unit id="search" approved="yes">
+        <source>Search</source>
+        <target state="final">Suche</target>
+      </trans-unit>
+      <trans-unit id="noResults" approved="yes">
+        <source>No results</source>
+        <target state="final">Keine Ergebnisse gefunden</target>
+      </trans-unit>
+      <trans-unit id="extensionTitle" approved="yes">
+        <source>Daycare Center</source>
+        <target state="final">Kindertagesstätte</target>
+      </trans-unit>
+      <trans-unit id="backToList" approved="yes">
+        <source>Back to list</source>
+        <target state="final">Zurück zur Listenansicht</target>
+      </trans-unit>
+      <trans-unit id="timeUnit" approved="yes">
+        <source>o'clock</source>
+        <target state="final">Uhr</target>
+      </trans-unit>
+      <trans-unit id="ageYears" approved="yes">
+        <source>years</source>
+        <target state="final">Jahre</target>
+      </trans-unit>
+      <trans-unit id="altTextMapImg" approved="yes">
+        <source>Map</source>
+        <target state="final">Karte</target>
+      </trans-unit>
+    </body>
+  </file>
 </xliff>
