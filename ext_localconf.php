@@ -22,11 +22,6 @@ call_user_func(static function () {
         '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:daycarecenters/Configuration/TSconfig/ContentElementWizard.tsconfig">'
     );
 
-    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['daycarecentersHolderLogo']
-        = \JWeiland\Daycarecenters\Updates\HolderLogoUpdateWizard::class;
-    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['daycarecentersUpdateSlug']
-        = \JWeiland\Daycarecenters\Updates\SlugUpdateWizard::class;
-
     // Register SVG Icon Identifier
     $svgIcons = [
         'ext-daycarecenters-careform' => 'careform.svg',
