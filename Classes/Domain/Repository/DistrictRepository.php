@@ -16,6 +16,4 @@ use TYPO3\CMS\Extbase\Persistence\Repository;
 /**
  * Repository to get districts from database
  */
-class DistrictRepository extends Repository
-{
-}
+class DistrictRepository extends Repository { }
