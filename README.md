@@ -4,7 +4,6 @@
 [![Latest Stable Version][extension-build-shield]][extension-ter-url]
 [![Total Downloads][extension-downloads-badge]][extension-packagist-url]
 [![Monthly Downloads][extension-monthly-downloads]][extension-packagist-url]
-[![Monthly Downloads][extension-monthly-downloads]][extension-packagist-url]
 [![TYPO3 12.4][TYPO3-shield]][TYPO3-12-url]
 
 ![Build Status](https://github.com/jweiland-net/daycarecenters/workflows/CI/badge.svg)
