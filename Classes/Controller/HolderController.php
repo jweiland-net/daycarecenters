@@ -13,6 +13,7 @@ namespace JWeiland\Daycarecenters\Controller;
 
 use JWeiland\Daycarecenters\Domain\Model\Holder;
 use JWeiland\Daycarecenters\Event\PostProcessFluidVariablesEvent;
+use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
@@ -29,11 +30,13 @@ class HolderController extends ActionController
         }
     }
 
-    public function showAction(Holder $holder): void
+    public function showAction(Holder $holder): ResponseInterface
     {
         $this->postProcessAndAssignFluidVariables([
             'holder' => $holder,
         ]);
+
+        return $this->htmlResponse();
     }
 
     protected function postProcessAndAssignFluidVariables(array $variables = []): void
