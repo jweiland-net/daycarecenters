@@ -49,7 +49,7 @@ class KitaRepository extends Repository
         }
 
         return $query->matching(
-            $query->logicalAnd($constraint)
+            $query->logicalAnd(...$constraint)
         )->execute();
     }
 }
