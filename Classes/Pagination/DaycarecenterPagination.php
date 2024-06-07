@@ -17,20 +17,11 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class DaycarecenterPagination implements PaginationInterface
 {
-    /**
-     * @var string
-     */
-    protected $pluginNamespace = 'tx_daycarecenters_daycarecenters';
+    protected string $pluginNamespace = 'tx_daycarecenters_daycarecenters';
 
-    /**
-     * @var PaginatorInterface
-     */
-    protected $paginator;
+    protected PaginatorInterface $paginator;
 
-    /**
-     * @var array
-     */
-    protected $arguments = [];
+    protected array $arguments = [];
 
     public function __construct(PaginatorInterface $paginator)
     {

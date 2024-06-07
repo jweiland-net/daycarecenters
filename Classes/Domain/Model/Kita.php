@@ -21,166 +21,79 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
  */
 class Kita extends AbstractEntity
 {
-    /**
-     * @var string
-     */
-    protected $title = '#';
+    protected string $title = '#';
 
-    /**
-     * @var string
-     */
-    protected $leader = '';
+    protected string $leader = '';
 
-    /**
-     * @var string
-     */
-    protected $places = '';
+    protected string $places = '';
 
-    /**
-     * @var string
-     */
-    protected $street = '';
+    protected string $street = '';
 
-    /**
-     * @var string
-     */
-    protected $houseNumber = '';
+    protected string $houseNumber = '';
 
-    /**
-     * @var string
-     */
-    protected $zip = '';
+    protected string $zip = '';
 
-    /**
-     * @var string
-     */
-    protected $city = '';
+    protected string $city = '';
 
-    /**
-     * @var string
-     */
-    protected $email = '';
+    protected string $email = '';
 
-    /**
-     * @var string
-     */
-    protected $website = '';
+    protected string $website = '';
 
-    /**
-     * @var string
-     */
-    protected $amountOfGroups = '';
+    protected string $amountOfGroups = '';
 
-    /**
-     * @var string
-     */
-    protected $spaceOffered = '';
+    protected string $spaceOffered = '';
 
-    /**
-     * @var bool
-     */
-    protected $foodSupply = false;
+    protected bool $foodSupply = false;
 
-    /**
-     * @var string
-     */
-    protected $foodInfo = '';
+    protected string $foodInfo = '';
 
-    /**
-     * @var string
-     */
-    protected $foodPrices = '';
+    protected string $foodPrices = '';
 
-    /**
-     * @var string
-     */
-    protected $closingDays = '';
+    protected string $closingDays = '';
 
-    /**
-     * @var FileReference
-     */
-    protected $logo;
+    protected FileReference $logo;
 
     /**
      * @var ObjectStorage<FileReference>
-     *
-     * @Extbase\ORM\Lazy
      */
-    protected $images;
+    #[Extbase\ORM\Lazy]
+    protected ObjectStorage $images;
 
-    /**
-     * @var string
-     */
-    protected $responseTimes = '';
+    protected string $responseTimes = '';
 
-    /**
-     * @var string
-     */
-    protected $facebook = '';
+    protected string $facebook = '';
 
-    /**
-     * @var string
-     */
-    protected $twitter = '';
+    protected string $twitter = '';
 
-    /**
-     * @var string
-     */
-    protected $instagram = '';
+    protected string $instagram = '';
 
-    /**
-     * @var string
-     */
-    protected $additionalInformations = '';
+    protected string $additionalInformations = '';
 
-    /**
-     * @var int
-     */
-    protected $earliestOpeningTime = 0;
+    protected int $earliestOpeningTime = 0;
 
-    /**
-     * @var int
-     */
-    protected $latestOpeningTime = 0;
+    protected int $latestOpeningTime = 0;
 
-    /**
-     * @var int
-     */
-    protected $earliestAge = 0;
+    protected int $earliestAge = 0;
 
-    /**
-     * @var int
-     */
-    protected $latestAge = 0;
+    protected int $latestAge = 0;
 
-    /**
-     * @var Holder
-     */
-    protected $holder;
+    protected Holder $holder;
 
     /**
      * @var ObjectStorage<CareForm>
-     *
-     * @Extbase\ORM\Lazy
      */
-    protected $careForm;
+    #[Extbase\ORM\Lazy]
+    protected ObjectStorage $careForm;
 
-    /**
-     * @var District
-     */
-    protected $district;
+    protected District $district;
 
     /**
      * @var ObjectStorage<Telephone>
-     *
-     * @Extbase\ORM\Lazy
      */
-    protected $telephones;
+    #[Extbase\ORM\Lazy]
+    protected ObjectStorage $telephones;
 
-    /**
-     * @var PoiCollection
-     */
-    protected $txMaps2Uid;
+    protected PoiCollection $txMaps2Uid;
 
     public function __construct()
     {

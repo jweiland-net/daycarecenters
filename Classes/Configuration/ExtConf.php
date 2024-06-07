@@ -22,15 +22,9 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  */
 class ExtConf implements SingletonInterface
 {
-    /**
-     * @var int
-     */
-    protected $poiCollectionPid = 0;
+    protected int $poiCollectionPid = 0;
 
-    /**
-     * @var int
-     */
-    protected $defaultMaps2Category = 0;
+    protected int $defaultMaps2Category = 0;
 
     public function __construct(ExtensionConfiguration $extensionConfiguration)
     {

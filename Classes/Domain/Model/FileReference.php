@@ -16,25 +16,16 @@ namespace JWeiland\Daycarecenters\Domain\Model;
  */
 class FileReference extends \TYPO3\CMS\Extbase\Domain\Model\FileReference
 {
-    /**
-     * @var string
-     */
-    protected $title = '';
+    protected string $title = '';
 
-    /**
-     * @var int
-     */
-    protected $cruserId = 0;
+    protected int $cruserId = 0;
 
     /**
      * @var int
      */
     protected $uidLocal = 0;
 
-    /**
-     * @var string
-     */
-    protected $tablenames = '';
+    protected string $tablenames = '';
 
     public function getTitle(): string
     {

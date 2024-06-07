@@ -26,20 +26,11 @@ use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 #[UpgradeWizard('daycarecentersUpdateSlug')]
 class SlugUpdateWizard implements UpgradeWizardInterface
 {
-    /**
-     * @var string
-     */
-    protected $tableName = 'tx_daycarecenters_domain_model_kita';
+    protected string $tableName = 'tx_daycarecenters_domain_model_kita';
 
-    /**
-     * @var string
-     */
-    protected $fieldName = 'path_segment';
+    protected string $fieldName = 'path_segment';
 
-    /**
-     * @var SlugHelper
-     */
-    protected $slugHelper;
+    protected SlugHelper $slugHelper;
 
     /**
      * Return the identifier for this wizard

@@ -29,33 +29,19 @@ class HolderLogoUpdateWizard implements UpgradeWizardInterface, LoggerAwareInter
 {
     use LoggerAwareTrait;
 
-    /**
-     * @var ResourceStorage
-     */
-    protected $storage;
+    protected ResourceStorage $storage;
 
-    /**
-     * @var string
-     */
-    protected $table = 'tx_daycarecenters_domain_model_holder';
+    protected string $table = 'tx_daycarecenters_domain_model_holder';
 
-    /**
-     * @var string
-     */
-    protected $fieldToMigrate = 'logo';
+    protected string $fieldToMigrate = 'logo';
 
-    /**
-     * @var string
-     */
-    protected $sourcePath = 'uploads/tx_daycarecenters/';
+    protected string $sourcePath = 'uploads/tx_daycarecenters/';
 
     /**
      * target folder after migration
      * Relative to fileadmin
-     *
-     * @var string
      */
-    protected $targetPath = '_migrated/daycarecenters/';
+    protected string $targetPath = '_migrated/daycarecenters/';
 
     public function getIdentifier(): string
     {
