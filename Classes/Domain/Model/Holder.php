@@ -18,60 +18,27 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
  */
 class Holder extends AbstractEntity
 {
-    /**
-     * @var string
-     */
-    protected $title = '';
+    protected string $title = '';
 
-    /**
-     * @var string
-     */
-    protected $contactPerson = '';
+    protected string $contactPerson = '';
 
-    /**
-     * @var string
-     */
-    protected $street = '';
+    protected string $street = '';
 
-    /**
-     * @var string
-     */
-    protected $houseNumber = '';
+    protected string $houseNumber = '';
 
-    /**
-     * @var string
-     */
-    protected $zip = '';
+    protected string $zip = '';
 
-    /**
-     * @var string
-     */
-    protected $city = '';
+    protected string $city = '';
 
-    /**
-     * @var string
-     */
-    protected $telephone = '';
+    protected string $telephone = '';
 
-    /**
-     * @var string
-     */
-    protected $fax = '';
+    protected string $fax = '';
 
-    /**
-     * @var string
-     */
-    protected $email = '';
+    protected string $email = '';
 
-    /**
-     * @var string
-     */
-    protected $website = '';
+    protected string $website = '';
 
-    /**
-     * @var string
-     */
-    protected $logo = '';
+    protected FileReference $logo;
 
     public function getTitle(): string
     {
@@ -173,12 +140,12 @@ class Holder extends AbstractEntity
         $this->website = $website;
     }
 
-    public function getLogo(): string
+    public function getLogo(): ?FileReference
     {
         return $this->logo;
     }
 
-    public function setLogo(string $logo): void
+    public function setLogo(FileReference $logo): void
     {
         $this->logo = $logo;
     }
