@@ -24,39 +24,29 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Install\Attribute\UpgradeWizard;
 use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 
-#[UpgradeWizard('daycarecentersHolderLogo')]
-class HolderLogoUpdateWizard implements UpgradeWizardInterface, LoggerAwareInterface
+#[UpgradeWizard('daycarecentersFieldLogoMigration')]
+class FieldLogoMigrationWizard implements UpgradeWizardInterface, LoggerAwareInterface
 {
     use LoggerAwareTrait;
 
-    protected ResourceStorage $storage;
-
-    protected string $table = 'tx_daycarecenters_domain_model_holder';
-
-    protected string $fieldToMigrate = 'logo';
-
-    protected string $sourcePath = 'uploads/tx_daycarecenters/';
-
-    /**
-     * target folder after migration
-     * Relative to fileadmin
-     */
-    protected string $targetPath = '_migrated/daycarecenters/';
-
-    public function getIdentifier(): string
-    {
-        return 'daycarecentersHolderLogo';
-    }
-
     public function getTitle(): string
     {
-        return '[daycarecenters] Migrate non FAL holder logos to FAL';
+        return '[daycarecenters] Migrate FAL relations where field name with logo to logos';
     }
 
     public function getDescription(): string
     {
-        return 'It is required to use FAL for holder logos since TYPO3 v10.'
-            . ' This wizard migrates all old logos from uploads/tx_daycarecenters into fileadmin/_migrated/daycarecenters';
+        return 'From version 6.0 the field logo renamed to logos';
+    }
+
+    public function updateNecessary(): bool
+    {
+        return $this->getRecordsFromTable();
+    }
+
+    public function getPrerequisites(): array
+    {
+        return [];
     }
 
     public function executeUpdate(): bool
@@ -66,9 +56,7 @@ class HolderLogoUpdateWizard implements UpgradeWizardInterface, LoggerAwareInter
         try {
             $storages = GeneralUtility::makeInstance(StorageRepository::class)->findAll();
             $this->storage = $storages[0];
-
-            $dbQueries = [];
-            $records = $this->getRecordsFromTable($dbQueries);
+            $records = $this->getRecordsFromTable();
             foreach ($records as $record) {
                 $this->migrateField($record, $customMessage, $dbQueries);
             }
@@ -88,23 +76,27 @@ class HolderLogoUpdateWizard implements UpgradeWizardInterface, LoggerAwareInter
     protected function getRecordsFromTable(): bool
     {
         $connectionPool = GeneralUtility::makeInstance(ConnectionPool::class);
-        $queryBuilder = $connectionPool->getQueryBuilderForTable($this->table);
+        $queryBuilder = $connectionPool->getQueryBuilderForTable('sys_file_reference');
         $queryBuilder->getRestrictions()->removeAll();
 
         try {
             $result = $queryBuilder
                 ->count('uid')
-                ->from($this->table)
+                ->from('sys_file_reference')
                 ->where(
-                    $queryBuilder->expr()->isNotNull($this->fieldToMigrate),
-                    $queryBuilder->expr()->neq(
-                        $this->fieldToMigrate,
-                        $queryBuilder->createNamedParameter('', \PDO::PARAM_STR)
+                    $queryBuilder->expr()->eq(
+                        'fieldname',
+                        $queryBuilder->createNamedParameter('logo', \PDO::PARAM_STR)
+                    )
+                )
+                ->orWhere(
+                    $queryBuilder->expr()->eq(
+                        'tablenames',
+                        $queryBuilder->createNamedParameter('tx_daycarecenters_domain_model_kita', \PDO::PARAM_STR)
                     ),
-                    $queryBuilder->expr()->comparison(
-                        'CAST(CAST(' . $queryBuilder->quoteIdentifier($this->fieldToMigrate) . ' AS DECIMAL) AS CHAR)',
-                        ExpressionBuilder::NEQ,
-                        'CAST(' . $queryBuilder->quoteIdentifier($this->fieldToMigrate) . ' AS CHAR)'
+                    $queryBuilder->expr()->eq(
+                        'tablenames',
+                        $queryBuilder->createNamedParameter('tx_daycarecenters_domain_model_holder', \PDO::PARAM_STR)
                     )
                 )
                 ->orderBy('uid')
@@ -234,15 +226,5 @@ class HolderLogoUpdateWizard implements UpgradeWizardInterface, LoggerAwareInter
             )->set($this->fieldToMigrate, $i)->executeStatement();
             $dbQueries[] = str_replace(LF, ' ', $queryBuilder->getSQL());
         }
-    }
-
-    public function updateNecessary(): bool
-    {
-        return $this->getRecordsFromTable();
-    }
-
-    public function getPrerequisites(): array
-    {
-        return [];
     }
 }
