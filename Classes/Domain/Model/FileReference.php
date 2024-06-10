@@ -21,11 +21,6 @@ class FileReference extends \TYPO3\CMS\Extbase\Domain\Model\FileReference
     /**
      * @var int
      */
-    protected $cruserId = 0;
-
-    /**
-     * @var int
-     */
     protected $uidLocal = 0;
 
     protected string $tablenames = '';
@@ -38,16 +33,6 @@ class FileReference extends \TYPO3\CMS\Extbase\Domain\Model\FileReference
     public function setTitle(string $title): void
     {
         $this->title = $title;
-    }
-
-    public function getCruserId(): int
-    {
-        return $this->cruserId;
-    }
-
-    public function setCruserId(int $cruserId): void
-    {
-        $this->cruserId = $cruserId;
     }
 
     public function getUidLocal(): int

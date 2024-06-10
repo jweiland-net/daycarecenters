@@ -55,7 +55,7 @@ class Kita extends AbstractEntity
      * @var ObjectStorage<FileReference>
      */
     #[Extbase\ORM\Lazy]
-    protected ObjectStorage $logo;
+    protected ObjectStorage $logos;
 
     /**
      * @var ObjectStorage<FileReference>
@@ -101,7 +101,7 @@ class Kita extends AbstractEntity
 
     public function __construct()
     {
-        $this->logo = new ObjectStorage();
+        $this->logos = new ObjectStorage();
         $this->images = new ObjectStorage();
         $this->careForm = new ObjectStorage();
         $this->telephones = new ObjectStorage();
@@ -109,6 +109,7 @@ class Kita extends AbstractEntity
 
     protected function initializeObject(): void
     {
+        $this->logos = $this->logos ?? new ObjectStorage();
         $this->images = $this->images ?? new ObjectStorage();
         $this->careForm = $this->careForm ?? new ObjectStorage();
         $this->telephones = $this->telephones ?? new ObjectStorage();
@@ -264,24 +265,24 @@ class Kita extends AbstractEntity
         $this->closingDays = $closingDays;
     }
 
-    public function getLogo(): ObjectStorage
+    public function getLogos(): ObjectStorage
     {
-        return $this->logo;
+        return $this->logos;
     }
 
-    public function setLogo(ObjectStorage $logo): void
+    public function setLogos(ObjectStorage $logo): void
     {
-        $this->logo = $logo;
+        $this->logos = $logos;
     }
 
     public function addLogo(FileReference $file): void
     {
-        $this->logo->attach($file);
+        $this->logos->attach($file);
     }
 
     public function removeLogo(FileReference $file): void
     {
-        $this->logo->detach($file);
+        $this->logos->detach($file);
     }
 
     public function getImages(): ObjectStorage

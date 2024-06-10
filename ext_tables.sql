@@ -19,7 +19,7 @@ CREATE TABLE tx_daycarecenters_domain_model_kita
 	food_info               text,
 	food_prices             text,
 	closing_days            varchar(255)  DEFAULT '' NOT NULL,
-	logo                    int(11) DEFAULT '0' NOT NULL,
+	logos                   int(11) DEFAULT '0' NOT NULL,
 	images                  int(11) DEFAULT '0' NOT NULL,
 	response_times          text,
 	facebook                varchar(255)  DEFAULT '' NOT NULL,
@@ -51,7 +51,7 @@ CREATE TABLE tx_daycarecenters_domain_model_holder
 	fax            varchar(255) DEFAULT '' NOT NULL,
 	email          varchar(255) DEFAULT '' NOT NULL,
 	website        varchar(255) DEFAULT '' NOT NULL,
-	logo           text,
+	logos          int(11) DEFAULT '0' NOT NULL,
 );
 
 #

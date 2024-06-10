@@ -6,9 +6,9 @@
 
 <div class="thumbnail grid_1 floatleft">
     <figure class="marginbottom gridrightstd">
-        <f:if condition="{kita.logo->f:count()}">
+        <f:if condition="{kita.logos->f:count()}">
             <f:then>
-                <f:for each="{kita.logo}" as="logo">
+                <f:for each="{kita.logos}" as="logo">
                     <f:image image="{logo}"
                              alt="Logo: {kita.title}"
                              width="{settings.list.image.width}"
@@ -20,7 +20,7 @@
                 </f:for>
             </f:then>
             <f:else>
-                <f:if condition="{kita.holder.logo->f:count()}">
+                <f:if condition="{kita.holder.logos->f:count()}">
                     <f:then>
                         <f:for each="{kita.holder.logo}" as="holderLogo">
                             <f:image image="{holderLogo}"

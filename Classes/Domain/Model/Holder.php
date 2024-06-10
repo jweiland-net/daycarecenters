@@ -43,11 +43,16 @@ class Holder extends AbstractEntity
      * @var ObjectStorage<FileReference>
      */
     #[Extbase\ORM\Lazy]
-    protected ObjectStorage $logo;
+    protected ObjectStorage $logos;
 
     public function __construct()
     {
-        $this->logo = new ObjectStorage();
+        $this->logos = new ObjectStorage();
+    }
+
+    public function initializeObject(): void
+    {
+        $this->logos = $this->logos ?? new ObjectStorage();
     }
 
     public function getTitle(): string
@@ -150,23 +155,23 @@ class Holder extends AbstractEntity
         $this->website = $website;
     }
 
-    public function getLogo(): ?ObjectStorage
+    public function getLogos(): ObjectStorage
     {
-        return $this->logo;
+        return $this->logos;
     }
 
-    public function setLogo(ObjectStorage $logo): void
+    public function setLogos(ObjectStorage $logo): void
     {
-        $this->logo = $logo;
+        $this->logos = $logo;
     }
 
     public function addLogo(FileReference $file): void
     {
-        $this->logo->attach($file);
+        $this->logos->attach($file);
     }
 
     public function removeLogo(FileReference $file): void
     {
-        $this->logo->detach($file);
+        $this->logos->detach($file);
     }
 }

@@ -18,9 +18,9 @@
         <f:render partial="Holder/SingleLine" arguments="{field: 'website', value: holder.website}"/>
     </dl>
 
-    <f:if condition="{holder.logo->f:count()}">
+    <f:if condition="{holder.logos->f:count()}">
         <f:then>
-            <f:for each="{holder.logo}" as="holderLogo">
+            <f:for each="{holder.logos}" as="holderLogo">
                 <f:image image="{holderLogo}"
                          alt="Logo: {holder.title}"
                          width="{settings.list.image.width}"
