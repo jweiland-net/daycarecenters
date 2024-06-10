@@ -71,8 +71,8 @@ class SlugUpdateWizard implements UpgradeWizardInterface
                     )
                 )
             )
-            ->execute()
-            ->fetchColumn(0);
+            ->executeQuery()
+            ->fetchOne();
 
         return (bool)$amountOfRecordsWithEmptySlug;
     }
@@ -100,10 +100,10 @@ class SlugUpdateWizard implements UpgradeWizardInterface
                     )
                 )
             )
-            ->execute();
+            ->executeQuery();
 
         $connection = $this->getConnectionPool()->getConnectionForTable($this->tableName);
-        while ($recordToUpdate = $statement->fetch()) {
+        while ($recordToUpdate = $statement->fetchAssociative()) {
             if ((string)$recordToUpdate['title'] !== '') {
                 $slug = $this->slugHelper->generate($recordToUpdate, (int)$recordToUpdate['pid']);
                 $connection->update(

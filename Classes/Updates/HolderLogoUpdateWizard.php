@@ -108,11 +108,11 @@ class HolderLogoUpdateWizard implements UpgradeWizardInterface, LoggerAwareInter
                     )
                 )
                 ->orderBy('uid')
-                ->execute();
+                ->executeQuery();
 
             $dbQueries[] = $queryBuilder->getSQL();
 
-            return $result->fetchAll();
+            return $result->fetchAssociative();
         } catch (DBALException $e) {
             throw new \RuntimeException(
                 'Database query failed. Error was: ' . $e->getPrevious()->getMessage(),
@@ -162,7 +162,7 @@ class HolderLogoUpdateWizard implements UpgradeWizardInterface, LoggerAwareInter
                         'storage',
                         $queryBuilder->createNamedParameter($storageUid, \PDO::PARAM_INT)
                     )
-                )->execute()->fetch();
+                )->executeQuery()->fetchOne();
 
                 // the file exists, the file does not have to be moved again
                 if (is_array($existingFileRecord)) {
@@ -218,7 +218,7 @@ class HolderLogoUpdateWizard implements UpgradeWizardInterface, LoggerAwareInter
                 ];
 
                 $queryBuilder = $connectionPool->getQueryBuilderForTable('sys_file_reference');
-                $queryBuilder->insert('sys_file_reference')->values($fields)->execute();
+                $queryBuilder->insert('sys_file_reference')->values($fields)->executeStatement();
                 $dbQueries[] = str_replace(LF, ' ', $queryBuilder->getSQL());
                 ++$i;
             }
@@ -233,7 +233,7 @@ class HolderLogoUpdateWizard implements UpgradeWizardInterface, LoggerAwareInter
                     'uid',
                     $queryBuilder->createNamedParameter($row['uid'], \PDO::PARAM_INT)
                 )
-            )->set($this->fieldToMigrate, $i)->execute();
+            )->set($this->fieldToMigrate, $i)->executeStatement();
             $dbQueries[] = str_replace(LF, ' ', $queryBuilder->getSQL());
         }
     }
