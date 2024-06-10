@@ -18,15 +18,29 @@
         <f:render partial="Holder/SingleLine" arguments="{field: 'website', value: holder.website}"/>
     </dl>
 
-    <f:if condition="{holder.logo}">
-        <f:image image="{holder.logo}"
-                 alt="Logo: {holder.title}"
-                 width="{settings.list.image.width}"
-                 height="{settings.list.image.height}"
-                 minWidth="{settings.list.image.minWidth}"
-                 maxWidth="{settings.list.image.maxWidth}"
-                 minHeight="{settings.list.image.minHeight}"
-                 maxHeight="{settings.list.image.maxHeight}"/>
+    <f:if condition="{holder.logo->f:count()}">
+        <f:then>
+            <f:for each="{holder.logo}" as="holderLogo">
+                <f:image image="{holderLogo}"
+                         alt="Logo: {holder.title}"
+                         width="{settings.list.image.width}"
+                         height="{settings.list.image.height}"
+                         minWidth="{settings.list.image.minWidth}"
+                         maxWidth="{settings.list.image.maxWidth}"
+                         minHeight="{settings.list.image.minHeight}"
+                         maxHeight="{settings.list.image.maxHeight}"/>
+            </f:for>
+        </f:then>
+        <f:else>
+            <f:image src="EXT:daycarecenters/Resources/Public/Image/placeholder.jpeg"
+                     alt="Logo: {holder.title}"
+                     width="{settings.list.image.width}"
+                     height="{settings.list.image.height}"
+                     minWidth="{settings.list.image.minWidth}"
+                     maxWidth="{settings.list.image.maxWidth}"
+                     minHeight="{settings.list.image.minHeight}"
+                     maxHeight="{settings.list.image.maxHeight}"/>
+        </f:else>
     </f:if>
 </f:section>
 </html>

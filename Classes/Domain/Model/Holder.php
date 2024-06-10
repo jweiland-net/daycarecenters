@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace JWeiland\Daycarecenters\Domain\Model;
 
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
  * Domain model which represents a Holder
@@ -38,7 +39,16 @@ class Holder extends AbstractEntity
 
     protected string $website = '';
 
-    protected FileReference $logo;
+    /**
+     * @var ObjectStorage<FileReference>
+     */
+    #[Extbase\ORM\Lazy]
+    protected ObjectStorage $logo;
+
+    public function __construct()
+    {
+        $this->logo = new ObjectStorage();
+    }
 
     public function getTitle(): string
     {
@@ -140,13 +150,23 @@ class Holder extends AbstractEntity
         $this->website = $website;
     }
 
-    public function getLogo(): ?FileReference
+    public function getLogo(): ?ObjectStorage
     {
         return $this->logo;
     }
 
-    public function setLogo(FileReference $logo): void
+    public function setLogo(ObjectStorage $logo): void
     {
         $this->logo = $logo;
+    }
+
+    public function addLogo(FileReference $file): void
+    {
+        $this->logo->attach($file);
+    }
+
+    public function removeLogo(FileReference $file): void
+    {
+        $this->logo->detach($file);
     }
 }
