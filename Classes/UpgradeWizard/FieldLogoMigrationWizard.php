@@ -91,8 +91,7 @@ class FieldLogoMigrationWizard implements UpgradeWizardInterface, LoggerAwareInt
                         'fieldname',
                         $queryBuilder->createNamedParameter('logo', \PDO::PARAM_STR)
                     )
-                )
-                ->orderBy('uid');
+                );
 
             // Modify the query based on the $onlyCount parameter
             if ($onlyCount) {
