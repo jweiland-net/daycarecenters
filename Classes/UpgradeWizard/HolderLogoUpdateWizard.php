@@ -9,7 +9,7 @@ declare(strict_types=1);
  * LICENSE file that was distributed with this source code.
  */
 
-namespace JWeiland\Daycarecenters\Upgrade;
+namespace JWeiland\Daycarecenters\UpgradeWizard;
 
 use Doctrine\DBAL\DBALException;
 use Psr\Log\LoggerAwareInterface;
