@@ -96,7 +96,7 @@ class FieldLogoMigrationWizard implements UpgradeWizardInterface, LoggerAwareInt
             // Modify the query based on the $onlyCount parameter
             if ($onlyCount) {
                 // Select the count of matching records
-                $queryBuilder->selectLiteral('COUNT(uid) as count');
+                $queryBuilder->count('uid');
                 $result = $queryBuilder->executeQuery();
 
                 return (int)$result->fetchOne();
