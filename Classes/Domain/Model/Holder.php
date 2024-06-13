@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace JWeiland\Daycarecenters\Domain\Model;
 
+use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 

@@ -21,8 +21,16 @@
     <f:if condition="{holder.logos->f:count()}">
         <f:then>
             <f:for each="{holder.logos}" as="holderLogo">
+                <f:if condition="{holderLogo.originalResource.title}">
+                    <f:then>
+                        <f:variable name="altLabel">{holderLogo.originalResource.title}</f:variable>
+                    </f:then>
+                    <f:else>
+                        <f:variable name="altLabel">Logo: {holder.title}</f:variable>
+                    </f:else>
+                </f:if>
                 <f:image image="{holderLogo}"
-                         alt="Logo: {holder.title}"
+                         alt="{altLabel}"
                          width="{settings.list.image.width}"
                          height="{settings.list.image.height}"
                          minWidth="{settings.list.image.minWidth}"
@@ -32,7 +40,7 @@
             </f:for>
         </f:then>
         <f:else>
-            <f:image src="EXT:daycarecenters/Resources/Public/Image/placeholder.jpeg"
+            <f:image src="EXT:daycarecenters/Resources/Public/Image/placeholder.jpg"
                      alt="Logo: {holder.title}"
                      width="{settings.list.image.width}"
                      height="{settings.list.image.height}"
