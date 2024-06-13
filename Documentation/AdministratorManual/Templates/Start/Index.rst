@@ -27,8 +27,8 @@ will disappear if you upgrade the extension. As with any Extbase-based
 extension, you can find the templates in the `Resources/Private/` directory.
 
 If you want to change a template, copy the desired files to the directory where
-you store your templates. This can be a directory in `fileadmin` or a custom
-extension. Multiple fallbacks can be defined, making it much easier to customize
+you store your templates. This can be a directory in a `sitepackage` extension.
+Multiple fallbacks can be defined, making it much easier to customize
 the templates.
 
 ..  code-block:: typoscript
@@ -38,17 +38,17 @@ the templates.
         templateRootPaths >
         templateRootPaths {
           0 = EXT:daycarecenters/Resources/Private/Templates/
-          1 = fileadmin/templates/ext/daycarecenters/Templates/
+          1 = EXT:sitepackage/Resources/Private/EXT/daycarecenters/Templates/
         }
         partialRootPaths >
         partialRootPaths {
           0 = EXT:daycarecenters/Resources/Private/Partials/
-          1 = fileadmin/templates/ext/daycarecenters/Partials/
+          1 = EXT:sitepackage/Resources/Private/EXT/daycarecenters/Partials/
         }
         layoutRootPaths >
         layoutRootPaths {
           0 = EXT:daycarecenters/Resources/Private/Layouts/
-          1 = fileadmin/templates/ext/daycarecenters/Layouts/
+          1 = EXT:sitepackage/Resources/Private/EXT/daycarecenters/Layouts/
         }
       }
     }
