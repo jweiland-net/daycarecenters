@@ -87,9 +87,9 @@
         <source>Closing Days</source>
         <target state="final">Schließungstage (Anzahl)</target>
       </trans-unit>
-      <trans-unit id="tx_daycarecenters_domain_model_kita.logo" approved="yes">
+      <trans-unit id="tx_daycarecenters_domain_model_kita.logos">
         <source>Logo</source>
-        <target state="final">Logo</target>
+        <target state="needs-translation">Logo</target>
       </trans-unit>
       <trans-unit id="tx_daycarecenters_domain_model_kita.images" approved="yes">
         <source>Images</source>
@@ -191,9 +191,9 @@
         <source>Website</source>
         <target state="final">Webseite</target>
       </trans-unit>
-      <trans-unit id="tx_daycarecenters_domain_model_holder.logo" approved="yes">
+      <trans-unit id="tx_daycarecenters_domain_model_holder.logos">
         <source>Logo</source>
-        <target state="final">Logo</target>
+        <target state="needs-translation">Logo</target>
       </trans-unit>
       <trans-unit id="tx_daycarecenters_domain_model_careform" approved="yes">
         <source>Care Form</source>
