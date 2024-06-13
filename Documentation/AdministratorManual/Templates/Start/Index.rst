@@ -63,9 +63,9 @@ the paths
 
     plugin.tx_daycarecenters {
       view {
-        templateRootPath = fileadmin/templates/ext/daycarecenters/Templates/
-        partialRootPath = fileadmin/templates/ext/daycarecenters/Partials/
-        layoutRootPath = fileadmin/templates/ext/daycarecenters/Layouts/
+        templateRootPath = EXT:daycarecenters/Resources/Private/Templates/
+        partialRootPath = EXT:daycarecenters/Resources/Private/Partials/
+        layoutRootPath = EXT:daycarecenters/Resources/Private/Layouts/
       }
     }
 
