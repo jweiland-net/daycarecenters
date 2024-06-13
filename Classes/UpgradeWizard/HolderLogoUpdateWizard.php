@@ -33,7 +33,7 @@ class HolderLogoUpdateWizard implements UpgradeWizardInterface, LoggerAwareInter
 
     protected string $table = 'tx_daycarecenters_domain_model_holder';
 
-    protected string $fieldToMigrate = 'logo';
+    protected string $fieldToMigrate = 'logos';
 
     protected string $sourcePath = 'uploads/tx_daycarecenters/';
 
