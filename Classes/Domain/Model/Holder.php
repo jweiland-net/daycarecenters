@@ -11,67 +11,50 @@ declare(strict_types=1);
 
 namespace JWeiland\Daycarecenters\Domain\Model;
 
+use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
  * Domain model which represents a Holder
  */
 class Holder extends AbstractEntity
 {
-    /**
-     * @var string
-     */
-    protected $title = '';
+    protected string $title = '';
+
+    protected string $contactPerson = '';
+
+    protected string $street = '';
+
+    protected string $houseNumber = '';
+
+    protected string $zip = '';
+
+    protected string $city = '';
+
+    protected string $telephone = '';
+
+    protected string $fax = '';
+
+    protected string $email = '';
+
+    protected string $website = '';
 
     /**
-     * @var string
+     * @var ObjectStorage<FileReference>
      */
-    protected $contactPerson = '';
+    #[Extbase\ORM\Lazy]
+    protected ObjectStorage $logos;
 
-    /**
-     * @var string
-     */
-    protected $street = '';
+    public function __construct()
+    {
+        $this->logos = new ObjectStorage();
+    }
 
-    /**
-     * @var string
-     */
-    protected $houseNumber = '';
-
-    /**
-     * @var string
-     */
-    protected $zip = '';
-
-    /**
-     * @var string
-     */
-    protected $city = '';
-
-    /**
-     * @var string
-     */
-    protected $telephone = '';
-
-    /**
-     * @var string
-     */
-    protected $fax = '';
-
-    /**
-     * @var string
-     */
-    protected $email = '';
-
-    /**
-     * @var string
-     */
-    protected $website = '';
-
-    /**
-     * @var string
-     */
-    protected $logo = '';
+    public function initializeObject(): void
+    {
+        $this->logos = $this->logos ?? new ObjectStorage();
+    }
 
     public function getTitle(): string
     {
@@ -173,13 +156,23 @@ class Holder extends AbstractEntity
         $this->website = $website;
     }
 
-    public function getLogo(): string
+    public function getLogos(): ObjectStorage
     {
-        return $this->logo;
+        return $this->logos;
     }
 
-    public function setLogo(string $logo): void
+    public function setLogos(ObjectStorage $logo): void
     {
-        $this->logo = $logo;
+        $this->logos = $logo;
+    }
+
+    public function addLogo(FileReference $file): void
+    {
+        $this->logos->attach($file);
+    }
+
+    public function removeLogo(FileReference $file): void
+    {
+        $this->logos->detach($file);
     }
 }

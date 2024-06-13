@@ -13,6 +13,7 @@ namespace JWeiland\Daycarecenters\Domain\Model;
 
 use JWeiland\Maps2\Domain\Model\PoiCollection;
 use TYPO3\CMS\Extbase\Annotation as Extbase;
+use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
@@ -21,169 +22,87 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
  */
 class Kita extends AbstractEntity
 {
-    /**
-     * @var string
-     */
-    protected $title = '#';
+    protected string $title = '#';
 
-    /**
-     * @var string
-     */
-    protected $leader = '';
+    protected string $leader = '';
 
-    /**
-     * @var string
-     */
-    protected $places = '';
+    protected string $places = '';
 
-    /**
-     * @var string
-     */
-    protected $street = '';
+    protected string $street = '';
 
-    /**
-     * @var string
-     */
-    protected $houseNumber = '';
+    protected string $houseNumber = '';
 
-    /**
-     * @var string
-     */
-    protected $zip = '';
+    protected string $zip = '';
 
-    /**
-     * @var string
-     */
-    protected $city = '';
+    protected string $city = '';
 
-    /**
-     * @var string
-     */
-    protected $email = '';
+    protected string $email = '';
 
-    /**
-     * @var string
-     */
-    protected $website = '';
+    protected string $website = '';
 
-    /**
-     * @var string
-     */
-    protected $amountOfGroups = '';
+    protected string $amountOfGroups = '';
 
-    /**
-     * @var string
-     */
-    protected $spaceOffered = '';
+    protected string $spaceOffered = '';
 
-    /**
-     * @var bool
-     */
-    protected $foodSupply = false;
+    protected bool $foodSupply = false;
 
-    /**
-     * @var string
-     */
-    protected $foodInfo = '';
+    protected string $foodInfo = '';
 
-    /**
-     * @var string
-     */
-    protected $foodPrices = '';
+    protected string $foodPrices = '';
 
-    /**
-     * @var string
-     */
-    protected $closingDays = '';
-
-    /**
-     * @var FileReference
-     */
-    protected $logo;
+    protected string $closingDays = '';
 
     /**
      * @var ObjectStorage<FileReference>
-     *
-     * @Extbase\ORM\Lazy
      */
-    protected $images;
+    #[Extbase\ORM\Lazy]
+    protected ObjectStorage $logos;
 
     /**
-     * @var string
+     * @var ObjectStorage<FileReference>
      */
-    protected $responseTimes = '';
+    #[Extbase\ORM\Lazy]
+    protected ObjectStorage $images;
 
-    /**
-     * @var string
-     */
-    protected $facebook = '';
+    protected string $responseTimes = '';
 
-    /**
-     * @var string
-     */
-    protected $twitter = '';
+    protected string $facebook = '';
 
-    /**
-     * @var string
-     */
-    protected $instagram = '';
+    protected string $twitter = '';
 
-    /**
-     * @var string
-     */
-    protected $additionalInformations = '';
+    protected string $instagram = '';
 
-    /**
-     * @var int
-     */
-    protected $earliestOpeningTime = 0;
+    protected string $additionalInformations = '';
 
-    /**
-     * @var int
-     */
-    protected $latestOpeningTime = 0;
+    protected int $earliestOpeningTime = 0;
 
-    /**
-     * @var int
-     */
-    protected $earliestAge = 0;
+    protected int $latestOpeningTime = 0;
 
-    /**
-     * @var int
-     */
-    protected $latestAge = 0;
+    protected int $earliestAge = 0;
 
-    /**
-     * @var Holder
-     */
-    protected $holder;
+    protected int $latestAge = 0;
+
+    protected Holder $holder;
 
     /**
      * @var ObjectStorage<CareForm>
-     *
-     * @Extbase\ORM\Lazy
      */
-    protected $careForm;
+    #[Extbase\ORM\Lazy]
+    protected ObjectStorage $careForm;
 
-    /**
-     * @var District
-     */
-    protected $district;
+    protected District $district;
 
     /**
      * @var ObjectStorage<Telephone>
-     *
-     * @Extbase\ORM\Lazy
      */
-    protected $telephones;
+    #[Extbase\ORM\Lazy]
+    protected ObjectStorage $telephones;
 
-    /**
-     * @var PoiCollection
-     */
-    protected $txMaps2Uid;
+    protected ?PoiCollection $txMaps2Uid = null;
 
     public function __construct()
     {
+        $this->logos = new ObjectStorage();
         $this->images = new ObjectStorage();
         $this->careForm = new ObjectStorage();
         $this->telephones = new ObjectStorage();
@@ -191,6 +110,7 @@ class Kita extends AbstractEntity
 
     protected function initializeObject(): void
     {
+        $this->logos = $this->logos ?? new ObjectStorage();
         $this->images = $this->images ?? new ObjectStorage();
         $this->careForm = $this->careForm ?? new ObjectStorage();
         $this->telephones = $this->telephones ?? new ObjectStorage();
@@ -346,14 +266,24 @@ class Kita extends AbstractEntity
         $this->closingDays = $closingDays;
     }
 
-    public function getLogo(): ?FileReference
+    public function getLogos(): ObjectStorage
     {
-        return $this->logo;
+        return $this->logos;
     }
 
-    public function setLogo(FileReference $logo = null): void
+    public function setLogos(ObjectStorage $logo): void
     {
-        $this->logo = $logo;
+        $this->logos = $logos;
+    }
+
+    public function addLogo(FileReference $file): void
+    {
+        $this->logos->attach($file);
+    }
+
+    public function removeLogo(FileReference $file): void
+    {
+        $this->logos->detach($file);
     }
 
     public function getImages(): ObjectStorage

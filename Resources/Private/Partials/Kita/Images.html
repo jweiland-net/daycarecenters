@@ -8,8 +8,16 @@
             <f:for each="{kita.images}" as="image" iteration="iterator">
                 <f:if condition="{image}">
                     <li>
+                        <f:if condition="{image.originalResource.title}">
+                            <f:then>
+                                <f:variable name="altLabel">{image.originalResource.title}-{iterator.cycle}</f:variable>
+                            </f:then>
+                            <f:else>
+                                <f:variable name="altLabel">sliderimage-{iterator.cycle}</f:variable>
+                            </f:else>
+                        </f:if>
                         <f:image image="{image}"
-                                 alt="Sliderimage-{iterator.cycle}"
+                                 alt="{altLabel}"
                                  width="{settings.show.image.width}"
                                  height="{settings.show.image.height}"/>
                     </li>

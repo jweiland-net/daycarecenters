@@ -1,4 +1,5 @@
 <?php
+
 return [
     'ctrl' => [
         'title' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_kita',
@@ -27,7 +28,7 @@ return [
         '1' => [
             'showitem' => '--palette--;;languageHidden, title, path_segment, leader, places,
             --palette--;;streetHouseNumber, --palette--;;zipCity, --palette--;;emailWebsite, telephones, amount_of_groups, space_offered, food_supply,
-            food_info, food_prices, closing_days, logo, images, response_times, facebook, twitter, instagram,
+            food_info, food_prices, closing_days, logos, images, response_times, facebook, twitter, instagram,
             additional_informations, --palette--;;openingTimes, --palette--;;ages,
             holder, care_form, district,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.tabs.access,
@@ -322,27 +323,25 @@ return [
                 'eval' => 'trim',
             ],
         ],
-        'logo' => [
+        'logos' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_kita.logo',
-            'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
-                'logo',
-                [
-                    'minitems' => 0,
-                    'maxitems' => 1,
-                ],
-            ),
+            'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_kita.logos',
+            'config' => [
+                'type' => 'file',
+                'minitems' => 0,
+                'maxitems' => 1,
+                'allowed' => 'common-image-types',
+            ],
         ],
         'images' => [
             'exclude' => true,
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_kita.images',
-            'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
-                'images',
-                [
-                    'minitems' => 0,
-                    'maxitems' => 5,
-                ],
-            ),
+            'config' => [
+                'type' => 'file',
+                'minitems' => 0,
+                'maxitems' => 5,
+                'allowed' => 'common-image-types'
+            ],
         ],
         'response_times' => [
             'exclude' => true,

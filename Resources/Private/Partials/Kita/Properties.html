@@ -6,31 +6,35 @@
 
 <div class="thumbnail grid_1 floatleft">
     <figure class="marginbottom gridrightstd">
-        <f:if condition="{kita.logo}">
+        <f:if condition="{kita.logos->f:count()}">
             <f:then>
-                <f:image image="{kita.logo}"
-                         alt="Logo: {kita.title}"
-                         width="{settings.list.image.width}"
-                         height="{settings.list.image.height}"
-                         minWidth="{settings.list.image.minWidth}"
-                         maxWidth="{settings.list.image.maxWidth}"
-                         minHeight="{settings.list.image.minHeight}"
-                         maxHeight="{settings.list.image.maxHeight}"/>
+                <f:for each="{kita.logos}" as="logo">
+                    <f:image image="{logo}"
+                             alt="Logo: {kita.title}"
+                             width="{settings.list.image.width}"
+                             height="{settings.list.image.height}"
+                             minWidth="{settings.list.image.minWidth}"
+                             maxWidth="{settings.list.image.maxWidth}"
+                             minHeight="{settings.list.image.minHeight}"
+                             maxHeight="{settings.list.image.maxHeight}"/>
+                </f:for>
             </f:then>
             <f:else>
-                <f:if condition="{kita.holder.logo}">
+                <f:if condition="{kita.holder.logos->f:count()}">
                     <f:then>
-                        <f:image image="{kita.holder.logo}"
-                                 alt="Logo: {kita.title}"
-                                 width="{settings.list.image.width}"
-                                 height="{settings.list.image.height}"
-                                 minWidth="{settings.list.image.minWidth}"
-                                 maxWidth="{settings.list.image.maxWidth}"
-                                 minHeight="{settings.list.image.minHeight}"
-                                 maxHeight="{settings.list.image.maxHeight}"/>
+                        <f:for each="{kita.holder.logo}" as="holderLogo">
+                            <f:image image="{holderLogo}"
+                                     alt="Logo: {kita.title}"
+                                     width="{settings.list.image.width}"
+                                     height="{settings.list.image.height}"
+                                     minWidth="{settings.list.image.minWidth}"
+                                     maxWidth="{settings.list.image.maxWidth}"
+                                     minHeight="{settings.list.image.minHeight}"
+                                     maxHeight="{settings.list.image.maxHeight}"/>
+                        </f:for>
                     </f:then>
                     <f:else>
-                        <f:image src="fileadmin/templates/img/theme_icons/kita.png"
+                        <f:image src="EXT:daycarecenters/Resources/Public/Image/placeholder.jpeg"
                                  alt="Logo: {kita.title}"
                                  width="{settings.list.image.width}"
                                  height="{settings.list.image.height}"

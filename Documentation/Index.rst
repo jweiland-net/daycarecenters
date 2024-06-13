@@ -20,7 +20,7 @@ daycarecenters
     en
 
 :Author:
-    Stefan Froemken
+    Stefan Froemken, Hoja Mustaffa Abdul Latheef
 
 :License:
     This document is published under the
@@ -46,6 +46,7 @@ This extension allows you to create a list of daycare centers including some fil
     Editor/Index
     Installation/Index
     Configuration/Index
+    AdministratorManual/Index
     Changelog/Index
     Sitemap
 

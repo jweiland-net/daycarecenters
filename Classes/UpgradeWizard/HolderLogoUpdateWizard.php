@@ -9,7 +9,7 @@ declare(strict_types=1);
  * LICENSE file that was distributed with this source code.
  */
 
-namespace JWeiland\Daycarecenters\Updates;
+namespace JWeiland\Daycarecenters\UpgradeWizard;
 
 use Doctrine\DBAL\DBALException;
 use Psr\Log\LoggerAwareInterface;
@@ -21,39 +21,27 @@ use TYPO3\CMS\Core\Resource\FileInterface;
 use TYPO3\CMS\Core\Resource\ResourceStorage;
 use TYPO3\CMS\Core\Resource\StorageRepository;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Install\Attribute\UpgradeWizard;
 use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 
+#[UpgradeWizard('daycarecentersHolderLogo')]
 class HolderLogoUpdateWizard implements UpgradeWizardInterface, LoggerAwareInterface
 {
     use LoggerAwareTrait;
 
-    /**
-     * @var ResourceStorage
-     */
-    protected $storage;
+    protected ResourceStorage $storage;
 
-    /**
-     * @var string
-     */
-    protected $table = 'tx_daycarecenters_domain_model_holder';
+    protected string $table = 'tx_daycarecenters_domain_model_holder';
 
-    /**
-     * @var string
-     */
-    protected $fieldToMigrate = 'logo';
+    protected string $fieldToMigrate = 'logos';
 
-    /**
-     * @var string
-     */
-    protected $sourcePath = 'uploads/tx_daycarecenters/';
+    protected string $sourcePath = 'uploads/tx_daycarecenters/';
 
     /**
      * target folder after migration
      * Relative to fileadmin
-     *
-     * @var string
      */
-    protected $targetPath = '_migrated/daycarecenters/';
+    protected string $targetPath = '_migrated/daycarecenters/';
 
     public function getIdentifier(): string
     {
@@ -97,7 +85,7 @@ class HolderLogoUpdateWizard implements UpgradeWizardInterface, LoggerAwareInter
      *
      * @throws \RuntimeException
      */
-    protected function getRecordsFromTable(array &$dbQueries): array
+    protected function getRecordsFromTable(): bool
     {
         $connectionPool = GeneralUtility::makeInstance(ConnectionPool::class);
         $queryBuilder = $connectionPool->getQueryBuilderForTable($this->table);
@@ -105,7 +93,7 @@ class HolderLogoUpdateWizard implements UpgradeWizardInterface, LoggerAwareInter
 
         try {
             $result = $queryBuilder
-                ->select('uid', 'pid', $this->fieldToMigrate)
+                ->count('uid')
                 ->from($this->table)
                 ->where(
                     $queryBuilder->expr()->isNotNull($this->fieldToMigrate),
@@ -120,11 +108,9 @@ class HolderLogoUpdateWizard implements UpgradeWizardInterface, LoggerAwareInter
                     )
                 )
                 ->orderBy('uid')
-                ->execute();
+                ->executeQuery();
 
-            $dbQueries[] = $queryBuilder->getSQL();
-
-            return $result->fetchAll();
+            return $result->fetchOne() !== 0;
         } catch (DBALException $e) {
             throw new \RuntimeException(
                 'Database query failed. Error was: ' . $e->getPrevious()->getMessage(),
@@ -174,7 +160,7 @@ class HolderLogoUpdateWizard implements UpgradeWizardInterface, LoggerAwareInter
                         'storage',
                         $queryBuilder->createNamedParameter($storageUid, \PDO::PARAM_INT)
                     )
-                )->execute()->fetch();
+                )->executeQuery()->fetchOne();
 
                 // the file exists, the file does not have to be moved again
                 if (is_array($existingFileRecord)) {
@@ -230,7 +216,7 @@ class HolderLogoUpdateWizard implements UpgradeWizardInterface, LoggerAwareInter
                 ];
 
                 $queryBuilder = $connectionPool->getQueryBuilderForTable('sys_file_reference');
-                $queryBuilder->insert('sys_file_reference')->values($fields)->execute();
+                $queryBuilder->insert('sys_file_reference')->values($fields)->executeStatement();
                 $dbQueries[] = str_replace(LF, ' ', $queryBuilder->getSQL());
                 ++$i;
             }
@@ -245,15 +231,14 @@ class HolderLogoUpdateWizard implements UpgradeWizardInterface, LoggerAwareInter
                     'uid',
                     $queryBuilder->createNamedParameter($row['uid'], \PDO::PARAM_INT)
                 )
-            )->set($this->fieldToMigrate, $i)->execute();
+            )->set($this->fieldToMigrate, $i)->executeStatement();
             $dbQueries[] = str_replace(LF, ' ', $queryBuilder->getSQL());
         }
     }
 
     public function updateNecessary(): bool
     {
-        $dbQueries = [];
-        return !empty($this->getRecordsFromTable($dbQueries));
+        return $this->getRecordsFromTable();
     }
 
     public function getPrerequisites(): array

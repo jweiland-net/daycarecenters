@@ -26,7 +26,7 @@ return [
     'types' => [
         '1' => [
             'showitem' => '--palette--;;languageHidden, title, contact_person,
-            --palette--;;streetHouseNumber, --palette--;;zipCity, --palette--;;telephoneFax, --palette--;;emailWebsite, logo,
+            --palette--;;streetHouseNumber, --palette--;;zipCity, --palette--;;telephoneFax, --palette--;;emailWebsite, logos,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.tabs.access,
             --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.palettes.access;access',
         ],
@@ -235,17 +235,15 @@ return [
                 'eval' => 'trim',
             ],
         ],
-        'logo' => [
+        'logos' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_holder.logo',
-            'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
-                'logo',
-                [
-                    'maxitems' => 1,
-                    'minitems' => 0,
-                ],
-                $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
-            ),
+            'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_holder.logos',
+            'config' => [
+                'type' => 'file',
+                'minitems' => 0,
+                'maxitems' => 1,
+                'allowed' => 'common-image-types'
+            ],
         ],
     ],
 ];

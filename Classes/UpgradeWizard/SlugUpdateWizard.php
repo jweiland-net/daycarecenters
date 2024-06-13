@@ -9,35 +9,28 @@ declare(strict_types=1);
  * LICENSE file that was distributed with this source code.
  */
 
-namespace JWeiland\Daycarecenters\Updates;
+namespace JWeiland\Daycarecenters\UpgradeWizard;
 
 use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction;
 use TYPO3\CMS\Core\DataHandling\SlugHelper;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Install\Attribute\UpgradeWizard;
 use TYPO3\CMS\Install\Updates\DatabaseUpdatedPrerequisite;
 use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 
 /**
  * Updater to fill empty slug columns of kita records
  */
+#[UpgradeWizard('daycarecentersUpdateSlug')]
 class SlugUpdateWizard implements UpgradeWizardInterface
 {
-    /**
-     * @var string
-     */
-    protected $tableName = 'tx_daycarecenters_domain_model_kita';
+    protected string $tableName = 'tx_daycarecenters_domain_model_kita';
 
-    /**
-     * @var string
-     */
-    protected $fieldName = 'path_segment';
+    protected string $fieldName = 'path_segment';
 
-    /**
-     * @var SlugHelper
-     */
-    protected $slugHelper;
+    protected SlugHelper $slugHelper;
 
     /**
      * Return the identifier for this wizard
@@ -68,7 +61,7 @@ class SlugUpdateWizard implements UpgradeWizardInterface
             ->count('*')
             ->from($this->tableName)
             ->where(
-                $queryBuilder->expr()->orX(
+                $queryBuilder->expr()->or(
                     $queryBuilder->expr()->eq(
                         $this->fieldName,
                         $queryBuilder->createNamedParameter('', Connection::PARAM_STR)
@@ -78,8 +71,8 @@ class SlugUpdateWizard implements UpgradeWizardInterface
                     )
                 )
             )
-            ->execute()
-            ->fetchColumn(0);
+            ->executeQuery()
+            ->fetchOne();
 
         return (bool)$amountOfRecordsWithEmptySlug;
     }
@@ -97,7 +90,7 @@ class SlugUpdateWizard implements UpgradeWizardInterface
             ->select('uid', 'pid', 'title')
             ->from($this->tableName)
             ->where(
-                $queryBuilder->expr()->orX(
+                $queryBuilder->expr()->or(
                     $queryBuilder->expr()->eq(
                         $this->fieldName,
                         $queryBuilder->createNamedParameter('', Connection::PARAM_STR)
@@ -107,10 +100,10 @@ class SlugUpdateWizard implements UpgradeWizardInterface
                     )
                 )
             )
-            ->execute();
+            ->executeQuery();
 
         $connection = $this->getConnectionPool()->getConnectionForTable($this->tableName);
-        while ($recordToUpdate = $statement->fetch()) {
+        while ($recordToUpdate = $statement->fetchAssociative()) {
             if ((string)$recordToUpdate['title'] !== '') {
                 $slug = $this->slugHelper->generate($recordToUpdate, (int)$recordToUpdate['pid']);
                 $connection->update(

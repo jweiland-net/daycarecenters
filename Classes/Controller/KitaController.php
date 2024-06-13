@@ -15,6 +15,7 @@ use JWeiland\Daycarecenters\Domain\Model\Kita;
 use JWeiland\Daycarecenters\Domain\Repository\DistrictRepository;
 use JWeiland\Daycarecenters\Domain\Repository\KitaRepository;
 use JWeiland\Daycarecenters\Event\PostProcessFluidVariablesEvent;
+use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Core\Page\PageRenderer;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
@@ -24,20 +25,11 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
  */
 class KitaController extends ActionController
 {
-    /**
-     * @var DistrictRepository
-     */
-    protected $districtRepository;
+    protected DistrictRepository $districtRepository;
 
-    /**
-     * @var PageRenderer
-     */
-    protected $pageRenderer;
+    protected PageRenderer $pageRenderer;
 
-    /**
-     * @var KitaRepository
-     */
-    protected $kitaRepository;
+    protected KitaRepository $kitaRepository;
 
     public function injectDistrictRepository(DistrictRepository $districtRepository): void
     {
@@ -63,7 +55,7 @@ class KitaController extends ActionController
         }
     }
 
-    public function listAction(): void
+    public function listAction(): ResponseInterface
     {
         $this->postProcessAndAssignFluidVariables([
             'earliestAge' => (int)$this->settings['search']['earliestAge'],
@@ -73,13 +65,17 @@ class KitaController extends ActionController
             'districts' => $this->districtRepository->findAll(),
             'kitas' => $this->kitaRepository->findAll(),
         ]);
+
+        return $this->htmlResponse();
     }
 
-    public function showAction(Kita $kita): void
+    public function showAction(Kita $kita): ResponseInterface
     {
         $this->postProcessAndAssignFluidVariables([
             'kita' => $kita,
         ]);
+
+        return $this->htmlResponse();
     }
 
     public function searchAction(
@@ -89,7 +85,7 @@ class KitaController extends ActionController
         float $latestOpeningTime = 18.00,
         bool $food = false,
         int $district = 0
-    ): void {
+    ): ResponseInterface {
         $kitas = $this->kitaRepository->searchKitas(
             $earliestAge,
             $latestAge,
@@ -109,6 +105,8 @@ class KitaController extends ActionController
             'districts' => $this->districtRepository->findAll(),
             'kitas' => $kitas,
         ]);
+
+        return $this->htmlResponse();
     }
 
     /**

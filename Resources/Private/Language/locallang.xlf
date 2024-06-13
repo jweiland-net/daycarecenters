@@ -55,7 +55,7 @@
 			<trans-unit id="tx_daycarecenters_domain_model_kita.closing_days">
 				<source>Closing Days</source>
 			</trans-unit>
-			<trans-unit id="tx_daycarecenters_domain_model_kita.logo">
+			<trans-unit id="tx_daycarecenters_domain_model_kita.logos">
 				<source>Logo</source>
 			</trans-unit>
 			<trans-unit id="tx_daycarecenters_domain_model_kita.images">
@@ -140,7 +140,7 @@
 			<trans-unit id="tx_daycarecenters_domain_model_holder.website">
 				<source>Website</source>
 			</trans-unit>
-			<trans-unit id="tx_daycarecenters_domain_model_holder.logo">
+			<trans-unit id="tx_daycarecenters_domain_model_holder.logos">
 				<source>Logo</source>
 			</trans-unit>
 

@@ -80,7 +80,7 @@
 				<source>Closing Days</source>
 				<target>Schließungstage (Anzahl)</target>
 			</trans-unit>
-			<trans-unit id="tx_daycarecenters_domain_model_kita.logo">
+			<trans-unit id="tx_daycarecenters_domain_model_kita.logos">
 				<source>Logo</source>
 				<target>Logo</target>
 			</trans-unit>
@@ -185,7 +185,7 @@
 				<source>Website</source>
 				<target>Webseite</target>
 			</trans-unit>
-			<trans-unit id="tx_daycarecenters_domain_model_holder.logo">
+			<trans-unit id="tx_daycarecenters_domain_model_holder.logos">
 				<source>Logo</source>
 				<target>Logo</target>
 			</trans-unit>

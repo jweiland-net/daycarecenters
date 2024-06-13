@@ -18,10 +18,7 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
  */
 class Telephone extends AbstractEntity
 {
-    /**
-     * @var string
-     */
-    protected $telephone = '';
+    protected string $telephone = '';
 
     public function getTelephone(): string
     {
