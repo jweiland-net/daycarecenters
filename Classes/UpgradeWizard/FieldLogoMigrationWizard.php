@@ -120,23 +120,23 @@ class FieldLogoMigrationWizard implements UpgradeWizardInterface, LoggerAwareInt
         $queryBuilder = $this->getConnectionPool()->getQueryBuilderForTable('sys_file_reference');
         $affectedRows = $queryBuilder
             ->update('sys_file_reference')
-            ->orWhere(
-                $queryBuilder->expr()->eq(
-                    'tablenames',
-                    $queryBuilder->createNamedParameter('tx_daycarecenters_domain_model_kita', \PDO::PARAM_STR)
-                ),
-                $queryBuilder->expr()->eq(
-                    'tablenames',
-                    $queryBuilder->createNamedParameter('tx_daycarecenters_domain_model_holder', \PDO::PARAM_STR)
-                )
-            )
-            ->andWhere(
+            ->set('fieldname', 'logos')
+            ->where(
                 $queryBuilder->expr()->eq(
                     'fieldname',
                     $queryBuilder->createNamedParameter('logo', \PDO::PARAM_STR)
+                ),
+                $queryBuilder->expr()->or(
+                    $queryBuilder->expr()->eq(
+                        'tablenames',
+                        $queryBuilder->createNamedParameter('tx_daycarecenters_domain_model_kita', \PDO::PARAM_STR)
+                    ),
+                    $queryBuilder->expr()->eq(
+                        'tablenames',
+                        $queryBuilder->createNamedParameter('tx_daycarecenters_domain_model_holder', \PDO::PARAM_STR)
+                    )
                 )
             )
-            ->set('fieldname', 'logos')
             ->executeStatement();
 
         $this->logger->notice(
