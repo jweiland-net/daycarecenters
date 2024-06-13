@@ -27,7 +27,7 @@ while comparing database with TCA definition after upgrading.
 Database Column Renaming Notice
 -------------------------------
 
-In this new version, we have renamed the database column logo to logos in the
+In this new version, we have renamed the database column `logo` to `logos` in the
 tables `tx_daycarecenters_domain_model_kita` and `tx_daycarecenters_domain_model_holder`
 for better management. As a result, you will need to adjust your extended Fluid
 templates and partials accordingly.
