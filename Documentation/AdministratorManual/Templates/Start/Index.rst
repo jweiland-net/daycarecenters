@@ -14,7 +14,7 @@ This documentation will not cover all aspects of Fluid but will highlight the
 most important things you need to use it effectively. For more comprehensive
 information, you can refer to resources such as:
 
-*   Books like`Zukunftssichere TYPO3-Extensions mit Extbase & Fluid by Jochen Rau and Sebastian Kurfürst <http://www.amazon.de/Zukunftssichere-TYPO3-Extensions-mit-Extbase-Fluid/dp/3897219654/>`_
+*   Books like `Zukunftssichere TYPO3-Extensions mit Extbase & Fluid by Jochen Rau and Sebastian Kurfürst <http://www.amazon.de/Zukunftssichere-TYPO3-Extensions-mit-Extbase-Fluid/dp/3897219654/>`_
 *   Online resources like the `http://wiki.typo3.org/Fluid <http://wiki.tpyo3.org/Fluid>`_
 
 Many other sites also provide valuable information about Fluid.
