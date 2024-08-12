@@ -58,4 +58,4 @@ Download and install `daycarecenters` with the extension manager module.
 
 [TYPO3-shield]: https://img.shields.io/badge/TYPO3-12.4-green.svg?style=for-the-badge&logo=typo3
 
-[LICENSE_BADGE]: http://poser.pugx.org/jweiland/daycarecenters/license?style=for-the-badge
+[LICENSE_BADGE]: https://img.shields.io/github/license/jweiland-net/daycarecenters?label=license&style=for-the-badge
