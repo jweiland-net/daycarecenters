@@ -1,5 +1,7 @@
 <?php
 
+use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
+
 /*
  * This file is part of the package jweiland/daycarecenters.
  *
@@ -11,7 +13,7 @@ if (!defined('TYPO3')) {
     die('Access denied.');
 }
 
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+ExtensionUtility::registerPlugin(
     'Daycarecenters',
     'Daycarecenters',
     'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:plugin.daycarecenters.title'

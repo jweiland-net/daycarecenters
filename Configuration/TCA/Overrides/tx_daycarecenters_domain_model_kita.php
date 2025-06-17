@@ -1,5 +1,8 @@
 <?php
 
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use JWeiland\Maps2\Tca\Maps2Registry;
+
 /*
  * This file is part of the package jweiland/daycarecenters.
  *
@@ -12,8 +15,8 @@ if (!defined('TYPO3')) {
 }
 
 // Add tx_maps2_uid column to kita table
-if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('maps2')) {
-    \JWeiland\Maps2\Tca\Maps2Registry::getInstance()->add(
+if (ExtensionManagementUtility::isLoaded('maps2')) {
+    Maps2Registry::getInstance()->add(
         'daycarecenters',
         'tx_daycarecenters_domain_model_kita',
         [
