@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of the package jweiland/daycarecenters.
+ * This file is part of the package jweiland/clubdirectory.
  *
  * For the full copyright and license information, please read the
  * LICENSE file that was distributed with this source code.
@@ -35,7 +35,7 @@ class AddPaginatorEventListener extends AbstractControllerEventListener
             $paginator = new QueryResultPaginator(
                 $event->getFluidVariables()['kitas'],
                 $this->getCurrentPage($event),
-                $this->getItemsPerPage($event)
+                $this->getItemsPerPage($event),
             );
 
             $event->addFluidVariable('actionName', $event->getActionName());

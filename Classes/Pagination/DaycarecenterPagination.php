@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of the package jweiland/daycarecenters.
+ * This file is part of the package jweiland/clubdirectory.
  *
  * For the full copyright and license information, please read the
  * LICENSE file that was distributed with this source code.
@@ -15,7 +15,6 @@ use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Core\Pagination\PaginationInterface;
 use TYPO3\CMS\Core\Pagination\PaginatorInterface;
 use TYPO3\CMS\Core\Utility\ArrayUtility;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class DaycarecenterPagination implements PaginationInterface
 {

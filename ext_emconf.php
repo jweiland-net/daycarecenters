@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * This file is part of the package jweiland/clubdirectory.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE file that was distributed with this source code.
+ */
+
 $EM_CONF[$_EXTKEY] = [
     'title' => 'Day Care Centers',
     'description' => 'This extensions lets create and show you records of day care centers',

@@ -1,8 +1,15 @@
 <?php
-use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
-use JWeiland\Daycarecenters\Controller\KitaController;
+
+/*
+ * This file is part of the package jweiland/clubdirectory.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE file that was distributed with this source code.
+ */
+
 use JWeiland\Daycarecenters\Controller\HolderController;
-use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use JWeiland\Daycarecenters\Controller\KitaController;
+use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 
 if (!defined('TYPO3')) {
     die('Access denied.');

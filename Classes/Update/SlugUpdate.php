@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of the package jweiland/daycarecenters.
+ * This file is part of the package jweiland/clubdirectory.
  *
  * For the full copyright and license information, please read the
  * LICENSE file that was distributed with this source code.
@@ -64,12 +64,12 @@ class SlugUpdate implements UpgradeWizardInterface
                 $queryBuilder->expr()->or(
                     $queryBuilder->expr()->eq(
                         $this->fieldName,
-                        $queryBuilder->createNamedParameter('', Connection::PARAM_STR)
+                        $queryBuilder->createNamedParameter('', Connection::PARAM_STR),
                     ),
                     $queryBuilder->expr()->isNull(
-                        $this->fieldName
-                    )
-                )
+                        $this->fieldName,
+                    ),
+                ),
             )
             ->executeQuery()
             ->fetchOne();
@@ -93,12 +93,12 @@ class SlugUpdate implements UpgradeWizardInterface
                 $queryBuilder->expr()->or(
                     $queryBuilder->expr()->eq(
                         $this->fieldName,
-                        $queryBuilder->createNamedParameter('', Connection::PARAM_STR)
+                        $queryBuilder->createNamedParameter('', Connection::PARAM_STR),
                     ),
                     $queryBuilder->expr()->isNull(
-                        $this->fieldName
-                    )
-                )
+                        $this->fieldName,
+                    ),
+                ),
             )
             ->executeQuery();
 
@@ -113,7 +113,7 @@ class SlugUpdate implements UpgradeWizardInterface
                     ],
                     [
                         'uid' => (int)$recordToUpdate['uid'],
-                    ]
+                    ],
                 );
             }
         }
@@ -128,7 +128,7 @@ class SlugUpdate implements UpgradeWizardInterface
                 SlugHelper::class,
                 $this->tableName,
                 $this->fieldName,
-                $GLOBALS['TCA'][$this->tableName]['columns']['path_segment']['config']
+                $GLOBALS['TCA'][$this->tableName]['columns']['path_segment']['config'],
             );
         }
 

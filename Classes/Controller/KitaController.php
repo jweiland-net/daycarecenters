@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of the package jweiland/daycarecenters.
+ * This file is part of the package jweiland/clubdirectory.
  *
  * For the full copyright and license information, please read the
  * LICENSE file that was distributed with this source code.
@@ -84,7 +84,7 @@ class KitaController extends ActionController
         float $earliestOpeningTime = 7.00,
         float $latestOpeningTime = 18.00,
         bool $food = false,
-        int $district = 0
+        int $district = 0,
     ): ResponseInterface {
         $kitas = $this->kitaRepository->searchKitas(
             $earliestAge,
@@ -92,7 +92,7 @@ class KitaController extends ActionController
             $this->convertTimeToInt($earliestOpeningTime),
             $this->convertTimeToInt($latestOpeningTime),
             $food,
-            $district
+            $district,
         );
 
         $this->postProcessAndAssignFluidVariables([
@@ -132,8 +132,8 @@ class KitaController extends ActionController
             new PostProcessFluidVariablesEvent(
                 $this->request,
                 $this->settings,
-                $variables
-            )
+                $variables,
+            ),
         );
 
         $this->view->assignMultiple($event->getFluidVariables());

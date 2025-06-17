@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of the package jweiland/daycarecenters.
+ * This file is part of the package jweiland/clubdirectory.
  *
  * For the full copyright and license information, please read the
  * LICENSE file that was distributed with this source code.
@@ -79,18 +79,18 @@ class FieldLogoMigrationUpdate implements UpgradeWizardInterface, LoggerAwareInt
                 ->orWhere(
                     $queryBuilder->expr()->eq(
                         'tablenames',
-                        $queryBuilder->createNamedParameter('tx_daycarecenters_domain_model_kita', \PDO::PARAM_STR)
+                        $queryBuilder->createNamedParameter('tx_daycarecenters_domain_model_kita', \PDO::PARAM_STR),
                     ),
                     $queryBuilder->expr()->eq(
                         'tablenames',
-                        $queryBuilder->createNamedParameter('tx_daycarecenters_domain_model_holder', \PDO::PARAM_STR)
-                    )
+                        $queryBuilder->createNamedParameter('tx_daycarecenters_domain_model_holder', \PDO::PARAM_STR),
+                    ),
                 )
                 ->andWhere(
                     $queryBuilder->expr()->eq(
                         'fieldname',
-                        $queryBuilder->createNamedParameter('logo', \PDO::PARAM_STR)
-                    )
+                        $queryBuilder->createNamedParameter('logo', \PDO::PARAM_STR),
+                    ),
                 );
 
             // Modify the query based on the $onlyCount parameter
@@ -121,23 +121,23 @@ class FieldLogoMigrationUpdate implements UpgradeWizardInterface, LoggerAwareInt
             ->where(
                 $queryBuilder->expr()->eq(
                     'fieldname',
-                    $queryBuilder->createNamedParameter('logo', \PDO::PARAM_STR)
+                    $queryBuilder->createNamedParameter('logo', \PDO::PARAM_STR),
                 ),
                 $queryBuilder->expr()->or(
                     $queryBuilder->expr()->eq(
                         'tablenames',
-                        $queryBuilder->createNamedParameter('tx_daycarecenters_domain_model_kita', \PDO::PARAM_STR)
+                        $queryBuilder->createNamedParameter('tx_daycarecenters_domain_model_kita', \PDO::PARAM_STR),
                     ),
                     $queryBuilder->expr()->eq(
                         'tablenames',
-                        $queryBuilder->createNamedParameter('tx_daycarecenters_domain_model_holder', \PDO::PARAM_STR)
-                    )
-                )
+                        $queryBuilder->createNamedParameter('tx_daycarecenters_domain_model_holder', \PDO::PARAM_STR),
+                    ),
+                ),
             )
             ->executeStatement();
 
         $this->logger->notice(
-            $affectedRows . 'Records with field name logo has been migrated to logos.'
+            $affectedRows . 'Records with field name logo has been migrated to logos.',
         );
     }
 
