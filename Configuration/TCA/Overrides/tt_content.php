@@ -16,5 +16,8 @@ if (!defined('TYPO3')) {
 ExtensionUtility::registerPlugin(
     'Daycarecenters',
     'Daycarecenters',
-    'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:plugin.daycarecenters.title'
+    'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:plugin.daycarecenters.title',
+    'ext-daycarecenters',
+    'plugins',
+    'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:plugin.daycarecenters.description',
 );

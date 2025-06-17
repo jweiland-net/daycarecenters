@@ -5,6 +5,10 @@ declare(strict_types=1);
 use TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider;
 
 return [
+    'ext-daycarecenters' => [
+        'provider' => SvgIconProvider::class,
+        'source' => 'EXT:daycarecenters/Resources/Public/Icons/Extension.svg',
+    ],
     'ext-daycarecenters-careform' => [
         'provider' => SvgIconProvider::class,
         'source' => 'EXT:daycarecenters/Resources/Public/Icons/careform.svg',
