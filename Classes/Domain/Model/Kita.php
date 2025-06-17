@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of the package jweiland/daycarecenters.
+ * This file is part of the package jweiland/clubdirectory.
  *
  * For the full copyright and license information, please read the
  * LICENSE file that was distributed with this source code.
@@ -12,7 +12,6 @@ declare(strict_types=1);
 namespace JWeiland\Daycarecenters\Domain\Model;
 
 use JWeiland\Maps2\Domain\Model\PoiCollection;
-use TYPO3\CMS\Extbase\Annotation as Extbase;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
@@ -110,10 +109,10 @@ class Kita extends AbstractEntity
 
     protected function initializeObject(): void
     {
-        $this->logos = $this->logos ?? new ObjectStorage();
-        $this->images = $this->images ?? new ObjectStorage();
-        $this->careForm = $this->careForm ?? new ObjectStorage();
-        $this->telephones = $this->telephones ?? new ObjectStorage();
+        $this->logos ??= new ObjectStorage();
+        $this->images ??= new ObjectStorage();
+        $this->careForm ??= new ObjectStorage();
+        $this->telephones ??= new ObjectStorage();
     }
 
     public function getTitle(): string

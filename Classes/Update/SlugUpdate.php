@@ -3,13 +3,13 @@
 declare(strict_types=1);
 
 /*
- * This file is part of the package jweiland/daycarecenters.
+ * This file is part of the package jweiland/clubdirectory.
  *
  * For the full copyright and license information, please read the
  * LICENSE file that was distributed with this source code.
  */
 
-namespace JWeiland\Daycarecenters\UpgradeWizard;
+namespace JWeiland\Daycarecenters\Update;
 
 use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -24,7 +24,7 @@ use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
  * Updater to fill empty slug columns of kita records
  */
 #[UpgradeWizard('daycarecentersUpdateSlug')]
-class SlugUpdateWizard implements UpgradeWizardInterface
+class SlugUpdate implements UpgradeWizardInterface
 {
     protected string $tableName = 'tx_daycarecenters_domain_model_kita';
 
@@ -64,12 +64,12 @@ class SlugUpdateWizard implements UpgradeWizardInterface
                 $queryBuilder->expr()->or(
                     $queryBuilder->expr()->eq(
                         $this->fieldName,
-                        $queryBuilder->createNamedParameter('', Connection::PARAM_STR)
+                        $queryBuilder->createNamedParameter('', Connection::PARAM_STR),
                     ),
                     $queryBuilder->expr()->isNull(
-                        $this->fieldName
-                    )
-                )
+                        $this->fieldName,
+                    ),
+                ),
             )
             ->executeQuery()
             ->fetchOne();
@@ -93,12 +93,12 @@ class SlugUpdateWizard implements UpgradeWizardInterface
                 $queryBuilder->expr()->or(
                     $queryBuilder->expr()->eq(
                         $this->fieldName,
-                        $queryBuilder->createNamedParameter('', Connection::PARAM_STR)
+                        $queryBuilder->createNamedParameter('', Connection::PARAM_STR),
                     ),
                     $queryBuilder->expr()->isNull(
-                        $this->fieldName
-                    )
-                )
+                        $this->fieldName,
+                    ),
+                ),
             )
             ->executeQuery();
 
@@ -113,7 +113,7 @@ class SlugUpdateWizard implements UpgradeWizardInterface
                     ],
                     [
                         'uid' => (int)$recordToUpdate['uid'],
-                    ]
+                    ],
                 );
             }
         }
@@ -123,12 +123,12 @@ class SlugUpdateWizard implements UpgradeWizardInterface
 
     protected function getSlugHelper(): SlugHelper
     {
-        if ($this->slugHelper === null) {
+        if (!$this->slugHelper instanceof SlugHelper) {
             $this->slugHelper = GeneralUtility::makeInstance(
                 SlugHelper::class,
                 $this->tableName,
                 $this->fieldName,
-                $GLOBALS['TCA'][$this->tableName]['columns']['path_segment']['config']
+                $GLOBALS['TCA'][$this->tableName]['columns']['path_segment']['config'],
             );
         }
 

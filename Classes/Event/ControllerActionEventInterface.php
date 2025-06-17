@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of the package jweiland/daycarecenters.
+ * This file is part of the package jweiland/clubdirectory.
  *
  * For the full copyright and license information, please read the
  * LICENSE file that was distributed with this source code.
@@ -20,16 +20,12 @@ interface ControllerActionEventInterface
     /**
      * Get controller name.
      * It's just "Company" or "Map". It's not the full class name.
-     *
-     * @return string
      */
     public function getControllerName(): string;
 
     /**
      * Get action name without appended "Action".
      * It's just "list" or "show"
-     *
-     * @return string
      */
     public function getActionName(): string;
 

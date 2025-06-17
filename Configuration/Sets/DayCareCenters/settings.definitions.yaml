@@ -1,0 +1,200 @@
+categories:
+  daycarecenters:
+    label: 'daycarecenters'
+  daycarecenters.templates:
+    label: 'Templates'
+    parent: daycarecenters
+  daycarecenters.pages:
+    label: 'Pages'
+    parent: daycarecenters
+  daycarecenters.settings:
+    label: 'Settings'
+    parent: daycarecenters
+  daycarecenters.media:
+    label: 'Image Sizes'
+    parent: daycarecenters
+  daycarecenters.glossary2:
+    label: 'Glossary2'
+    parent: daycarecenters
+
+settings:
+  daycarecenters.templateRootPath:
+    label: 'Templates'
+    category: daycarecenters.templates
+    description: 'Path to template root'
+    type: string
+    default: 'EXT:daycarecenters/Resources/Private/Templates/'
+  daycarecenters.partialRootPath:
+    label: 'Partials'
+    category: daycarecenters.templates
+    description: 'Path to partial root'
+    type: string
+    default: 'EXT:daycarecenters/Resources/Private/Partials/'
+  daycarecenters.layoutRootPath:
+    label: 'Layouts'
+    category: daycarecenters.templates
+    description: 'Path to layout root'
+    type: string
+    default: 'EXT:daycarecenters/Resources/Private/Layouts/'
+  daycarecenters.storagePid:
+    label: 'Default storage PID'
+    category: daycarecenters.settings
+    description: 'Folder that stores all POIs'
+    type: int
+    default: 0
+  daycarecenters.pidOfDetailPage:
+    label: 'Pid of Detail Page'
+    category: daycarecenters.settings
+    description: 'Page with detail page plugin'
+    type: int
+    default: 0
+  daycarecenters.pageBrowser.itemsPerPage:
+    label: 'Items per page for pagination'
+    category: daycarecenters.settings
+    description: 'Number of results that needs to be shown on listing page'
+    type: int
+    default: 10
+  daycarecenters.pidOfMaps2Plugin:
+    label: 'Pid of Maps2 Plugins'
+    category: daycarecenters.settings
+    description: 'Storage Page Uid of Maps2 Plugin'
+    type: int
+    default: 0
+  daycarecenters.updateReferenceIndex:
+    label: 'Update Reference Index'
+    category: daycarecenters.settings
+    description: 'Enable or disable updating the reference index'
+    type: bool
+    default: 1
+  daycarecenters.newUploadPath:
+    label: 'New upload path'
+    category: daycarecenters.settings
+    description: 'Path for uploading assets for daycarecenters records'
+    type: string
+    default: '1:user_upload/tx_daycarecenters/'
+  daycarecenters.feJavaScript:
+    label: 'Frontend JavaScript file'
+    category: daycarecenters.settings
+    description: ''
+    type: string
+    default: 'EXT:daycarecenters/Resources/Public/JavaScript/script.js'
+  daycarecenters.list.image.width:
+    label: 'List Image width'
+    category: daycarecenters.media
+    description: ''
+    type: string
+    default: '64c'
+  daycarecenters.list.image.height:
+    label: 'List Image height'
+    category: daycarecenters.media
+    description: ''
+    type: string
+    default: '64c'
+  daycarecenters.list.image.minWidth:
+    label: 'List Image minimum width'
+    category: daycarecenters.media
+    description: ''
+    type: string
+    default: '64'
+  daycarecenters.list.image.minHeight:
+    label: 'List Image minimum height'
+    category: daycarecenters.media
+    description: ''
+    type: string
+    default: '64'
+  daycarecenters.list.image.maxWidth:
+    label: 'List Image maximum width'
+    category: daycarecenters.media
+    description: ''
+    type: string
+    default: '64'
+  daycarecenters.list.image.maxHeight:
+    label: 'List Image maximum height'
+    category: daycarecenters.media
+    description: ''
+    type: string
+    default: '64'
+  daycarecenters.show.logo.width:
+    label: 'Show ation logo width'
+    category: daycarecenters.media
+    description: ''
+    type: string
+    default: '100c'
+  daycarecenters.show.logo.height:
+    label: 'Show ation logo height'
+    category: daycarecenters.media
+    description: ''
+    type: string
+    default: '100c'
+  daycarecenters.show.logo.minWidth:
+    label: 'Show ation logo minimum width'
+    category: daycarecenters.media
+    description: ''
+    type: string
+    default: '100'
+  daycarecenters.show.logo.minHeight:
+    label: 'Show ation logo minimum height'
+    category: daycarecenters.media
+    description: ''
+    type: string
+    default: '100'
+  daycarecenters.show.logo.maxWidth:
+    label: 'Show ation logo maximum width'
+    category: daycarecenters.media
+    description: ''
+    type: string
+    default: '100'
+  daycarecenters.show.logo.maxHeight:
+    label: 'Show ation logo maximum height'
+    category: daycarecenters.media
+    description: ''
+    type: string
+    default: '100'
+  daycarecenters.show.image.width:
+    label: 'Show Image width'
+    category: daycarecenters.media
+    description: ''
+    type: string
+    default: '320c'
+  daycarecenters.show.image.height:
+    label: 'Show Image height'
+    category: daycarecenters.media
+    description: ''
+    type: string
+    default: '280c'
+  daycarecenters.show.image.minWidth:
+    label: 'Show Image minimum width'
+    category: daycarecenters.media
+    description: ''
+    type: string
+    default: '320'
+  daycarecenters.show.image.minHeight:
+    label: 'Show Image minimum height'
+    category: daycarecenters.media
+    description: ''
+    type: string
+    default: '280'
+  daycarecenters.show.image.maxWidth:
+    label: 'Show Image maximum width'
+    category: daycarecenters.media
+    description: ''
+    type: string
+    default: '320'
+  daycarecenters.show.image.maxHeight:
+    label: 'Show Image maximum height'
+    category: daycarecenters.media
+    description: ''
+    type: string
+    default: '280'
+  daycarecenters.glossary2.mergeNumbers:
+    label: 'Merge Numbers in Glossary'
+    category: daycarecenters.glossary2
+    description: ''
+    type: bool
+    default: 1
+  daycarecenters.glossary2.showAllLink:
+    label: 'Show "All" Link in Glossary'
+    category: daycarecenters.glossary2
+    description: ''
+    type: bool
+    default: 1

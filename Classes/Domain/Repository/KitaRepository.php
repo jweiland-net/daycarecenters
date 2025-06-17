@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of the package jweiland/daycarecenters.
+ * This file is part of the package jweiland/clubdirectory.
  *
  * For the full copyright and license information, please read the
  * LICENSE file that was distributed with this source code.
@@ -25,7 +25,7 @@ class KitaRepository extends Repository
         int $earliestOpeningTimes,
         int $latestOpeningTimes,
         bool $food,
-        int $district = 0
+        int $district = 0,
     ): QueryResultInterface {
         $query = $this->createQuery();
         $constraint = [];
@@ -44,12 +44,12 @@ class KitaRepository extends Repository
         }
 
         // add district
-        if (!empty($district)) {
+        if ($district !== 0) {
             $constraint[] = $query->equals('district', $district);
         }
 
         return $query->matching(
-            $query->logicalAnd(...$constraint)
+            $query->logicalAnd(...$constraint),
         )->execute();
     }
 }

@@ -1,24 +1,32 @@
 <?php
+
+/*
+ * This file is part of the package jweiland/clubdirectory.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE file that was distributed with this source code.
+ */
+
+use JWeiland\Daycarecenters\Controller\HolderController;
+use JWeiland\Daycarecenters\Controller\KitaController;
+use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
+
 if (!defined('TYPO3')) {
     die('Access denied.');
 }
 
 call_user_func(static function () {
-    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+    ExtensionUtility::configurePlugin(
         'Daycarecenters',
         'Daycarecenters',
         [
-            \JWeiland\Daycarecenters\Controller\KitaController::class => 'list, show, search',
-            \JWeiland\Daycarecenters\Controller\HolderController::class => 'show',
+            KitaController::class => 'list, show, search',
+            HolderController::class => 'show',
         ],
         // non-cacheable actions
         [
-            \JWeiland\Daycarecenters\Controller\KitaController::class => 'search',
-        ]
-    );
-
-    // Add daycarecenters plugin to new element wizard
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
-        '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:daycarecenters/Configuration/TSconfig/ContentElementWizard.tsconfig">'
+            KitaController::class => 'search',
+        ],
+        ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT,
     );
 });

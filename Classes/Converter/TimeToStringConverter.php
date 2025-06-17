@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of the package jweiland/daycarecenters.
+ * This file is part of the package jweiland/clubdirectory.
  *
  * For the full copyright and license information, please read the
  * LICENSE file that was distributed with this source code.
@@ -21,7 +21,7 @@ class TimeToStringConverter
      */
     public function convert(int $timestamp): string
     {
-        if (empty($timestamp)) {
+        if ($timestamp === 0) {
             return '00:00';
         }
 
@@ -57,7 +57,7 @@ class TimeToStringConverter
         $minutes = 0;
         $seconds = $time % ($hours * 3600);
 
-        if ($seconds) {
+        if ($seconds !== 0) {
             $minutes = (int)ceil($seconds / 60);
         }
 

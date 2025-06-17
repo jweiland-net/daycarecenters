@@ -3,13 +3,13 @@
 declare(strict_types=1);
 
 /*
- * This file is part of the package jweiland/daycarecenters.
+ * This file is part of the package jweiland/clubdirectory.
  *
  * For the full copyright and license information, please read the
  * LICENSE file that was distributed with this source code.
  */
 
-namespace JWeiland\Daycarecenters\UpgradeWizard;
+namespace JWeiland\Daycarecenters\Update;
 
 use Doctrine\DBAL\DBALException;
 use Psr\Log\LoggerAwareInterface;
@@ -25,7 +25,7 @@ use TYPO3\CMS\Install\Attribute\UpgradeWizard;
 use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 
 #[UpgradeWizard('daycarecentersHolderLogo')]
-class HolderLogoUpdateWizard implements UpgradeWizardInterface, LoggerAwareInterface
+class HolderLogoUpdate implements UpgradeWizardInterface, LoggerAwareInterface
 {
     use LoggerAwareTrait;
 
@@ -72,8 +72,8 @@ class HolderLogoUpdateWizard implements UpgradeWizardInterface, LoggerAwareInter
             foreach ($records as $record) {
                 $this->migrateField($record, $customMessage, $dbQueries);
             }
-        } catch (\Exception $e) {
-            $customMessage .= PHP_EOL . $e->getMessage();
+        } catch (\Exception $exception) {
+            $customMessage .= PHP_EOL . $exception->getMessage();
         }
 
         return empty($customMessage);
@@ -99,23 +99,20 @@ class HolderLogoUpdateWizard implements UpgradeWizardInterface, LoggerAwareInter
                     $queryBuilder->expr()->isNotNull($this->fieldToMigrate),
                     $queryBuilder->expr()->neq(
                         $this->fieldToMigrate,
-                        $queryBuilder->createNamedParameter('', \PDO::PARAM_STR)
+                        $queryBuilder->createNamedParameter('', \PDO::PARAM_STR),
                     ),
                     $queryBuilder->expr()->comparison(
                         'CAST(CAST(' . $queryBuilder->quoteIdentifier($this->fieldToMigrate) . ' AS DECIMAL) AS CHAR)',
                         ExpressionBuilder::NEQ,
-                        'CAST(' . $queryBuilder->quoteIdentifier($this->fieldToMigrate) . ' AS CHAR)'
-                    )
+                        'CAST(' . $queryBuilder->quoteIdentifier($this->fieldToMigrate) . ' AS CHAR)',
+                    ),
                 )
                 ->orderBy('uid')
                 ->executeQuery();
 
             return $result->fetchOne() !== 0;
-        } catch (DBALException $e) {
-            throw new \RuntimeException(
-                'Database query failed. Error was: ' . $e->getPrevious()->getMessage(),
-                1596705829853
-            );
+        } catch (DBALException $dbalException) {
+            throw new \RuntimeException('Database query failed. Error was: ' . $dbalException->getPrevious()->getMessage(), 1596705829853, $dbalException);
         }
     }
 
@@ -128,6 +125,7 @@ class HolderLogoUpdateWizard implements UpgradeWizardInterface, LoggerAwareInter
         if (empty($fieldItems) || is_numeric($row[$this->fieldToMigrate])) {
             return;
         }
+
         $fileadminDirectory = rtrim($GLOBALS['TYPO3_CONF_VARS']['BE']['fileadminDir'], '/') . '/';
         $i = 0;
 
@@ -154,12 +152,12 @@ class HolderLogoUpdateWizard implements UpgradeWizardInterface, LoggerAwareInter
                 $existingFileRecord = $queryBuilder->select('uid')->from('sys_file')->where(
                     $queryBuilder->expr()->eq(
                         'sha1',
-                        $queryBuilder->createNamedParameter($fileSha1, \PDO::PARAM_STR)
+                        $queryBuilder->createNamedParameter($fileSha1, \PDO::PARAM_STR),
                     ),
                     $queryBuilder->expr()->eq(
                         'storage',
-                        $queryBuilder->createNamedParameter($storageUid, \PDO::PARAM_INT)
-                    )
+                        $queryBuilder->createNamedParameter($storageUid, \PDO::PARAM_INT),
+                    ),
                 )->executeQuery()->fetchOne();
 
                 // the file exists, the file does not have to be moved again
@@ -187,16 +185,16 @@ class HolderLogoUpdateWizard implements UpgradeWizardInterface, LoggerAwareInter
                             'table' => $this->table,
                             'record' => $row,
                             'field' => $this->fieldToMigrate,
-                        ]
+                        ],
                     );
 
-                    $format = 'File \'%s\' does not exist. Referencing field: %s.%d.%s. The reference was not migrated.';
+                    $format = "File '%s' does not exist. Referencing field: %s.%d.%s. The reference was not migrated.";
                     $message = sprintf(
                         $format,
                         $this->sourcePath . $item,
                         $this->table,
                         $row['uid'],
-                        $this->fieldToMigrate
+                        $this->fieldToMigrate,
                     );
                     $customMessage .= PHP_EOL . $message;
                     continue;
@@ -229,8 +227,8 @@ class HolderLogoUpdateWizard implements UpgradeWizardInterface, LoggerAwareInter
             $queryBuilder->update($this->table)->where(
                 $queryBuilder->expr()->eq(
                     'uid',
-                    $queryBuilder->createNamedParameter($row['uid'], \PDO::PARAM_INT)
-                )
+                    $queryBuilder->createNamedParameter($row['uid'], \PDO::PARAM_INT),
+                ),
             )->set($this->fieldToMigrate, $i)->executeStatement();
             $dbQueries[] = str_replace(LF, ' ', $queryBuilder->getSQL());
         }
