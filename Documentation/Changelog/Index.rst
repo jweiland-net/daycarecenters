@@ -11,9 +11,12 @@ Version 7.0.0
 =============
 
 *   Added Version 13 Compatibility
-*   Added SiteSets for TYPO3 13 and better handling
+*   Site configuration (site sets) integration for cleaner setup
 *   Removed deprecated functions
 *   Removed obsolete functions
+*   Cleaned up TCA, FlexForm, and backend form setups
+*   Code formatting and PSR-12 cleanup
+*   Custom CType plugins replacing deprecated list_type
 
 
 Version 6.0.0
