@@ -7,6 +7,15 @@
 Change Log
 ==========
 
+Version 7.0.0
+=============
+
+*   Added Version 13 Compatibility
+*   Added SiteSets for TYPO3 13 and better handling
+*   Removed deprecated functions
+*   Removed obsolete functions
+
+
 Version 6.0.0
 =============
 

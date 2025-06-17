@@ -7,35 +7,45 @@
 For Editors
 ===========
 
-Let's add some district records
-===============================
+Managing Daycare Data in TYPO3
+==============================
 
-The first required thing is at least one district record. Later we will use
-this districts for the Kita records.
+This section is intended for TYPO3 backend editors. It explains the steps
+needed to populate and maintain the daycare center (Kita) records so they
+appear correctly in the frontend.
+
+Step 1: Add District Records
+============================
+
+Before adding any daycare centers, you must create at least one **district**. Districts help organize and categorize daycare centers geographically, making it easier for users to filter results on the website.
 
 ..  figure:: ../Images/districtTca.png
     :class: with-shadow
     :alt: Add a district
     :width: 500px
 
-Who is responsible?
-===================
+Step 2: Create Responsible Bodies
+=================================
 
-Each kita needs a responsible. This can be for example a city or a church.
-Create at least one responsible body record.
+Each Kita should be assigned to a **responsible body** — typically an
+organization like a city administration, a church, or a private provider. These
+records represent who operates or oversees the daycare.
 
 ..  figure:: ../Images/responsibleTca.png
     :class: with-shadow
     :alt: Add a responsible body
     :width: 500px
 
-Finally add kita records
-========================
+Step 3: Add Kita Records
+=========================
 
-Now it's time to create the kita records. Type in all the information about
-that kita and select the associated district and responsible body.
+Once you’ve set up at least one district and one responsible body, you can begin
+adding actual **Kita** records. Be sure to provide all relevant information,
+such as name, address, age range, opening hours, and whether meals are
+provided. Don’t forget to link each Kita to its associated district and
+responsible body.
 
 ..  tip::
 
-    The newly added kita appears in the list as soon as you save the record
-    except check that "hide" checkbox.
+    The newly created Kita record will appear in the frontend listing as soon
+    as it's saved — unless the "Hide" checkbox is selected.
