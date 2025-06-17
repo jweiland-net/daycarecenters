@@ -51,8 +51,8 @@ class FieldLogoMigrationWizard implements UpgradeWizardInterface, LoggerAwareInt
             $this->migrateRecords();
 
             return true;
-        } catch (\Exception $e) {
-            $this->logger->error('Migration failed: ' . $e->getMessage());
+        } catch (\Exception $exception) {
+            $this->logger->error('Migration failed: ' . $exception->getMessage());
 
             return false;
         }
@@ -107,11 +107,8 @@ class FieldLogoMigrationWizard implements UpgradeWizardInterface, LoggerAwareInt
             $result = $queryBuilder->executeQuery();
 
             return $result->fetchAllAssociative();
-        } catch (DBALException $e) {
-            throw new \RuntimeException(
-                'Database query failed. Error was: ' . $e->getMessage(),
-                1596705829853
-            );
+        } catch (DBALException $dbalException) {
+            throw new \RuntimeException('Database query failed. Error was: ' . $dbalException->getMessage(), 1596705829853, $dbalException);
         }
     }
 

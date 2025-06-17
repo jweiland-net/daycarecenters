@@ -72,8 +72,8 @@ class HolderLogoUpdateWizard implements UpgradeWizardInterface, LoggerAwareInter
             foreach ($records as $record) {
                 $this->migrateField($record, $customMessage, $dbQueries);
             }
-        } catch (\Exception $e) {
-            $customMessage .= PHP_EOL . $e->getMessage();
+        } catch (\Exception $exception) {
+            $customMessage .= PHP_EOL . $exception->getMessage();
         }
 
         return empty($customMessage);
@@ -111,11 +111,8 @@ class HolderLogoUpdateWizard implements UpgradeWizardInterface, LoggerAwareInter
                 ->executeQuery();
 
             return $result->fetchOne() !== 0;
-        } catch (DBALException $e) {
-            throw new \RuntimeException(
-                'Database query failed. Error was: ' . $e->getPrevious()->getMessage(),
-                1596705829853
-            );
+        } catch (DBALException $dbalException) {
+            throw new \RuntimeException('Database query failed. Error was: ' . $dbalException->getPrevious()->getMessage(), 1596705829853, $dbalException);
         }
     }
 
@@ -128,6 +125,7 @@ class HolderLogoUpdateWizard implements UpgradeWizardInterface, LoggerAwareInter
         if (empty($fieldItems) || is_numeric($row[$this->fieldToMigrate])) {
             return;
         }
+
         $fileadminDirectory = rtrim($GLOBALS['TYPO3_CONF_VARS']['BE']['fileadminDir'], '/') . '/';
         $i = 0;
 
@@ -190,7 +188,7 @@ class HolderLogoUpdateWizard implements UpgradeWizardInterface, LoggerAwareInter
                         ]
                     );
 
-                    $format = 'File \'%s\' does not exist. Referencing field: %s.%d.%s. The reference was not migrated.';
+                    $format = "File '%s' does not exist. Referencing field: %s.%d.%s. The reference was not migrated.";
                     $message = sprintf(
                         $format,
                         $this->sourcePath . $item,

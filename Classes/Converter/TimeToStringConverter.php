@@ -21,7 +21,7 @@ class TimeToStringConverter
      */
     public function convert(int $timestamp): string
     {
-        if (empty($timestamp)) {
+        if ($timestamp === 0) {
             return '00:00';
         }
 
@@ -57,7 +57,7 @@ class TimeToStringConverter
         $minutes = 0;
         $seconds = $time % ($hours * 3600);
 
-        if ($seconds) {
+        if ($seconds !== 0) {
             $minutes = (int)ceil($seconds / 60);
         }
 

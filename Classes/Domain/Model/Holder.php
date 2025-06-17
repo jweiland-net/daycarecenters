@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace JWeiland\Daycarecenters\Domain\Model;
 
+use JWeiland\Daycarecenters\Domain\Model\Extbase\ORM\Lazy;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
@@ -43,7 +44,7 @@ class Holder extends AbstractEntity
     /**
      * @var ObjectStorage<FileReference>
      */
-    #[Extbase\ORM\Lazy]
+    #[Lazy]
     protected ObjectStorage $logos;
 
     public function __construct()
@@ -53,7 +54,7 @@ class Holder extends AbstractEntity
 
     public function initializeObject(): void
     {
-        $this->logos = $this->logos ?? new ObjectStorage();
+        $this->logos ??= new ObjectStorage();
     }
 
     public function getTitle(): string

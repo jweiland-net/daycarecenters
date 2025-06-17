@@ -44,7 +44,7 @@ class KitaRepository extends Repository
         }
 
         // add district
-        if (!empty($district)) {
+        if ($district !== 0) {
             $constraint[] = $query->equals('district', $district);
         }
 

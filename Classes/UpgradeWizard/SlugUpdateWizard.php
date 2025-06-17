@@ -123,7 +123,7 @@ class SlugUpdateWizard implements UpgradeWizardInterface
 
     protected function getSlugHelper(): SlugHelper
     {
-        if ($this->slugHelper === null) {
+        if (!$this->slugHelper instanceof SlugHelper) {
             $this->slugHelper = GeneralUtility::makeInstance(
                 SlugHelper::class,
                 $this->tableName,
