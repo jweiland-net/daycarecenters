@@ -2,25 +2,25 @@ plugin.tx_daycarecenters {
   view {
     templateRootPaths {
       0 = EXT:daycarecenters/Resources/Private/Templates/
-      1 = {$plugin.tx_daycarecenters.view.templateRootPath}
+      1 = {$daycarecenters.templateRootPath}
     }
     partialRootPaths {
       0 = EXT:daycarecenters/Resources/Private/Partials/
-      1 = {$plugin.tx_daycarecenters.view.partialRootPath}
+      1 = {$daycarecenters.partialRootPath}
     }
     layoutRootPaths {
       0 = EXT:daycarecenters/Resources/Private/Layouts/
-      1 = {$plugin.tx_daycarecenters.view.layoutRootPath}
+      1 = {$daycarecenters.layoutRootPath}
     }
   }
 
   persistence {
-    storagePid = {$plugin.tx_daycarecenters.persistence.storagePid}
+    storagePid = {$daycarecenters.storagePid}
   }
 
   settings {
-    pidOfMaps2Plugin = {$plugin.tx_daycarecenters.settings.pidOfMaps2Plugin}
-    pidOfDetailPage = {$plugin.tx_daycarecenters.settings.pidOfDetailPage}
+    pidOfMaps2Plugin = {$daycarecenters.pidOfMaps2Plugin}
+    pidOfDetailPage = {$daycarecenters.pidOfDetailPage}
     list {
       image {
         width = 50c
@@ -40,7 +40,7 @@ plugin.tx_daycarecenters {
     }
 
     pageBrowser {
-      itemsPerPage = {$plugin.tx_daycarecenters.settings.pageBrowser.itemsPerPage}
+      itemsPerPage = {$daycarecenters.pageBrowser.itemsPerPage}
     }
   }
 }
