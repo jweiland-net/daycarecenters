@@ -24,7 +24,7 @@ use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
  * Updater to fill empty slug columns of kita records
  */
 #[UpgradeWizard('daycarecentersUpdateSlug')]
-class SlugUpdateWizard implements UpgradeWizardInterface
+class SlugUpdate implements UpgradeWizardInterface
 {
     protected string $tableName = 'tx_daycarecenters_domain_model_kita';
 

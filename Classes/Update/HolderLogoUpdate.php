@@ -9,7 +9,7 @@ declare(strict_types=1);
  * LICENSE file that was distributed with this source code.
  */
 
-namespace JWeiland\Daycarecenters\UpgradeWizard;
+namespace JWeiland\Daycarecenters\Update;
 
 use Doctrine\DBAL\DBALException;
 use Psr\Log\LoggerAwareInterface;
@@ -25,7 +25,7 @@ use TYPO3\CMS\Install\Attribute\UpgradeWizard;
 use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 
 #[UpgradeWizard('daycarecentersHolderLogo')]
-class HolderLogoUpdateWizard implements UpgradeWizardInterface, LoggerAwareInterface
+class HolderLogoUpdate implements UpgradeWizardInterface, LoggerAwareInterface
 {
     use LoggerAwareTrait;
 

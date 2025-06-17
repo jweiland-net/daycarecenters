@@ -9,7 +9,7 @@ declare(strict_types=1);
  * LICENSE file that was distributed with this source code.
  */
 
-namespace JWeiland\Daycarecenters\UpgradeWizard;
+namespace JWeiland\Daycarecenters\Update;
 
 use Doctrine\DBAL\DBALException;
 use Doctrine\DBAL\Exception;
@@ -21,7 +21,7 @@ use TYPO3\CMS\Install\Attribute\UpgradeWizard;
 use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 
 #[UpgradeWizard('daycarecentersFieldLogoMigration')]
-class FieldLogoMigrationWizard implements UpgradeWizardInterface, LoggerAwareInterface
+class FieldLogoMigrationUpdate implements UpgradeWizardInterface, LoggerAwareInterface
 {
     use LoggerAwareTrait;
 
