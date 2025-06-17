@@ -19,11 +19,7 @@ call_user_func(static function () {
         // non-cacheable actions
         [
             KitaController::class => 'search',
-        ]
-    );
-
-    // Add daycarecenters plugin to new element wizard
-    ExtensionManagementUtility::addPageTSConfig(
-        '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:daycarecenters/Configuration/TSconfig/ContentElementWizard.tsconfig">'
+        ],
+        ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT,
     );
 });
