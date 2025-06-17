@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace JWeiland\Daycarecenters\Pagination;
 
+use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Core\Pagination\PaginationInterface;
 use TYPO3\CMS\Core\Pagination\PaginatorInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -26,6 +27,7 @@ class DaycarecenterPagination implements PaginationInterface
     public function __construct(PaginatorInterface $paginator)
     {
         $this->paginator = $paginator;
+        $pluginArguments = $this->getPluginArguments($this->pluginNamespace);
 
         foreach (GeneralUtility::_GPmerged($this->pluginNamespace) as $argumentName => $argument) {
             if ($argumentName[0] === '_' && $argumentName[1] === '_') {
@@ -120,5 +122,35 @@ class DaycarecenterPagination implements PaginationInterface
         }
 
         return $this->paginator->getKeyOfLastPaginatedItem() + 1;
+    }
+
+    /**
+     * Returns the current request from the global scope
+     */
+    public function getRequestFromGlobalScope(): ServerRequestInterface
+    {
+        return $GLOBALS['TYPO3_REQUEST'];
+    }
+
+    public function getAllPageNumbers(): array
+    {
+        $firstPage = $this->getFirstPageNumber();
+        $lastPage = $this->getLastPageNumber();
+
+        if ($lastPage < $firstPage) {
+            return [];
+        }
+
+        return range($firstPage, $lastPage);
+    }
+
+    private function getPluginArguments(string $pluginNamespace)
+    {
+        $request = $this->getRequestFromGlobalScope();
+        $getMergedWithPost = $request->getQueryParams()[$pluginNamespace] ?? [];
+        $postArgument = $request->getParsedBody()[$pluginNamespace] ?? [];
+        ArrayUtility::mergeRecursiveWithOverrule($getMergedWithPost, $postArgument);
+
+        return $getMergedWithPost;
     }
 }
