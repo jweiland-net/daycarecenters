@@ -14,6 +14,7 @@ namespace JWeiland\Daycarecenters\Pagination;
 use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Core\Pagination\PaginationInterface;
 use TYPO3\CMS\Core\Pagination\PaginatorInterface;
+use TYPO3\CMS\Core\Utility\ArrayUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class DaycarecenterPagination implements PaginationInterface
@@ -29,7 +30,7 @@ class DaycarecenterPagination implements PaginationInterface
         $this->paginator = $paginator;
         $pluginArguments = $this->getPluginArguments($this->pluginNamespace);
 
-        foreach (GeneralUtility::_GPmerged($this->pluginNamespace) as $argumentName => $argument) {
+        foreach ($pluginArguments as $argumentName => $argument) {
             if ($argumentName[0] === '_' && $argumentName[1] === '_') {
                 continue;
             }
