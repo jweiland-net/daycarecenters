@@ -38,6 +38,11 @@ Download and install `daycarecenters` with the extension manager module.
 2) Create kita and district records on a sysfolder.
 3) Add daycarecenters plugin on a page and select at least the sysfolder as startingpoint.
 
+## 3 Support
+
+Free Support is available via [GitHub Issue Tracker](https://github.com/jweiland-net/daycarecenters/issues).
+
+For commercial support, please contact us at [support@jweiland.net](support@jweiland.net).
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
