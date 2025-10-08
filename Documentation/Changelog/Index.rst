@@ -7,6 +7,11 @@
 Change Log
 ==========
 
+Version 7.0.1
+=============
+
+*   Migrate PDO to TYPO3 Connection in UpgradeWizards
+
 Version 7.0.0
 =============
 
