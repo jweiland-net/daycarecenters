@@ -15,6 +15,7 @@ use Doctrine\DBAL\DBALException;
 use Doctrine\DBAL\Exception;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerAwareTrait;
+use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Install\Attribute\UpgradeWizard;
@@ -79,17 +80,17 @@ class FieldLogoMigrationUpdate implements UpgradeWizardInterface, LoggerAwareInt
                 ->orWhere(
                     $queryBuilder->expr()->eq(
                         'tablenames',
-                        $queryBuilder->createNamedParameter('tx_daycarecenters_domain_model_kita', \PDO::PARAM_STR),
+                        $queryBuilder->createNamedParameter('tx_daycarecenters_domain_model_kita', Connection::PARAM_STR),
                     ),
                     $queryBuilder->expr()->eq(
                         'tablenames',
-                        $queryBuilder->createNamedParameter('tx_daycarecenters_domain_model_holder', \PDO::PARAM_STR),
+                        $queryBuilder->createNamedParameter('tx_daycarecenters_domain_model_holder', Connection::PARAM_STR),
                     ),
                 )
                 ->andWhere(
                     $queryBuilder->expr()->eq(
                         'fieldname',
-                        $queryBuilder->createNamedParameter('logo', \PDO::PARAM_STR),
+                        $queryBuilder->createNamedParameter('logo', Connection::PARAM_STR),
                     ),
                 );
 
@@ -121,16 +122,16 @@ class FieldLogoMigrationUpdate implements UpgradeWizardInterface, LoggerAwareInt
             ->where(
                 $queryBuilder->expr()->eq(
                     'fieldname',
-                    $queryBuilder->createNamedParameter('logo', \PDO::PARAM_STR),
+                    $queryBuilder->createNamedParameter('logo', Connection::PARAM_STR),
                 ),
                 $queryBuilder->expr()->or(
                     $queryBuilder->expr()->eq(
                         'tablenames',
-                        $queryBuilder->createNamedParameter('tx_daycarecenters_domain_model_kita', \PDO::PARAM_STR),
+                        $queryBuilder->createNamedParameter('tx_daycarecenters_domain_model_kita', Connection::PARAM_STR),
                     ),
                     $queryBuilder->expr()->eq(
                         'tablenames',
-                        $queryBuilder->createNamedParameter('tx_daycarecenters_domain_model_holder', \PDO::PARAM_STR),
+                        $queryBuilder->createNamedParameter('tx_daycarecenters_domain_model_holder', Connection::PARAM_STR),
                     ),
                 ),
             )
