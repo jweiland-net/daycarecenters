@@ -6,7 +6,7 @@
 [![Monthly Downloads][extension-monthly-downloads]][extension-packagist-url]
 [![TYPO3 13.4][TYPO3-shield]][TYPO3-13-url]
 
-![Build Status](https://github.com/jweiland-net/daycarecenters/workflows/CI/badge.svg)
+![Build Status](https://github.com/jweiland-net/daycarecenters/actions/workflows/ci.yml/badge.svg)
 
 With `daycarecenters` you can create, manage and display day-care-center entries.
 
