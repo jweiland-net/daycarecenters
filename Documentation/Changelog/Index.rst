@@ -7,6 +7,11 @@
 Change Log
 ==========
 
+Version 7.0.2
+=============
+
+*   SiteSet renamed removing default
+
 Version 7.0.1
 =============
 
