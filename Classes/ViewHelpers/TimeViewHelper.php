@@ -22,7 +22,7 @@ class TimeViewHelper extends AbstractViewHelper
 {
     public function render()
     {
-        return self::getTimeToStringConverter()->convert((int)$this->renderChildrenClosure());
+        return self::getTimeToStringConverter()->convert((int)$this->renderChildren());
     }
 
     private static function getTimeToStringConverter(): TimeToStringConverter
