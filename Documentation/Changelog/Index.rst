@@ -11,6 +11,7 @@ Version 7.0.3
 =============
 
 *   [BUGFIX] TCA Migrations for tables done
+*   [BUGFIX] ViewHelper TimeViewHelper upgraded for v13.
 
 Version 7.0.2
 =============
