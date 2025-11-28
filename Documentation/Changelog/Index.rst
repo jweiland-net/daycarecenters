@@ -7,6 +7,11 @@
 Change Log
 ==========
 
+Version 7.0.3
+=============
+
+*   [BUGFIX] TCA Migrations for tables done
+
 Version 7.0.2
 =============
 
