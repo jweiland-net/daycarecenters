@@ -382,7 +382,7 @@ return [
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_kita.earliest_opening_time',
             'config' => [
                 'type' => 'datetime',
-                'format' => 'date',
+                'format' => 'time',
             ],
         ],
         'latest_opening_time' => [
@@ -390,7 +390,7 @@ return [
             'label' => 'LLL:EXT:daycarecenters/Resources/Private/Language/locallang_db.xlf:tx_daycarecenters_domain_model_kita.latest_opening_time',
             'config' => [
                 'type' => 'datetime',
-                'format' => 'date',
+                'format' => 'time',
             ],
         ],
         'earliest_age' => [
