@@ -7,6 +7,11 @@
 Change Log
 ==========
 
+Version 7.0.5
+=============
+
+*   [BUGFIX] Remove deprecated usage of SoftRef parser: images from kita table
+
 Version 7.0.4
 =============
 
