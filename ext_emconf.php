@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the package jweiland/clubdirectory.
+ * This file is part of the package jweiland/daycarecenters.
  *
  * For the full copyright and license information, please read the
  * LICENSE file that was distributed with this source code.
@@ -15,7 +15,7 @@ $EM_CONF[$_EXTKEY] = [
     'author_email' => 'projects@jweiland.net',
     'author_company' => 'jweiland.net',
     'state' => 'stable',
-    'version' => '7.0.6',
+    'version' => '7.0.7',
     'constraints' => [
         'depends' => [
             'typo3' => '13.4.0-13.4.99',

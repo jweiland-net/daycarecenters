@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of the package jweiland/clubdirectory.
+ * This file is part of the package jweiland/daycarecenters.
  *
  * For the full copyright and license information, please read the
  * LICENSE file that was distributed with this source code.
@@ -21,7 +21,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Install\Attribute\UpgradeWizard;
 use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 
-#[UpgradeWizard('daycarecentersFieldLogoMigration')]
+#[UpgradeWizard('daycarecenters_fieldLogoMigration')]
 class FieldLogoMigrationUpdate implements UpgradeWizardInterface, LoggerAwareInterface
 {
     use LoggerAwareTrait;

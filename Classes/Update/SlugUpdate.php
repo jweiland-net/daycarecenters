@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of the package jweiland/clubdirectory.
+ * This file is part of the package jweiland/daycarecenters.
  *
  * For the full copyright and license information, please read the
  * LICENSE file that was distributed with this source code.
@@ -23,7 +23,7 @@ use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 /**
  * Updater to fill empty slug columns of kita records
  */
-#[UpgradeWizard('daycarecentersUpdateSlug')]
+#[UpgradeWizard('daycarecenters_updateSlugFields')]
 class SlugUpdate implements UpgradeWizardInterface
 {
     protected string $tableName = 'tx_daycarecenters_domain_model_kita';
@@ -31,15 +31,6 @@ class SlugUpdate implements UpgradeWizardInterface
     protected string $fieldName = 'path_segment';
 
     protected SlugHelper $slugHelper;
-
-    /**
-     * Return the identifier for this wizard
-     * This should be the same string as used in the ext_localconf class registration
-     */
-    public function getIdentifier(): string
-    {
-        return 'daycarecentersUpdateSlug';
-    }
 
     public function getTitle(): string
     {

@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of the package jweiland/clubdirectory.
+ * This file is part of the package jweiland/daycarecenters.
  *
  * For the full copyright and license information, please read the
  * LICENSE file that was distributed with this source code.
@@ -17,7 +17,7 @@ use TYPO3\CMS\Install\Updates\AbstractListTypeToCTypeUpdate;
 /**
  * With TYPO3 13 all plugins have to be declared as content elements (CType) insteadof "list_type"
  */
-#[UpgradeWizard('clubdirectory_migratePluginsToContentElementsUpdate')]
+#[UpgradeWizard('daycarecenters_migratePluginsToContentElementsUpdate')]
 class PluginToContentElementUpdate extends AbstractListTypeToCTypeUpdate
 {
     protected function getListTypeToCTypeMapping(): array
@@ -29,7 +29,7 @@ class PluginToContentElementUpdate extends AbstractListTypeToCTypeUpdate
 
     public function getTitle(): string
     {
-        return 'EXT:daycarecenters - Migrate plugins to Content Elements';
+        return '[daycarecenters] Migrate plugins to Content Elements';
     }
 
     public function getDescription(): string
