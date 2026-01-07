@@ -7,6 +7,14 @@
 Change Log
 ==========
 
+Version 7.0.7
+=============
+
+*   [BUGFIX] Fixed Extension namespace in template files
+*   [BUGFIX] Fixed Prefixes for upgrade wizards as per the standards
+*   [BUGFIX] Changed title of wizards with extension key
+
+
 Version 7.0.6
 =============
 

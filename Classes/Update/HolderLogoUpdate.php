@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of the package jweiland/clubdirectory.
+ * This file is part of the package jweiland/daycarecenters.
  *
  * For the full copyright and license information, please read the
  * LICENSE file that was distributed with this source code.
@@ -25,7 +25,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Install\Attribute\UpgradeWizard;
 use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 
-#[UpgradeWizard('daycarecentersHolderLogo')]
+#[UpgradeWizard('daycarecenters_holderLogoMigration')]
 class HolderLogoUpdate implements UpgradeWizardInterface, LoggerAwareInterface
 {
     use LoggerAwareTrait;
@@ -43,11 +43,6 @@ class HolderLogoUpdate implements UpgradeWizardInterface, LoggerAwareInterface
      * Relative to fileadmin
      */
     protected string $targetPath = '_migrated/daycarecenters/';
-
-    public function getIdentifier(): string
-    {
-        return 'daycarecentersHolderLogo';
-    }
 
     public function getTitle(): string
     {
