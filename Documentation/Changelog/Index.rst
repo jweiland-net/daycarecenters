@@ -7,6 +7,11 @@
 Change Log
 ==========
 
+Version 7.0.6
+=============
+
+*   [BUGFIX] DateFormat of opening and closing time in TCA change to time.
+
 Version 7.0.5
 =============
 
