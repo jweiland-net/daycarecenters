@@ -200,7 +200,6 @@ class HolderLogoUpdate implements UpgradeWizardInterface, LoggerAwareInterface
             if ($fileUid > 0) {
                 $fields = [
                     'fieldname' => $this->fieldToMigrate,
-                    'table_local' => 'sys_file',
                     'pid' => ($this->table === 'pages' ? $row['uid'] : $row['pid']),
                     'uid_foreign' => $row['uid'],
                     'uid_local' => $fileUid,
