@@ -7,6 +7,12 @@
 Change Log
 ==========
 
+Version 7.0.8
+=============
+
+*   [BUGFIX] Add `typo3/cms-install` dependency for new functionality
+*   [BUGFIX] Remove unused `table_local` field from HolderLogoUpdate
+
 Version 7.0.7
 =============
 
