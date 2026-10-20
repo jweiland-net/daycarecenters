@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff version="1.0">
+  <file source-language="en" datatype="plaintext" original="messages" date="2013-04-19T12:44:19Z" product-name="daycarecenters" target-language="t3">
+    <header/>
+    <body>
+      <trans-unit id="plugin.daycarecenters.title">
+        <source>Day Care Centers</source>
+        <target>crwdns306076:0crwdne306076:0</target>
+      </trans-unit>
+      <trans-unit id="plugin.daycarecenters.description">
+        <source>Provides a list and detail view of day care centers</source>
+        <target>crwdns306078:0crwdne306078:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita">
+        <source>Kita</source>
+        <target>crwdns306080:0crwdne306080:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.title">
+        <source>Title</source>
+        <target>crwdns306082:0crwdne306082:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.path_segment">
+        <source>Segment for URL</source>
+        <target>crwdns306084:0crwdne306084:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.description">
+        <source>Description</source>
+        <target>crwdns306086:0crwdne306086:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.leader">
+        <source>Leader</source>
+        <target>crwdns306088:0crwdne306088:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.places">
+        <source>Places</source>
+        <target>crwdns306090:0crwdne306090:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.street">
+        <source>Street</source>
+        <target>crwdns306092:0crwdne306092:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.house_number">
+        <source>House Number</source>
+        <target>crwdns306094:0crwdne306094:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.zip">
+        <source>Zip</source>
+        <target>crwdns306096:0crwdne306096:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.city">
+        <source>City</source>
+        <target>crwdns306098:0crwdne306098:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.email">
+        <source>Email</source>
+        <target>crwdns306100:0crwdne306100:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.website">
+        <source>Website</source>
+        <target>crwdns306102:0crwdne306102:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.amount_of_groups">
+        <source>Number of groups</source>
+        <target>crwdns306104:0crwdne306104:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.space_offered">
+        <source>Number of spaces</source>
+        <target>crwdns306106:0crwdne306106:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.receptive_age">
+        <source>Receptive Age</source>
+        <target>crwdns306108:0crwdne306108:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.food_supply">
+        <source>Meals available</source>
+        <target>crwdns306110:0crwdne306110:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.food_info">
+        <source>Meal details</source>
+        <target>crwdns306112:0crwdne306112:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.food_prices">
+        <source>Cost of food</source>
+        <target>crwdns306114:0crwdne306114:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.closing_days">
+        <source>Closing Days</source>
+        <target>crwdns306116:0crwdne306116:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.logos">
+        <source>Logo</source>
+        <target>crwdns338096:0crwdne338096:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.images">
+        <source>Images</source>
+        <target>crwdns306120:0crwdne306120:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.response_times">
+        <source>Consulting hours</source>
+        <target>crwdns306122:0crwdne306122:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.facebook">
+        <source>Facebook</source>
+        <target>crwdns306124:0crwdne306124:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.twitter">
+        <source>Twitter</source>
+        <target>crwdns306126:0crwdne306126:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.instagram">
+        <source>Instagram</source>
+        <target>crwdns306128:0crwdne306128:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.additional_informations">
+        <source>Additional informations</source>
+        <target>crwdns306130:0crwdne306130:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.earliest_opening_time">
+        <source>Earliest opening time</source>
+        <target>crwdns306132:0crwdne306132:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.latest_opening_time">
+        <source>Latest opening time</source>
+        <target>crwdns306134:0crwdne306134:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.earliest_age">
+        <source>Age of admission</source>
+        <target>crwdns306136:0crwdne306136:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.latest_age">
+        <source>Latest age</source>
+        <target>crwdns306138:0crwdne306138:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.holder">
+        <source>Responsible body</source>
+        <target>crwdns306140:0crwdne306140:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.care_form">
+        <source>Care Form</source>
+        <target>crwdns306142:0crwdne306142:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.district">
+        <source>District</source>
+        <target>crwdns306144:0crwdne306144:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_kita.telephones">
+        <source>Telephones</source>
+        <target>crwdns306146:0crwdne306146:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_holder">
+        <source>Responsible body</source>
+        <target>crwdns306148:0crwdne306148:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_holder.title">
+        <source>Title</source>
+        <target>crwdns306150:0crwdne306150:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_holder.contact_person">
+        <source>Contact Person</source>
+        <target>crwdns306152:0crwdne306152:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_holder.street">
+        <source>Street</source>
+        <target>crwdns306154:0crwdne306154:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_holder.house_number">
+        <source>House Number</source>
+        <target>crwdns306156:0crwdne306156:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_holder.zip">
+        <source>Zip</source>
+        <target>crwdns306158:0crwdne306158:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_holder.city">
+        <source>City</source>
+        <target>crwdns306160:0crwdne306160:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_holder.telephone">
+        <source>Telephone</source>
+        <target>crwdns306162:0crwdne306162:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_holder.fax">
+        <source>Fax</source>
+        <target>crwdns306164:0crwdne306164:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_holder.email">
+        <source>Email</source>
+        <target>crwdns306166:0crwdne306166:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_holder.website">
+        <source>Website</source>
+        <target>crwdns306168:0crwdne306168:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_holder.logos">
+        <source>Logo</source>
+        <target>crwdns338098:0crwdne338098:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_careform">
+        <source>Care Form</source>
+        <target>crwdns306172:0crwdne306172:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_careform.title">
+        <source>Title</source>
+        <target>crwdns306174:0crwdne306174:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_district">
+        <source>District (kita)</source>
+        <target>crwdns306176:0crwdne306176:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_district.district">
+        <source>District</source>
+        <target>crwdns306178:0crwdne306178:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_careform.description">
+        <source>Description</source>
+        <target>crwdns306180:0crwdne306180:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_telephone">
+        <source>Telephone</source>
+        <target>crwdns306182:0crwdne306182:0</target>
+      </trans-unit>
+      <trans-unit id="tx_daycarecenters_domain_model_telephone.telephone">
+        <source>Telephone</source>
+        <target>crwdns306184:0crwdne306184:0</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
