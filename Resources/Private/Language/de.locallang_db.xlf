@@ -89,7 +89,7 @@
       </trans-unit>
       <trans-unit id="tx_daycarecenters_domain_model_kita.logos">
         <source>Logo</source>
-        <target state="needs-translation">Logo</target>
+        <target state="translated">Logo</target>
       </trans-unit>
       <trans-unit id="tx_daycarecenters_domain_model_kita.images" approved="yes">
         <source>Images</source>
@@ -193,7 +193,7 @@
       </trans-unit>
       <trans-unit id="tx_daycarecenters_domain_model_holder.logos">
         <source>Logo</source>
-        <target state="needs-translation">Logo</target>
+        <target state="translated">Logo</target>
       </trans-unit>
       <trans-unit id="tx_daycarecenters_domain_model_careform" approved="yes">
         <source>Care Form</source>
